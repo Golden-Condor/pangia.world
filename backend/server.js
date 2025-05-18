@@ -7,7 +7,7 @@ const path = require("path");
 
 const app = express();
 let server; // Store the server instance
-
+console.log("🧩 FULL ENV:", process.env);
 console.log("✅ CLIENT_URL:", process.env.CLIENT_URL);
 console.log("✅ STRIPE_SECRET_KEY:", process.env.STRIPE_SECRET_KEY ? "loaded" : "❌ missing");
 
