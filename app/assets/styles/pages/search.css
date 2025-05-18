@@ -1,0 +1,75 @@
+/* Search-specific styles */
+
+/* Search Container */
+#search-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+    max-width: 300px;
+    margin-left: auto;
+    flex-grow: 1;
+}
+
+/* Search Input Field */
+#search-input {
+    width: 100%;
+    padding: 8px 12px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+#search-input:focus {
+    border-color: #28a745;
+    box-shadow: 0 0 5px rgba(40, 167, 69, 0.3);
+}
+
+/* Search Button */
+#search-container button {
+    padding: 8px 16px;
+    background-color: #28a745;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 8px;
+    transition: background-color 0.3s ease;
+}
+
+#search-container button:hover {
+    background-color: #218838;
+}
+
+/* Search Suggestions Dropdown */
+#suggestions-list {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    max-height: 200px;
+    overflow-y: auto;
+    z-index: 1000;
+    display: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#suggestions-list li {
+    padding: 10px;
+    font-size: 14px;
+    color: #333333;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#suggestions-list li:hover {
+    background-color: #f8f9fa;
+}
+
+#suggestions-list li:active {
+    background-color: #e9ecef;
+}

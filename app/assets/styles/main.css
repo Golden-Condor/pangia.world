@@ -1,0 +1,16 @@
+/* Base */
+@import url('../styles/base/reset.css');
+@import url('../styles/base/variables.css');
+@import url('../styles/base/typography.css');
+
+
+/* Layout */
+@import url('../styles/layout/header.css');
+@import url('../styles/layout/footer.css');
+@import url('../styles/layout/menu.css');
+/* @import url('../styles/layout/search.css');
+
+/* Components */
+@import url('../styles/components/buttons.css');
+@import url('../styles/components/badges.css');
+@import url('../styles/components/popup.css');

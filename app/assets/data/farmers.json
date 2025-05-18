@@ -1,0 +1,28 @@
+[
+    {
+        "id": 1,
+        "name": "John Doe",
+        "bio": "An organic farmer specializing in seasonal produce.",
+        "certifications": ["Organic", "Sustainable"],
+        "products": [
+            { "id": 1, "name": "Organic Tomatoes", "price": 4.99, "image": "../../assets/Images/tomatoes.jpg" },
+            { "id": 2, "name": "Fresh Carrots", "price": 2.99, "image": "../../assets/Images/carrots.jpg" },
+            { "id": 3, "name": "Organic Apples", "price": 3.99, "image": "../../assets/Images/apples.jpg" },
+            { "id": 4, "name": "Organic Strawberries", "price": 5.99, "image": "../../assets/Images/strawberries.jpg" },
+            { "id": 5, "name": "Organic Blueberries", "price": 6.99, "image": "../../assets/Images/blueberries.jpg" },
+            { "id": 6, "name": "Organic Peaches", "price": 4.99, "image": "../../assets/Images/peaches.jpg" },
+            { "id": 7, "name": "Organic Bananas", "price": 1.99, "image": "../../assets/Images/bananas.jpg" }
+               
+          ]
+    },
+    {
+        "id": 2,
+        "name": "Green Harvest Farms",
+        "bio": "Family-run farm focused on regenerative farming practices.",
+        "certifications": ["Fair Trade", "Sustainable"],
+        "products": [
+            { "id": 3, "name": "Grass-Fed Beef", "price": 12.99, "image": "../../assets/Images/beef.jpg" },
+            { "id": 4, "name": "Free-Range Eggs", "price": 3.49, "image": "../../assets/Images/eggs.jpg" }
+        ]
+    }
+]

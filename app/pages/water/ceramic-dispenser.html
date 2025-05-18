@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Buy fresh, organic, free-range chicken breast at Pangia Organic Foods. Perfect for grilling, roasting, or pan-frying.">
+    <meta name="keywords" content="organic chicken, free-range chicken, chicken breast, local farms, organic meat">
+    <title>20oz Case (24-pack) - Pangia Organic Foods</title>
+    <link rel="stylesheet" href="/assets/styles/main.css"> <!-- Corrected stylesheet path -->
+    <link rel="stylesheet" href="/assets/styles/pages/product-page.css"> <!-- Corrected stylesheet path -->
+    <link rel="stylesheet" href="/assets/styles/pages/featured-products.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png">
+
+</head>
+
+<body>
+     <!-- Header Section -->
+     <header>
+        <div class="header-content">
+          <div class="logo">
+            <a href="/pages/index.html">
+              <img src="../../assets/Images/Logo-Day.png" alt="Pangia Logo" />
+            </a>
+          </div>
+            <div class="menu-container">
+              <div class="nav-wrapper nav-inline">
+                <nav class="menu" aria-label="Main navigation">
+                  <ul>
+                    <li><a href="/pages/index.html">Home</a></li>
+                    <li><a href="/pages/Farms/farms.html">Market</a></li>
+                    <li><a href="/pages/water/water.html">Water</a></li>
+                    <li><a href="/pages/cart.html" class="btn.cart">Cart<span class="cart-count">0</span></a></li>
+                  </ul>
+                </nav>
+              </div>
+            </div>    
+        </div>
+    </header>
+
+    <!-- Content Section -->
+    <main>
+        <!-- Breadcrumb Navigation -->
+        <div class="breadcrumb-container">
+          <nav class="breadcrumb">
+            <a href="/pages/index.html">Home</a> &gt;
+            <a href="/pages/water/water.html">Water</a> &gt;
+            <span>Ceramic Dispenser</span>
+          </nav>
+        </div>
+        <div class="product-page">
+            <img class="product-image" src="/pages/water/Images/Ceramic/avl-ceramic-white.png" alt="Same natural spring water in a convenient, easy small bottle.">
+            <div class="product-info">
+                <h2>Ceramic Dispenser</h2>
+
+                <h3>Why You’ll Love It</h3>
+                <div class="product-highlights">
+                  <div class="highlight-item">
+                    <img src="/assets/Images/icons/water-drop-2.svg" alt="Water Icon" />
+                    <span>Durable Ceramic</span>
+                  </div>
+                  <div class="highlight-item">
+                    <img src="/assets/Images/icons/recycle-green.svg" alt="Recycle Icon" />
+                    <span>No Electricity Needed</span>
+                  </div>
+                  <div class="highlight-item">
+                    <img src="/assets/Images/icons/bulk.svg" alt="Bulk Icon" />
+                    <span>Fits 5-Gallon Jugs</span>
+                  </div>
+                </div>
+
+                <div class="price-quantity-add-container">
+                    <div class="price-and-badge">
+                        <div class="price">$75.00</div>
+                    </div>
+                    <div class="quantity-and-button">
+                      <div class="quantity-selector">
+                          <button class="qty-btn" onclick="decreaseQty()">−</button>
+                          <input type="number" id="quantity" name="quantity" min="1" value="1">
+                          <button class="qty-btn" onclick="increaseQty()">+</button>
+                      </div>
+                      <button class="add-to-cart-button add-to-cart"
+                        data-product-id="ceramic-dispenser"
+                        data-product-name="Ceramic Dispenser"
+                        data-product-price="75.00"
+                        data-product-image="/pages/water/Images/Ceramic/avl-ceramic-white.png">
+                        Add to Cart
+                      </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <section class="product-details-description">
+          <div class="product-overview">
+            <h3>About This Product</h3>
+            <p>Our ceramic water dispenser is crafted for both style and function. The lead-free glaze ensures safe, pure hydration, while the sturdy construction is built to last for years. Easy to clean and compatible with standard water jugs, it’s the perfect centerpiece for your kitchen, office, or event.</p>
+          </div>
+
+          <div class="product-quality">
+            <h3>Quality &amp; Sourcing</h3>
+            <p>Responsibly sourced ceramic from trusted partners, designed with sustainability in mind. Each dispenser is inspected for quality, ensuring you receive a premium product that supports healthy living and reduces single-use plastic waste.</p>
+            </div>
+          </div>
+        </section>
+    </main>
+
+    <!-- Featured Products Section -->
+    <div class="featured-products">
+        <h2>Featured Products</h2>
+
+        <div class="product-grid">
+            <!-- Product 1 -->
+            <a href="/pages/product1.html" class="product-item-link"> <!-- Corrected link path -->
+                <div class="product-item">
+                    <img src="/pages/water/Images/avl-manual-water-bottle-pump-updated.png" alt="Product 1"> <!-- Corrected image path -->
+                    <div class="product-info-box">
+                        <span class="product-name">Manual Jug Pump</span>
+                        <span class="product-price">$25.00</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Product 2 -->
+            <a href="/pages/product2.html" class="product-item-link"> <!-- Corrected link path -->
+                <div class="product-item">
+                    <img src="/pages/water/Images/Avl-bottle.jpeg" alt="Product 2"> <!-- Corrected image path -->
+                    <div class="product-info-box">
+                        <span class="product-name">20oz (24-pack case)</span>
+                        <span class="product-price">$16.50</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Product 3 -->
+            <a href="/pages/product3.html" class="product-item-link"> <!-- Corrected link path -->
+                <div class="product-item">
+                    <img src="/pages/water/Images/avl-water.jpeg" alt="Product 3"> <!-- Corrected image path -->
+                    <div class="product-info-box">
+                        <span class="product-name">Four Jug Starter Pack</span>
+                        <span class="product-price">$48.00</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Product 4 -->
+            <a href="/pages/product4.html" class="product-item-link"> <!-- Corrected link path -->
+                <div class="product-item">
+                    <img src="/pages/water/Images/Ceramic/avl-ceramic-white.png" alt="Product 4"> <!-- Corrected image path -->
+                    <div class="product-info-box">
+                        <span class="product-name">Ceramic Dispenser</span>
+                        <span class="product-price">$75.00</span>
+                    </div>
+                </div>
+            </a>
+
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2024 Pangia. All rights reserved.</p>
+        </div>
+    </footer>
+
+<!-- Add to Cart Popup -->
+<div class="popup" id="add-to-cart-popup">
+  Added to Cart!
+</div>
+
+<script src="/assets/js/scripts.js"></script> <!-- Corrected script path -->
+<script src="/assets/js/product.js"></script> <!-- Corrected script path -->
+<script src="/assets/js/popup.js"></script> <!-- Corrected script path -->
+
+</body>
+</html>

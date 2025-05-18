@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Checkout - Pangia</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png">
+    <link rel="stylesheet" href="/assets/styles/main.css" />
+    <link rel="stylesheet" href="/assets/styles/pages/checkout.css" />
+</head>
+<body>
+    <header>
+        <div class="header-content">
+          <div class="logo">
+            <a href="/pages/index.html">
+              <img src="/assets/Images/Logo-Day.png" alt="Pangia Logo" />
+            </a>
+          </div>
+            <div class="menu-container">
+              <div class="nav-wrapper nav-inline">
+                <nav class="menu" aria-label="Main navigation">
+                  <ul>
+                    <li><a href="/pages/index.html">Home</a></li>
+                    <li><a href="/pages/water/water.html">Water</a></li>
+                    <li><a href="/pages/cart.html" class="btn.cart">Cart<span class="cart-count">0</span></a></li>
+                  </ul>
+                </nav>
+              </div>
+            </div>    
+        </div>
+    </header>
+
+    <main class="page-main page-checkout">
+        <div class="container">
+            <div class="checkout-wrapper">
+                <aside class="order-summary order-summary-section box-shadow bg-transparent padding-medium">
+                    <h3>Order Summary</h3>
+                    <div id="order-summary-container"></div>
+                    <p id="service-fee" class="service-fee">Service Fee: $0.00</p>
+                    <p id="total-price" class="total-price"></p>
+                </aside>
+                <section class="checkout-form-section box-shadow bg-transparent padding-medium">
+                    <div class="checkout-banner">
+                        <p>You're almost there! Fill in your details and place your order.</p>
+                    </div>
+
+                    <!-- Billing and Shipping Information -->
+                    <div class="customer-info form-group-container">
+                        <h3>Billing & Shipping Information</h3>
+                        <form id="customer-form" oninput="validateBillingForm()">
+                            <div class="form-group">
+                                <input type="text" id="full-name" name="full-name" placeholder="Full Name" required />
+                            </div>
+                            <div class="form-group">
+                                <input type="text" id="address" name="address" placeholder="Address" required />
+                            </div>
+                            <div class="form-group">
+                                <input type="text" id="city" name="city" placeholder="City" required />
+                            </div>
+                            <div class="form-group">
+                                <input type="text" id="postal-code" name="postal-code" placeholder="Postal Code" required />
+                            </div>
+                            <div class="form-group">
+                                <input type="text" id="country" name="country" placeholder="Country" required />
+                            </div>
+                            <div class="form-group">
+                                <input type="text" id="phone-number" name="phone-number" placeholder="Phone Number" required />
+                            </div>
+                            <div class="form-group">
+                                <input type="email" id="email" name="email" placeholder="Email Address" required />
+                            </div>
+                        </form>
+                    </div>
+
+
+                    <!-- Place Order Button -->
+                    <button class="checkout-button place-order-button" onclick="placeOrder()">Continue to Payment</button>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2024 Pangia. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="/assets/js/checkout.js"></script>
+</body>
+</html>

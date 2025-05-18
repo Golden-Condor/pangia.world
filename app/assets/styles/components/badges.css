@@ -1,0 +1,12 @@
+/* app/assets/styles/components/badges.css */
+/* Cart Count Badge */
+.cart-count {
+    background-color: #f6f6f6;
+    color: #28a745;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 4px 8px;
+    border-radius: 50%;
+    margin-left: 5px;
+    display: inline-block;
+}

@@ -1,0 +1,265 @@
+body {
+    background-color: #D9B97F;
+}
+
+.checkout-summary-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 100px auto;
+    padding: 20px;
+}
+
+/* Checkout Form Container */
+.checkout-container,
+.order-summary {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    padding: 30px;
+}
+
+.checkout-container {
+    width: 60%;
+    border-radius: 12px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+    text-align: center;
+}
+
+.order-summary {
+    width: 60%;
+    max-width: 500px;
+    border-radius: 12px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+    text-align: left; /* Ensuring details are left-aligned for readability */
+    margin: 0 auto;
+}
+
+/* Form Group Container for Proper Layout */
+.form-group-container {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+/* Form Group */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    width: 100%;
+    text-align: left;
+}
+
+label {
+    font-size: 18px;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+/* Input Box Styling for Checkout */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="number"] {
+    width: 100%;
+    padding: 15px;
+    margin-top: 5px;
+    margin-bottom: 3px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    transition: border 0.3s ease;
+    font-size: 16px; /* Ensure placeholder text is the same size as user input */
+    color: #333; /* Text color */
+}
+
+/* Placeholder Text Styling */
+input::placeholder {
+    color: #999; /* Lighter color for placeholders */
+    font-size: 16px; /* Consistent with input text size */
+    opacity: 1; /* Ensure the placeholder is fully visible */
+}
+
+/* Focus State Styling for Input */
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus,
+input[type="number"]:focus {
+    border: 2px solid #4CAF50; /* Green border on focus */
+    outline: none;
+}
+
+/* Checkout Button */
+.checkout-button {
+    font-size: 20px;
+    padding: 16px 32px;
+    background-color: #2e7d32;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    animation: fadeInUp 0.6s ease forwards;
+    opacity: 0;
+}
+
+.checkout-button:hover {
+    background-color: #45a049;
+}
+
+/* Product Details Styling */
+.order-summary .cart-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 12px;
+    margin-bottom: 15px;
+    font-size: 16px;
+    color: #4CAF50;
+    font-weight: bold;
+}
+
+
+.checkout-item-img {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 6px;
+    margin-right: 10px;
+}
+
+.order-summary .cart-item-details {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+/* Checkout Progress Indicator */
+/* SVG-based Checkout Progress Bar */
+.checkout-progress {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 40px auto;
+    max-width: 600px;
+    padding: 0 20px;
+}
+
+.progress-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    flex: 1;
+    z-index: 1;
+}
+
+.progress-step svg {
+    width: 32px;
+    height: 32px;
+    margin-bottom: 8px;
+    fill: #ccc;
+    transition: fill 0.3s ease;
+}
+
+.progress-step.active svg,
+.progress-step.completed svg {
+    fill: #4CAF50;
+}
+
+.progress-step-label {
+    font-size: 14px;
+    color: #666;
+}
+
+
+
+/* Checkout Banner Styling */
+.checkout-banner {
+    background-color: #f0f7f4;
+    padding: 15px;
+    border-radius: 8px;
+    margin: 30px auto;
+    font-size: 16px;
+    font-weight: 500;
+    color: #2e7d32;
+    text-align: center;
+    max-width: 500px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+    animation: fadeInUp 0.6s ease forwards;
+    animation-delay: 0.2s;
+    opacity: 0;
+}
+
+.total-price {
+    font-weight: bold;
+    font-size: 20px;
+    text-align: right;
+    margin-top: 10px;
+    color: #4CAF50;
+}
+
+/* Responsive Design - Media Queries */
+@media (max-width: 768px) {
+    .checkout-summary-wrapper {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .checkout-container,
+    .order-summary {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+}
+/* Center the place order button beneath the form */
+.place-order-button {
+    display: block;
+    margin: 20px auto 40px;
+}
+
+.quantity-controls > button {
+    all: unset;
+    padding: 16px 40px;
+    font-size: 28px;
+    min-width: 100px;
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.quantity-controls > button:hover {
+    background-color: #45a049;
+}
+
+h2.checkout-title {
+    text-align: center;
+    font-size: 28px;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    color: #2e7d32;
+    animation: fadeInUp 0.6s ease forwards;
+    animation-delay: 0.4s;
+    opacity: 0;
+}
+
+@keyframes fadeInUp {
+    0% {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+/* Ensure checkout layout is pushed down */
+.checkout-wrapper {
+    margin-top: 50px;
+}

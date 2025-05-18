@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart - Pangia</title>
+    <link rel="stylesheet" href="/assets/styles/main.css">
+    <link rel="stylesheet" href="/assets/styles/pages/cart.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png">
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <div class="logo">
+        <a href="/pages/index.html">
+          <img src="/assets/Images/Logo-Day.png" alt="Pangia Logo" />
+        </a>
+      </div>
+        <div class="menu-container">
+          <div class="nav-wrapper nav-inline">
+            <nav class="menu" aria-label="Main navigation">
+              <ul>
+                <li><a href="/pages/index.html">Home</a></li>
+                <li><a href="/pages/Farms/farms.html">Market</a></li>
+                <li><a href="/pages/water/water.html">Water</a></li>
+                <li><a href="/pages/cart.html" class="btn.cart">Cart<span class="cart-count">0</span></a></li>
+              </ul>
+            </nav>
+          </div>
+        </div>    
+    </div>
+</header>
+
+    <!-- Cart Content Section -->
+    <main>
+        <div class="cart-main-container">
+            <div class="cart-container">
+                <h2>Your Cart</h2>
+                <div id="cart-items"></div>
+            </div>
+
+            <!-- Summary Section -->
+            <div class="cart-summary">
+                <h3>Order Summary</h3>
+                <div class="summary-details">
+                    <p id="total-items" class="summary-item">Items: 0</p>
+                    <p id="subtotal" class="summary-item">Subtotal: $0.00</p>
+                    <p id="additional-costs" class="summary-item">Shipping: Free</p>
+                </div>
+                <button class="checkout-button" onclick="window.location.href='/pages/checkout.html'">
+                  Proceed to Checkout
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2024 Pangia. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Ensure scripts.js is loaded after the body -->
+    <script src="/assets/js/scripts.js"></script>
+</body>
+</html>

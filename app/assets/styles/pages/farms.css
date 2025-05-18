@@ -1,0 +1,286 @@
+body {
+    background-color: #D9B97F !important;
+}
+/* Coming Soon Overlay for Farms Page */
+.coming-soon-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    backdrop-filter: blur(7px);
+    background: rgba(255, 255, 255, 0.5);
+    z-index: 9000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.highlight-water-text {
+    color: #4fc3f7;
+    font-size: 2.2rem;
+    font-weight: bold;
+}
+
+.coming-soon-text {
+    font-size: 2rem;
+    line-height: 1.6;
+    font-weight: 500;
+    color: #61d08e; /* Soft light green */
+    font-family: 'Helvetica Neue', sans-serif;
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 2.5rem;
+    border-radius: 12px;
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
+    max-width: 650px;
+    text-align: center;
+    backdrop-filter: blur(6px);
+}
+
+.coming-soon-text a.button-link {
+    display: inline-block;
+    margin-top: 1.5rem;
+    background-color: #4fc3f7; /* Refreshing blue */
+    color: #ffffff;
+    padding: 1rem 2rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.25rem;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.coming-soon-text a.button-link:hover {
+    background-color: #0288d1;
+}
+  
+/* Ensure header remains above the overlay */
+header {
+    position: relative;
+    z-index: 10000;
+}
+/* Hero Section */
+.hero {
+    background: url('/pages/Farms/Images/hero-farm2.jpg') no-repeat center center/cover;
+    color: #ffffff;
+    text-align: center;
+    padding: clamp(6rem, 20vw, 12rem) 1rem; /* Increased padding to account for overlap with header */
+    margin-top: -70px; /* Pull hero up to be under the header */
+    position: relative;
+    z-index: 1; /* Lower z-index than header to allow it to be under the menu */
+}
+
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2; /* Keeps the text above the hero background */
+}
+
+.hero-content h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    font-size: 24px;
+    margin-bottom: 40px;
+}
+
+/* Featured Farms Section */
+.featured-farms {
+    max-width: var(--max-width);
+    padding: clamp(1rem, 5vw, 3rem);
+    text-align: center;
+    display: grid;
+    gap: 2rem;
+}
+
+.featured-farms h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.farm-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+@media screen and (max-width: 768px) {
+    .farm-grid {
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .menu {
+        margin-left: 0;
+        flex-wrap: wrap;
+    }
+    .hero-content h1 {
+        font-size: 32px;
+    }
+    .hero-content p {
+        font-size: 18px;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .farm-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Farm Card Styles */
+.farm-card {
+    background-color: #ffffff83;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.farm-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .farm-card {
+        transition: none;
+    }
+}
+
+.farm-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.farm-info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.farm-name {
+    font-weight: 500;
+    font-size: 20px;
+    color: var(--text-color);
+}
+
+.farm-location {
+    font-size: 16px;
+    color: #666;
+}
+/* Common Section Styles */
+.farm-stories, .customer-reviews, .farm-products {
+    max-width: 1400px; /* Align with your max-width variable */
+    margin: 40px auto;
+    padding: 2rem; /* Adds padding inside the container */
+    background-color: #ffffff83;
+    border-radius: 10px; /* Apply border-radius like other cards */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Apply shadow like other cards */
+    text-align: center;
+}
+
+/* Section Headers */
+.farm-stories h2, .customer-reviews h2, .farm-products h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    color: #4CAF50; /* Primary color for headers */
+}
+
+/* Customer Review Cards */
+.review-card {
+    background-color: #ffffff83;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+    text-align: left;
+    font-style: italic;
+    color: #666;
+}
+
+.review-card blockquote {
+    margin: 0;
+    padding-left: 20px;
+    position: relative;
+}
+
+.review-card blockquote::before {
+    content: "“";
+    position: absolute;
+    left: 0;
+    font-size: 2rem;
+    color: #4CAF50;
+}
+
+/* Products Grid Section */
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 20px;
+}
+
+@media screen and (max-width: 1024px) {
+    .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .products-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Product Card Styles */
+.product-card {
+    background-color: #ffffff83;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.product-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.product-card h3 {
+    font-weight: 500;
+    font-size: 20px;
+    color: #333;
+}
+
+.product-card p {
+    font-size: 16px;
+    color: #666;
+    margin-top: 5px;
+}
+
+
+/* Print Styles */
+@media print {
+    .menu-container,
+    .hero {
+        display: none;
+    }
+    .farm-card {
+        break-inside: avoid;
+        box-shadow: none;
+    }
+}

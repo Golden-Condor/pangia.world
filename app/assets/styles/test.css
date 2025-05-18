@@ -1,0 +1,177 @@
+/* General Reset and Body Styles */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body, header {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    font-size: 16px;
+}
+
+/* Header Styles */
+header {
+    padding: 0;
+    background-color: transparent;
+    border-radius: 0;
+    min-width: 900px; /* Prevent header from getting too small */
+}
+
+.header-content {
+    display: flex;
+    align-items: flex-start;
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+    position: relative;
+    justify-content: space-between; /* Ensure spacing is distributed */
+}
+
+.top-banner {
+    width: 100%;
+    display: flex;
+    justify-content: center; /* Centers the image */
+    overflow: hidden; /* Ensures any overflow is clipped */
+    background-color: #f4f4f4; /* Optional: background color for better contrast */
+}
+
+.top-banner-image {
+    max-width: 100%; /* Prevents the image from exceeding the screen width */
+    height: auto; /* Keeps the aspect ratio intact */
+    object-fit: contain; /* Ensures the image is displayed in its original aspect without being cropped */
+    margin-top: 0; /* Makes sure the image starts at the top */
+}
+
+/* Logo */
+.logo {
+    height: 37px;
+    margin-right: 20px;
+    position: absolute;
+    top: 20px; /* Adjust to sit above the menu */
+    left: 18px;
+    z-index: 2;
+}
+
+/* Menu Container with Extended Background */
+.menu-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 10px 15px;
+    margin-top: 10px;
+    margin-left: 0;
+    width: 100%;
+    height: 60px;
+    position: relative;
+}
+
+/* Menu Styles */
+.menu {
+    display: flex;
+    gap: 15px;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    margin-left: 180px; /* Align menu under logo */
+    white-space: nowrap; /* Prevent menu items from wrapping */
+}
+
+.menu li {
+    display: inline;
+}
+
+.menu a {
+    text-decoration: none;
+    color: #333;
+    padding: 10px 15px;
+    transition: background-color 0.3s ease;
+}
+
+.menu a:hover {
+    background-color: #e0e0e0;
+    color: black;
+}
+
+.menu .active {
+    border-bottom: 3px solid #4CAF50;
+}
+
+
+/* Search Container */
+#search-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+    margin-left: auto; /* Push the search container to the rightmost side */
+    max-width: 250px;
+}
+
+/* Search Input */
+#search-input {
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    margin-right: 10px;
+}
+
+/* Action Buttons (Sign-In and Cart) */
+.action-buttons {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-left: 20px; /* Push buttons to the far right */
+    flex-shrink: 0; /* Prevent buttons from shrinking */
+}
+
+/* Button Styling */
+#sign-in-button {
+    padding: 8px 12px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#sign-in-button:hover {
+    background-color: #45a049;
+}
+
+/* Cart Link */
+#cart-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #333;
+    padding: 8px 12px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    margin-left: 10px; /* Spacing between Sign-In and Cart */
+}
+
+/* Cart Count Badge Styling */
+.cart-count {
+    background-color: #ff5722;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 4px 8px;
+    border-radius: 50%;
+    margin-left: 5px;
+    display: inline-block;
+}

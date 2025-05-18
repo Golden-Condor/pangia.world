@@ -1,0 +1,408 @@
+/* General Styles */ /* ✅ safe to migrate to base files */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #EAD6A8;
+    font-size: 16px;
+}
+
+/* Headings and Titles */ /* ✅ safe to migrate to base files */
+h1, h2, .product-name, .farm-name {
+    font-weight: bold;
+    color: #333;
+}
+h1 { font-size: 36px; }
+h2 { font-size: 28px; }
+
+/* Descriptions and Prices */ /* ✅ safe to migrate to base files */
+.product-price, .farm-location, p {
+    font-size: 16px;
+    color: #666;
+}
+
+/* Header Styles */ /* ✅ safe to migrate to base files */
+header {
+    padding: 10px 20px;
+    background-color: transparent;
+    box-shadow: none;
+    border-radius: 0;
+}
+
+/* Header Content */ /* ✅ safe to migrate to base files */
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Search Container */ /* ✅ safe to migrate to base files */
+#search-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+/* Search Input */ /* ✅ safe to migrate to base files */
+#search-input {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 200px;
+    box-sizing: border-box;
+    margin-right: 10px;
+}
+
+/* Cart Container */ /* ⚠️ still used by product page */
+.cart-main-container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.cart-container {
+    margin-top: 20px;
+}
+
+/* Cart Item Styling */ /* ⚠️ still used by product page */
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.cart-item img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.cart-item-details {
+    flex-grow: 2;
+    margin-left: 20px;
+}
+
+.cart-item-name {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.cart-item-price {
+    font-size: 16px;
+    color: #666;
+}
+
+.cart-item-quantity {
+    display: flex;
+    align-items: center;
+}
+
+.cart-item-quantity input {
+    width: 50px;
+    padding: 5px;
+    margin-left: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Breadcrumb */ /* ✅ safe to migrate to base files */
+.breadcrumb {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 15px;
+    display: flex;
+    gap: 5px;
+}
+.breadcrumb a {
+    color: #4CAF50;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+.breadcrumb a:hover { color: #45a049; }
+.breadcrumb span { color: #333; }
+
+/* Total Price Styling */ /* ⚠️ still used by product page */
+.total-price {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: right;
+    margin: 20px 0;
+}
+
+/* Cart Item Remove Button */ /* ⚠️ still used by product page */
+.cart-item-remove {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.cart-item-remove:hover { background-color: #c0392b; }
+
+/* Search Suggestions List */ /* ✅ safe to migrate to base files */
+#suggestions-list {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    list-style: none;
+    padding: 0;
+    margin: 5px 0 0;
+    z-index: 20;
+    display: none;
+}
+
+#suggestions-list li {
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+#suggestions-list li:hover { background-color: #f0f0f0; }
+
+/* Primary Button Styling */ /* ✅ safe to migrate to base files */
+button, .checkout-button, .signup-button, .signin-button, .add-to-cart {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+button:hover, .checkout-button:hover, .signup-button:hover, .signin-button:hover, .add-to-cart:hover {
+    background-color: #45a049;
+}
+
+/* Link Styling */ /* ✅ safe to migrate to base files */
+a {
+    color: #4CAF50;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+a:hover { color: #45a049; }
+
+/* Secondary Buttons */ /* ✅ safe to migrate to base files */
+.secondary-button, .remove-button {
+    background-color: #ff5722;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.secondary-button:hover, .remove-button:hover { background-color: #e64a19; }
+
+
+
+/* Product Details */ /* ⚠️ still used by product page */
+.product-details {
+    display: flex;
+    align-items: center;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: transparent;
+    box-shadow: none;
+    border-radius: 0;
+}
+.product-details img {
+    width: 450px;
+    height: 450px;
+    object-fit: cover;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.product-info {
+    margin-left: 40px;
+    max-width: 600px;
+    background-color: transparent;
+    padding: 0;
+}
+
+.product-info h2 {
+    font-size: 40px;
+    color: #333;
+    margin-top: -150px;
+}
+
+.product-info p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #666;
+    margin-top: -5px;
+}
+
+/* Price, Quantity, and Add to Cart */ /* ⚠️ still used by product page */
+.price-quantity-add-container {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.price {
+    font-size: 22px;
+    font-weight: bold;
+    color: #333;
+}
+
+.quantity-selector {
+    display: flex;
+    align-items: center;
+}
+.quantity-selector label {
+    font-size: 16px;
+    color: #333;
+    margin-right: 10px;
+}
+.quantity-selector input {
+    width: 50px;
+    padding: 5px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Add to Cart Button */ /* ⚠️ still used by product page */
+.add-to-cart {
+    padding: 10px 20px;
+    background-color: #fffdfd;
+    color: rgb(0, 0, 0);
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.add-to-cart:hover { background-color: #45a049; }
+
+/* Cart Count Badge */ /* ✅ safe to migrate to base files */
+.cart-count {
+    background-color: #ffffff;
+    color: rgb(173, 0, 0);
+    font-size: 14px;
+    font-weight: bold;
+    padding: 4px 8px;
+    border-radius: 50%;
+    margin-left: 5px;
+    display: inline-block;
+    z-index: 100;
+}
+
+/* Trust Badges */ /* ✅ safe to migrate to base files */
+.trust-badges {
+    margin-top: 20px;
+    display: flex;
+    gap: 15px;
+    box-shadow: none;
+}
+.trust-badges img {
+    height: 70px;
+    width: auto;
+    max-width: 100%;
+    object-fit: contain;
+    margin-right: 10px;
+    box-shadow: none;
+}
+.trust-badges-container {
+    margin-top: 20px;
+    text-align: center;
+}
+
+/* Featured Products */ /* ✅ safe to migrate to base files */
+.featured-products {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0;
+    text-align: left;
+}
+.featured-products h2 {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Product Grid */ /* ✅ safe to migrate to base files */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 20px;
+}
+
+.product-item-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    transition: transform 0.2s ease-in-out;
+}
+.product-item-link:hover { transform: scale(1.05); }
+
+.product-item img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    border-radius: 15px;
+    transition: transform 0.3s ease;
+}
+
+.product-info-box {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+.product-name {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.product-price {
+    font-size: 14px;
+    color: #ffcc00;
+}
+
+/* Footer */ /* ✅ safe to migrate to base files */
+footer {
+    background-color: transparent;
+    color: #333;
+    text-align: center;
+    padding: 10px 0;
+    box-shadow: none;
+    border-radius: 0;
+}
+
+/* Responsive */ /* ✅ safe to migrate to base files */
+@media (max-width: 768px) {
+    .product-grid {
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+        gap: 20px;
+    }
+    .product-info h2 { font-size: 28px; }
+}

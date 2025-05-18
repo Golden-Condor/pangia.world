@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asheville Spring Water - Pangia</title>
+    <!-- Standard Meta Tags -->
+    <meta name="description" content="Asheville Spring Water: Naturally filtered, sustainably sourced, and delivered locally. Pure hydration with every sip.">
+
+    <!-- Open Graph / Social Sharing Meta Tags -->
+    <meta property="og:title" content="Asheville Spring Water - Pangia">
+    <meta property="og:description" content="Discover the clean, mineral-rich taste of Asheville Spring Water. Locally sourced and delivered fresh.">
+    <meta property="og:image" content="https://pangia.world//pages/water/Images/avl-water.jpeg">
+    <meta property="og:url" content="https://pangia.world/pages/water/water.html">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="/assets/styles/main.css?v=1.0">
+    <link rel="stylesheet" href="/assets/styles/pages/water.css?v=1.0">
+    <link rel="stylesheet" href="/assets/styles/layout/menu.css?v=1.0">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png">
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <div class="logo">
+        <a href="/pages/index.html">
+          <img src="/assets/Images/Logo-Day.png" alt="Pangia Logo" />
+        </a>
+      </div>
+        <div class="menu-container">
+          <div class="nav-wrapper nav-inline">
+            <nav class="menu" aria-label="Main navigation">
+              <ul>
+                <li><a href="/pages/index.html">Home</a></li>
+                <li><a href="/pages/water/water.html">Water</a></li>
+                <li><a href="/pages/cart.html" class="btn.cart">Cart<span class="cart-count">0</span></a></li>
+              </ul>
+            </nav>
+          </div>
+        </div>    
+    </div>
+</header>
+    
+    <main>
+        <section class="hero" id="hero-section">
+            <h1>Asheville Spring Water</h1>
+            <div class="hero-image">
+                <img id="hero-img" src="/pages/water/Images/avl-water.jpeg" alt="AVL Spring Water Bottle">
+            </div>
+            <div class="hero-content">
+                <p id="hero-text">
+                    Asheville Spring Water is sourced from the pristine Appalachian springs of Asheville, NC. 
+                    Naturally filtered through mineral-rich rock, it offers a crisp, refreshing taste with no additives—just pure hydration.
+                </p>
+            </div>
+        </section>
+        <div class="grid-toggle-buttons">
+            <button class="grid-btn" onclick="setGridHome()">Products</button>
+            <span class="separator">•</span>
+            <button class="grid-btn" onclick="setGridAbout()">About</button>
+            <span class="separator">•</span>
+            <button class="grid-btn" onclick="setGridQuality()">Quality &amp; Sourcing</button>
+        </div>
+        <section id="product-grid-container" class="product-grid">
+            <!-- Product Card 1: 20oz Bottle -->
+            <a href="/pages/water/20oz-24pack.html" class="product-item-link">
+              <div class="product-card">
+                <div class="product-image">
+                  <img src="/pages/water/Images/Avl-bottle.jpeg" alt="AVL Spring Water Bottle">
+                </div>
+                <div class="product-info">
+                  <h2>20oz Case (24-pack) </h2>
+                  <div class="price">$16.50 per case</div>
+                  <button class="add-to-cart" 
+                          data-product-id="67eb1ebc23ad513d95ff4e39" 
+                          data-product-name="Experience True Purity" 
+                          data-product-price="2.99" 
+                          data-product-image="/pages/water/Images/Avl-bottle.jpeg">
+                    Add to Cart
+                  </button>
+                </div>
+              </div>
+            </a>
+          
+            <!-- Product Card 2: New Jugs (5 Gallons) -->
+            <a href="/pages/water/single-5-gallon.html" class="product-item-link">
+              <div class="product-card">
+                <div class="product-image">
+                  <img src="/pages/water/Images/avl-singlejug.jpeg" alt="AVL Spring Water Bottle">
+                </div>
+                <div class="product-info">
+                  <h2>New Jugs (5 Gallons)</h2>
+                  <div class="price">$15.50</div>
+                  <button class="add-to-cart" 
+                          data-product-id="67eb1ebc23ad513d95ff4e3a" 
+                          data-product-name="New Jugs (5 Gallons)" 
+                          data-product-price="15.50" 
+                          data-product-image="/pages/water/Images/avl-singlejug.jpeg">
+                    Add to Cart
+                  </button>
+                </div>
+              </div>
+            </a>
+          
+            <!-- Product Card 3: Jug Exchanges -->
+            <a href="/pages/water/jug-exchanges.html" class="product-item-link">
+              <div class="product-card">
+                <div class="product-image">
+                  <img src="/pages/water/Images/avl-jugexchange.webp" alt="AVL Spring Water Bottle">
+                </div>
+                <div class="product-info">
+                  <h2>Jug Exchanges</h2>
+                  <div class="price">$9.00</div>
+                  <button class="add-to-cart" 
+                          data-product-id="67eb1ebc23ad513d95ff4e3b" 
+                          data-product-name="Jug Exchanges" 
+                          data-product-price="9.00" 
+                          data-product-image="/pages/water/Images/avl-jugexchange.webp">
+                    Add to Cart
+                  </button>
+                </div>
+              </div>
+            </a>
+            
+            <!-- Product Card 4: Ceramic Water Dispenser -->
+            <a href="/pages/water/ceramic-dispenser.html" class="product-item-link">
+              <div class="product-card">
+                <div class="product-image">
+                  <img src="/pages/water/Images/Ceramic/avl-ceramic-white.png" alt="AVL Spring Water Bottle">
+                </div>
+                <div class="product-info">
+                  <h2>Ceramic Water Dispenser</h2>
+                  <div class="price">$75.00</div>
+                  <button class="add-to-cart" 
+                          data-product-id="67eb1ebc23ad513d95ff4e3a" 
+                          data-product-name="Ceramic Water Dispenser" 
+                          data-product-price="75.00" 
+                          data-product-image="/pages/water/Images/Ceramic/avl-ceramic-white.png">
+                    Add to Cart
+                  </button>
+                </div>
+              </div>
+            </a>
+
+            <!-- Product Card 5: Starter Pack Four (5 Gallons) -->
+            <a href="/pages/water/starter-set.html" class="product-item-link">
+              <div class="product-card">
+                <div class="product-image">
+                  <img src="/pages/water/Images/avl-water.jpeg" alt="Starter Pack Four - 5 Gallons">
+                </div>
+                <div class="product-info">
+                  <h2>Starter Pack Four - 5 Gallons</h2>
+                  <div class="price">$48.00</div>
+                  <button class="add-to-cart" 
+                          data-product-id="67eb1ebc23ad513d95ff4e3a" 
+                          data-product-name="Starter Pack Four - 5 Gallons" 
+                          data-product-price="48.00" 
+                          data-product-image="/pages/water/Images/avl-water.jpeg">
+                    Add to Cart
+                  </button>
+                </div>
+              </div>
+            </a>
+
+            <!-- Product Card 6: Cooler Rental (Monthly) -->
+            <a href="/pages/water/cooler rental.html" class="product-item-link">
+              <div class="product-card">
+                <div class="product-image">
+                  <img src="/pages/water/Images/avl-cooler.png" alt="AVL Spring Water Bottle">
+                </div>
+                <div class="product-info">
+                  <h2>Cooler Rental (Monthly)</h2>
+                  <div class="price">$18.00</div>
+                  <button class="add-to-cart" 
+                          data-product-id="67eb1ebc23ad513d95ff4e3a" 
+                          data-product-name="Cooler Rental (Monthly)" 
+                          data-product-price="18.00" 
+                          data-product-image="/pages/water/Images/avl-cooler.png">
+                    Add to Cart
+                  </button>
+                </div>
+              </div>
+            </a>
+
+            <!-- Product Card 7: Manual Water Bottle Pump -->
+            <a href="/pages/water/manual-pump.html" class="product-item-link">
+              <div class="product-card">
+                <div class="product-image">
+                  <img src="/pages/water/Images/avl-manual-water-bottle-pump-updated.png" alt="AVL Spring Water Bottle">
+                </div>
+                <div class="product-info">
+                  <h2>Manual Water Bottle Pump</h2>
+                  <div class="price">$25.00</div>
+                  <button class="add-to-cart" 
+                          data-product-id="67eb1ebc23ad513d95ff4e3a" 
+                          data-product-name="Manual Water Bottle Pump" 
+                          data-product-price="25.00" 
+                          data-product-image="/pages/water/Images/avl-manual-water-bottle-pump-updated.png">
+                    Add to Cart
+                  </button>
+                </div>
+              </div>
+            </a>
+          </section>
+        </main>
+        
+    <footer>
+        <p>&copy; 2025 Pangia. All rights reserved.</p>
+    </footer>
+    <script src="/assets/js/water.js?v=1.0"></script>
+    <script src="/assets/js/scripts.js?v=1.0"></script>
+</body>
+</html>

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Buy fresh, organic, free-range chicken breast at Pangia Organic Foods. Perfect for grilling, roasting, or pan-frying.">
+    <meta name="keywords" content="organic chicken, free-range chicken, chicken breast, local farms, organic meat">
+    <title>Chicken Breast - Pangia Organic Foods</title>
+    <link rel="stylesheet" href="../../assets/styles/main.css"> <!-- Corrected stylesheet path -->
+    <link rel="stylesheet" href="../../../app/assets/styles/styles.css"> <!-- Corrected stylesheet path -->
+</head>
+
+<body>
+     <!-- Header Section -->
+     <header>
+        <div class="header-content">
+
+            <div class="menu-container">
+                <!-- Centered Menu -->
+                <nav class="menu">
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="../farms/farms.html">Farms</a></li> <!-- Removed extra active class -->
+                        <li><a href="../meats/meats.html"class="active">Meats</a></li>
+                        <li><a href="../seafood/seafood.html">Seafood</a></li>
+                        <li><a href="../fruits/fruits.html">Fruits</a></li>
+                        <li><a href="../vegetables/vegetables.html">Vegetables</a></li>
+                        <li><a href="../drygoods/drygoods.html">Dry Goods</a></li>
+                        <li><a href="../dairy/dairy.html">Dairy</a></li>
+                    </ul>
+                </nav>
+
+                <div id="search-container">
+                    <input type="text" id="search-input" aria-label="Search for items" placeholder="Search for products..." oninput="showSuggestions(this.value)" onkeypress="handleKeyPress(event)">
+                    <ul id="suggestions-list" aria-live="polite"></ul>
+                </div>
+                <a id="sign-in-button" href="../signin.html">Sign In</a>
+                <a id="cart-link" href="../cart.html">Cart <span id="cart-count" class="cart-count">0</span></a>
+                <div id="add-to-cart-popup" class="popup"></div>
+            
+            </div>    
+        </div>
+    </header>
+
+    <!-- Content Section -->
+    <main>
+        <!-- Insert this in the product page HTML, e.g., chicken-breast.html, within the main container -->
+        <nav class="breadcrumb">
+            <a href="../index.html">Home</a> &gt;
+            <a href="meats.html">Meats</a> &gt;
+            <span>Chicken Breast</span>
+        </nav>
+        <div class="product-details">
+            <div class="slideshow-container">
+                <div class="slide fade">
+                    <img src="images/chicken-breast-2.webp" alt="Organic free-range chicken breast, fresh and ready for cooking">                </div>
+                <div class="slide fade">
+                    <img src="images/Chicken-Breast-3.webp" alt="Another view of the chicken breast"> <!-- Corrected image path -->
+                </div>
+                <div class="slide fade">
+                    <img src="images/chicken-breast-4.webp" alt="Cooked chicken breast dish"> <!-- Corrected image path -->
+                </div>
+
+                <!-- Navigation Arrows -->
+                <div class="slideshow-controls">
+                    <span class="prev" onclick="changeSlide(-1)">&#10094;</span>
+                    <span class="next" onclick="changeSlide(1)">&#10095;</span>
+                </div>
+            </div>
+            <div class="product-info">
+                <h2>Organic Pasture Raised Chicken Breast</h2>
+                <p>Organic, free-range chicken breast sourced from local farms. Our chicken breast is tender, juicy, and perfect for grilling, roasting, or pan-frying.</p>
+
+                <div class="trust-badges">
+                    <img src="../meats/images/image.jpeg" alt="USDA Organic Certified"> <!-- Corrected image path -->
+                    <img src="../meats/images/AWA.png" alt="Grass-fed Certified"> <!-- Corrected image path -->
+                </div>
+
+                <div class="price-quantity-add-container">
+                    <div class="price">$29.99</div>
+                    <div class="quantity-selector">
+                        <label for="quantity">Quantity:</label>
+                        <input type="number" id="quantity" name="quantity" min="1" value="1">
+                    </div>
+                        <button class="add-to-cart" onclick="addToCart(1, 'Chicken Breast', 29.99, parseInt(document.getElementById('quantity').value), 'images/chicken-breast.jpeg')">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Featured Products Section -->
+    <div class="featured-products">
+        <h2>Featured Products</h2>
+
+        <div class="product-grid">
+            <!-- Product 1 -->
+            <a href="../../../pages/product1.html" class="product-item-link"> <!-- Corrected link path -->
+                <div class="product-item">
+                    <img src="../meats/images/product1.webp" alt="Product 1"> <!-- Corrected image path -->
+                    <div class="product-info-box">
+                        <span class="product-name">Product 1 Name</span>
+                        <span class="product-price">$10.00</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Product 2 -->
+            <a href="../../../pages/product2.html" class="product-item-link"> <!-- Corrected link path -->
+                <div class="product-item">
+                    <img src="../meats/images/product2.webp" alt="Product 2"> <!-- Corrected image path -->
+                    <div class="product-info-box">
+                        <span class="product-name">Product 2 Name</span>
+                        <span class="product-price">$15.00</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Product 3 -->
+            <a href="../../../pages/product3.html" class="product-item-link"> <!-- Corrected link path -->
+                <div class="product-item">
+                    <img src="../meats/images/product3.webp" alt="Product 3"> <!-- Corrected image path -->
+                    <div class="product-info-box">
+                        <span class="product-name">Product 3 Name</span>
+                        <span class="product-price">$15.00</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Product 4 -->
+            <a href="../../../pages/product4.html" class="product-item-link"> <!-- Corrected link path -->
+                <div class="product-item">
+                    <img src="../meats/images/product4.webp" alt="Product 4"> <!-- Corrected image path -->
+                    <div class="product-info-box">
+                        <span class="product-name">Product 4 Name</span>
+                        <span class="product-price">$15.00</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Product 5 -->
+            <a href="../../../pages/product5.html" class="product-item-link"> <!-- Corrected link path -->
+                <div class="product-item">
+                    <img src="../meats/images/product5.webp" alt="Product 5"> <!-- Corrected image path -->
+                    <div class="product-info-box">
+                        <span class="product-name">Product 5 Name</span>
+                        <span class="product-price">$15.00</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Product 6 -->
+            <a href="../../../pages/product6.html" class="product-item-link"> <!-- Corrected link path -->
+                <div class="product-item">
+                    <img src="../meats/images/product6.webp" alt="Product 6"> <!-- Corrected image path -->
+                    <div class="product-info-box">
+                        <span class="product-name">Product 6 Name</span>
+                        <span class="product-price">$15.00</span>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2024 Pangia. All rights reserved.</p>
+        </div>
+    </footer>
+
+<script src="../../assets/js/scripts.js"></script> <!-- Corrected script path -->
+</body>
+</html>

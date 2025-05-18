@@ -1,0 +1,26 @@
+/* Popup Container */
+.popup {
+  position: fixed;
+  top: 80px;
+  right: 20px;
+  background-color: #FFFFFF;
+  border: 1px solid #cccccc;
+  padding: 16px 24px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  font-size: 16px;
+  font-weight: 500;
+  color: #2c2c2c;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  transform: translateY(-10px);
+  z-index: 999;
+}
+
+/* Show the Popup */
+.popup.show {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}

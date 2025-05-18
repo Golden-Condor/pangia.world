@@ -1,0 +1,86 @@
+/* Header-specific styles */
+
+/* General Header Layout */
+header {
+    background-color: rgba(255, 255, 255, 0.629); /* Semi-transparent white */
+    border-bottom: 1px solid #e0e0e0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    backdrop-filter: blur(10px);
+    max-width: 570px;
+    margin: 0 auto;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    
+}
+
+/* Constrain header content so it doesn't stretch fully */
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 1200px; /* Adjust as needed */
+    margin: 0 auto;
+}
+
+/* Logo */
+.header-content .logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 50px !important;
+    width: auto;
+}
+.logo {
+    margin-left: 5px;
+}
+
+/* Spacing */
+.header-spacer {
+    flex-grow: 1;
+}
+
+/* Utility Buttons (e.g., Cart, Sign-In) */
+.utility-buttons a {
+    text-decoration: none;
+    color: #ffffff;
+    background-color: #28a745;
+    padding: 8px 12px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 500;
+    display: inline-block;
+}
+
+.utility-buttons a:hover {
+    background-color: #218838;
+}
+
+.utility-buttons a.cart {
+    margin-left: 10px;
+    position: relative;
+}
+
+.utility-buttons a.cart .cart-count {
+    position: absolute;
+    top: -5px;
+    right: -10px;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 12px;
+}
+
+
+
+/* Remove unrelated styles */
+/* Search and menu styles moved to their respective files */

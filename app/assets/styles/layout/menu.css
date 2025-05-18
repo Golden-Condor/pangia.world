@@ -1,0 +1,192 @@
+/* General Menu Layout */
+.menu-container {
+    padding: 0 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    
+}
+
+/* Prevent menu, search, and cart from shrinking */
+.menu-container > nav.menu,
+.menu-container > #search-form,
+.menu-container > .utility-buttons {
+  flex-shrink: 0;
+}
+
+nav.menu {
+    display: flex;
+    justify-content: center; /* Horizontally center the menu */
+    align-items: center;
+    list-style: none; /* Remove bullet points */
+    margin: 0;
+    padding: 0;
+    gap: 20px; /* Add spacing between menu items */
+}
+
+nav.menu ul {
+    list-style: none; /* Remove bullets */
+    margin: 0;
+    padding: 0;
+    display: flex; /* Ensure child `li` elements are inline */
+    gap: 20px; /* Add spacing between list items */
+}
+
+nav.menu li {
+    margin: 0;
+    padding: 0;
+}
+
+nav.menu li:not(:last-child) {
+    margin-bottom: 10px;
+}
+
+nav.menu a {
+    text-decoration: none; /* Remove underlines */
+    color: #4A6543; /* Default text color */
+    font-size: 18px;
+    font-weight: 500;
+    padding: 8px 12px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    display: inline-block; /* Ensure proper alignment */
+}
+
+nav.menu a:hover {
+    background-color: #FFF7E6;
+    color: #4A6543;
+}
+
+nav.menu a.active {
+    background-color: #A88F61;
+    color: #ffffff;
+}
+
+/* Cart button alignment */
+.utility-buttons a.cart {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-left: 20px;
+  vertical-align: middle;
+}
+
+/* Hamburger Button Styles */
+/*
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 24px;
+    height: 18px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1001;
+}
+
+.hamburger span {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background-color: #333;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+*/
+
+/* Mobile Menu */
+@media (max-width: 768px) {
+  nav.menu {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 6px;
+    width: 100%;
+    justify-content: center; /* Center on mobile too */
+    padding-left: 0; /* Remove left padding */
+  }
+
+  nav.menu ul {
+    gap: 4px; /* Reduce spacing between buttons on mobile */
+  }
+
+  /*
+  .hamburger {
+    display: flex;
+  }
+
+  .menu-container {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    padding: 6px 12px;
+    gap: 6px;
+  }
+
+  .menu-container.collapsed {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto auto;
+    width: 100%;
+    align-items: center;
+  }
+
+  .menu-container.collapsed .hamburger {
+    grid-column: 1;
+    grid-row: 1;
+    align-self: start;
+  }
+
+  .menu-container.collapsed nav.menu {
+    grid-column: 2;
+    grid-row: 1;
+    display: flex !important;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 12px;
+    width: 100%;
+    justify-content: flex-start;
+    padding-left: 40px;
+  }
+  */
+
+  /* Ensure search bar always below nav links on mobile */
+  #search-form {
+    width: 100%;
+    margin-top: 10px;
+    padding-left: 12px;
+  }
+
+  nav.menu a {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-size: 16px;
+    padding: 6px 8px; /* Slightly reduced from 8px 10px */
+  }
+
+  .utility-buttons a.cart {
+    position: static;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .utility-buttons a.cart .cart-count {
+    position: static;
+    top: auto;
+    right: auto;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 12px;
+  }
+}
