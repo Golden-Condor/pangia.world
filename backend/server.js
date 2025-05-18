@@ -90,7 +90,7 @@ const startServer = async () => {
 
     console.log("🔊 About to call app.listen...");
     server = app.listen(PORT, '0.0.0.0', () => {
-      console.log(`🚀 Server running on port ${PORT}`);
+      console.log("🚀 Pangia CI/CD deployed successfully!");
     });
   } catch (error) {
     console.error("❌ Server failed to start due to MongoDB connection error:", error);
