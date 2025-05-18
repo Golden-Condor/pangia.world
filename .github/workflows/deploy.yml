@@ -28,4 +28,5 @@ jobs:
             cd ~/live-backend
             git pull origin main
             npm install
-            pm2 restart pangia-backend
+            pm2 delete pangia-backend || true
+            pm2 start backend/server.js --name pangia-backend
