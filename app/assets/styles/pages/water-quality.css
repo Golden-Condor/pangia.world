@@ -1,0 +1,135 @@
+body {
+  background-color: #D9B97F;
+  font-family: 'Inter', Arial, sans-serif;
+}
+
+.water-quality-main {
+  max-width: 900px;
+  margin: 50px auto 0 auto;
+  background-color: #EAD6A8;
+  border-radius: 16px;
+  box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+  padding: 48px 30px 36px 30px;
+}
+
+.water-quality-main h1 {
+  color: #186e4b;
+  font-size: 2.2rem;
+  margin-bottom: 8px;
+}
+
+.water-quality-main h2 {
+  color: #218838;
+  font-size: 1.45rem;
+  margin-top: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.water-quality-table {
+  width: 100%;
+  margin: 2rem 0 0.5rem 0;
+  border-collapse: collapse;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 18px rgba(40, 167, 69, 0.09);
+  overflow: hidden;
+}
+
+.water-quality-table th,
+.water-quality-table td {
+  padding: 1em;
+  text-align: left;
+  border-bottom: 1px solid #efefef;
+}
+
+.water-quality-table th {
+  background: #f4faee;
+  color: #28a745;
+  font-size: 1.06em;
+  font-weight: 600;
+}
+
+.water-quality-table tr:last-child td {
+  border-bottom: none;
+}
+
+.water-quality-note {
+  font-size: 0.97em;
+  color: #7d857b;
+  margin-top: 0.6em;
+}
+
+.cta-btn {
+  display: inline-block;
+  margin-top: 1.5rem;
+  padding: 12px 28px;
+  background-color: #28a745;
+  color: #fff;
+  border-radius: 6px;
+  font-weight: 500;
+  font-size: 1.07em;
+  text-decoration: none;
+  transition: background 0.18s;
+}
+
+.cta-btn:hover {
+  background: #218838;
+}
+
+/* Links inside main */
+.water-quality-main a {
+  color: #186e4b;
+  text-decoration: underline;
+  font-weight: 500;
+}
+.water-quality-main a:hover {
+  color: #218838;
+}
+
+/* Responsive tweaks */
+@media (max-width: 600px) {
+  .water-quality-main {
+    padding: 18px 6px 18px 6px;
+    margin: 16px 0;
+  }
+  .water-quality-table th, .water-quality-table td {
+    padding: 0.56em;
+    font-size: 0.99em;
+  }
+  .water-quality-main h1 {
+    font-size: 1.25em;
+  }
+}
+
+.result-block {
+  display: inline-block;
+  padding: 0.36em 0.95em;
+  border-radius: 16px;
+  font-weight: 600;
+  font-size: 1em;
+  min-width: 44px;
+  text-align: center;
+  margin-right: 2px;
+}
+
+/* Result colors */
+.result-green {
+  background: #d8f5d0;
+  color: #218838;
+  border: 1.5px solid #a1e7ac;
+}
+.result-red {
+  background: #fde2e0;
+  color: #cb2323;
+  border: 1.5px solid #ffb5b2;
+}
+.result-yellow {
+  background: #fff8db;
+  color: #c28800;
+  border: 1.5px solid #ffe59d;
+}
+.result-gray {
+  background: #efefef;
+  color: #8a8d94;
+  border: 1.5px solid #d4d5da;
+}
