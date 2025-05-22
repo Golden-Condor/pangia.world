@@ -133,3 +133,57 @@ body {
   color: #8a8d94;
   border: 1.5px solid #d4d5da;
 }
+
+@media (max-width: 600px) {
+  .water-quality-table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+    font-size: 0.93em;
+    min-width: 480px;
+  }
+  .water-quality-main {
+    padding: 8px 2px 16px 2px;
+  }
+}
+
+.water-quality-table::-webkit-scrollbar {
+  height: 8px;
+  background: #eee;
+}
+.water-quality-table::-webkit-scrollbar-thumb {
+  background: #b6e0bb;
+  border-radius: 4px;
+}
+
+@media (max-width: 480px) {
+  .water-quality-table th,
+  .water-quality-table td {
+    padding: 0.38em 0.36em;
+    font-size: 0.81em;
+  }
+  .result-block {
+    padding: 0.28em 0.6em;
+    font-size: 0.91em;
+    min-width: 32px;
+  }
+  .water-quality-table {
+    min-width: 380px;
+  }
+}
+
+@media (max-width: 400px) {
+  .water-quality-table th,
+  .water-quality-table td {
+    padding: 0.24em 0.13em;
+    font-size: 0.68em;
+  }
+  .result-block {
+    padding: 0.15em 0.34em;
+    font-size: 0.78em;
+    min-width: 20px;
+  }
+  .water-quality-table {
+    min-width: 320px;
+  }
+}
