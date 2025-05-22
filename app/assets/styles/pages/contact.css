@@ -1,0 +1,100 @@
+body {
+  background: #D9B97F;
+  color: #2a6a3b;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.contact-section {
+  background: #EAD6A8;
+  max-width: 540px;
+  margin: 48px auto 64px auto;
+  padding: 2.5rem 2rem 2.2rem 2rem;
+  border-radius: 18px;
+  box-shadow: 0 8px 32px rgba(34,34,34,0.09);
+  font-size: 1.12rem;
+  line-height: 2;
+}
+
+.contact-section h1 {
+  color: #186e4b;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-top: 0;
+  margin-bottom: 20px;
+  letter-spacing: 1px;
+}
+
+.contact-details {
+  margin: 1.8rem 0 1.2rem 0;
+  line-height: 2.15;
+}
+
+.contact-details strong {
+  color: #186e4b;
+  font-weight: 600;
+  display: inline-block;
+  width: 90px;
+}
+
+.contact-details a,
+.contact-section a {
+  color: #186e4b;
+  text-decoration: underline dotted;
+  word-break: break-all;
+}
+
+address {
+  font-style: normal;
+  color: #444;
+  font-size: 1rem;
+  margin-top: 2.4rem;
+}
+/* Footer Styles */
+footer {
+    background-color: transparent;
+    color: #333;
+    text-align: center;
+    padding: 20px 0;
+    box-shadow: none;
+    border-radius: 0;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-menu ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.footer-menu li a {
+    text-decoration: none;
+    color: #333;
+    transition: color 0.3s ease;
+}
+
+.footer-menu li a:hover {
+    color: #4CAF50;
+}
+
+@media (max-width: 650px) {
+  .contact-section {
+    max-width: 97vw;
+    padding: 1.2rem 0.8rem 1.8rem 0.8rem;
+    font-size: 1rem;
+  }
+  .contact-section h1 {
+    font-size: 1.32rem;
+  }
+  .contact-details strong {
+    width: 74px;
+    font-size: 1em;
+  }
+}

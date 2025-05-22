@@ -161,6 +161,39 @@ body {
     display: none;
 }
 
+/* Footer Styles */
+footer {
+    background-color: transparent;
+    color: #333;
+    text-align: center;
+    padding: 20px 0;
+    box-shadow: none;
+    border-radius: 0;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-menu ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.footer-menu li a {
+    text-decoration: none;
+    color: #333;
+    transition: color 0.3s ease;
+}
+
+.footer-menu li a:hover {
+    color: #4CAF50;
+}
+
 .cart-preview.active {
     display: block;
 }

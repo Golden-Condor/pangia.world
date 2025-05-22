@@ -85,6 +85,11 @@ document.addEventListener('DOMContentLoaded', function () {
             window.location.href = '../../signin.html';
         });
     }
+    // Expose cart functions globally for inline event handlers
+    window.displayCartItems = displayCartItems;
+    window.removeFromCart = removeFromCart;
+    window.addToCart = addToCart;
+    window.decreaseQuantity = decreaseQuantity;
 });
 
     // Initialize slideshow if slides are present
@@ -159,6 +164,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
         saveCartToLocalStorage();
         updateCartIcon();
+        // Ensure the cart re-renders immediately on the cart page
+        if (window.location.pathname.includes("cart.html")) {
+            displayCartItems();
+        }
     }
     
     // Function to show the add-to-cart popup
