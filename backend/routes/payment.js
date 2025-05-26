@@ -32,7 +32,10 @@ router.post("/checkout", async (req, res) => {
         const lineItems = order.items.map(item => ({
             price_data: {
                 currency: "usd",
-                product_data: { name: item.productName || `Product ${item.productId}` },
+                product_data: {
+                    name: item.productName || `Product ${item.productId}`,
+                    tax_behavior: "exclusive"
+                },
                 unit_amount: item.price * 100 // Stripe accepts amounts in cents
             },
             quantity: item.quantity
@@ -41,7 +44,10 @@ router.post("/checkout", async (req, res) => {
         lineItems.push({
             price_data: {
                 currency: "usd",
-                product_data: { name: "Pangia Service Fee" },
+                product_data: {
+                    name: "Pangia Service Fee",
+                    tax_behavior: "exclusive"
+                },
                 unit_amount: Math.round(serviceFee * 100)
             },
             quantity: 1
@@ -50,7 +56,10 @@ router.post("/checkout", async (req, res) => {
         lineItems.push({
             price_data: {
                 currency: "usd",
-                product_data: { name: "Delivery Fee" },
+                product_data: {
+                    name: "Delivery Fee",
+                    tax_behavior: "exclusive"
+                },
                 unit_amount: Math.round(DELIVERY_FEE * 100)
             },
             quantity: 1
