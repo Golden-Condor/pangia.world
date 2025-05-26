@@ -296,3 +296,9 @@ h2.checkout-title {
 .checkout-wrapper {
     margin-top: 50px;
 }
+
+/* Temporary: Hide order summary and service fee sections */
+.order-summary,
+.service-fee {
+    display: none !important;
+}

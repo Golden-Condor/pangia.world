@@ -3,6 +3,8 @@ const Stripe = require("stripe");
 const Order = require("../models/Order");
 const sendTextToAVL = require("../utils/sendTextToAVL");
 
+const DELIVERY_FEE = 4.50;
+
 const router = express.Router();
 
 /** 📌 Checkout Session - Creates a payment link */
@@ -41,6 +43,15 @@ router.post("/checkout", async (req, res) => {
                 currency: "usd",
                 product_data: { name: "Pangia Service Fee" },
                 unit_amount: Math.round(serviceFee * 100)
+            },
+            quantity: 1
+        });
+
+        lineItems.push({
+            price_data: {
+                currency: "usd",
+                product_data: { name: "Delivery Fee" },
+                unit_amount: Math.round(DELIVERY_FEE * 100)
             },
             quantity: 1
         });

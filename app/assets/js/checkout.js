@@ -1,5 +1,7 @@
 // app/assets/js/checkout.js
 
+const DELIVERY_FEE = 4.50;
+
 /**
  * createOrder: Calls the backend to create a new order with the current cart data.
  * Returns a promise that resolves with the new order's ID.
@@ -11,7 +13,7 @@ function createOrder() {
     return Promise.reject("Cart empty");
   }
 
-  const totalPrice = orderData.reduce((acc, item) => acc + item.price * item.quantity, 0);
+  const totalPrice = orderData.reduce((acc, item) => acc + item.price * item.quantity, 0) + DELIVERY_FEE;
   const guestEmail = document.getElementById('email').value;
 
   const billing = {
@@ -171,6 +173,11 @@ document.addEventListener("DOMContentLoaded", () => {
     if (serviceFeeElement) {
       const serviceFee = total * 0.05;
       serviceFeeElement.textContent = `Service Fee: $${serviceFee.toFixed(2)}`;
+    }
+
+    const deliveryFeeElement = document.getElementById("delivery-fee");
+    if (deliveryFeeElement) {
+      deliveryFeeElement.textContent = `Delivery Fee: $${DELIVERY_FEE.toFixed(2)}`;
     }
   }
 

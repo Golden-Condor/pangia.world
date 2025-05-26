@@ -41,7 +41,8 @@ router.post("/create", async (req, res) => {
           };
         }));
 
-        const totalPrice = translatedItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
+        const DELIVERY_FEE = 4.50;
+        const totalPrice = translatedItems.reduce((sum, item) => sum + item.price * item.quantity, 0) + DELIVERY_FEE;
 
         const {
             fullName,
@@ -64,6 +65,7 @@ router.post("/create", async (req, res) => {
             country,
             items: translatedItems,
             totalPrice,
+            deliveryFee: DELIVERY_FEE,
             billing: {
                 fullName: req.body.fullName,
                 phoneNumber: req.body.phoneNumber,
