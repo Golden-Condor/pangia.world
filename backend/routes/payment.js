@@ -66,7 +66,8 @@ router.post("/checkout", async (req, res) => {
             metadata: {
                 orderId: order._id.toString()
             },
-            automatic_tax: { enabled: true }
+            automatic_tax: { enabled: true },
+            shipping_address_collection: { allowed_countries: ['US'] },
         });
 
         console.log("✅ Stripe checkout session:", session.url);
