@@ -67,8 +67,8 @@ router.post("/checkout", async (req, res) => {
             customer_email: billing.email,
             line_items: lineItems,
             mode: "payment",
-            success_url: `${process.env.CLIENT_URL}/order-success`, 
-            cancel_url: `${process.env.CLIENT_URL}/order-cancel`,
+            success_url: `${process.env.CLIENT_URL}/pages/order-success.html`, 
+            cancel_url: `${process.env.CLIENT_URL}/pages/checkout.html`,
             metadata: {
                 orderId: order._id.toString()
             },

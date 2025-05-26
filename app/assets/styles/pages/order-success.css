@@ -1,0 +1,83 @@
+body {
+  background-color: #EAD6A8;
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+  margin: 0;
+  min-height: 100vh;
+}
+
+.order-success-container {
+  max-width: 600px;
+  margin: 60px auto 0;
+  background: #F4F1E8;
+  border-radius: 14px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  padding: 40px 32px;
+  text-align: center;
+}
+
+.order-success-icon {
+  font-size: 4rem;
+  color: #4CAF50;
+  margin-bottom: 20px;
+  display: inline-block;
+}
+
+.order-success-title {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 16px;
+  font-weight: 700;
+}
+
+.order-success-message {
+  font-size: 1.2rem;
+  color: #555;
+  margin-bottom: 30px;
+  line-height: 1.6;
+}
+
+.order-details {
+  background: #E5F2E5;
+  border-radius: 10px;
+  padding: 16px 20px;
+  margin: 24px 0;
+  display: inline-block;
+  font-size: 1.1rem;
+  color: #449D48;
+  font-weight: 600;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+}
+
+.order-success-btn {
+  background: #449D48;
+  color: #FFF;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  padding: 14px 28px;
+  margin-top: 14px;
+  cursor: pointer;
+  transition: background 0.2s;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+  text-decoration: none;
+  display: inline-block;
+}
+
+.order-success-btn:hover {
+  background: #3E8E41;
+}
+
+@media (max-width: 600px) {
+  .order-success-container {
+    padding: 24px 8px;
+    margin: 32px 8px 0 8px;
+  }
+  .order-success-title {
+    font-size: 1.4rem;
+  }
+  .order-success-message,
+  .order-details {
+    font-size: 1rem;
+  }
+}
