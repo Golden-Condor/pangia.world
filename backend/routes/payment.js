@@ -33,8 +33,7 @@ router.post("/checkout", async (req, res) => {
             price_data: {
                 currency: "usd",
                 product_data: {
-                    name: item.productName || `Product ${item.productId}`,
-                    tax_behavior: "exclusive"
+                    name: item.productName || `Product ${item.productId}`
                 },
                 unit_amount: item.price * 100 // Stripe accepts amounts in cents
             },
@@ -45,8 +44,7 @@ router.post("/checkout", async (req, res) => {
             price_data: {
                 currency: "usd",
                 product_data: {
-                    name: "Pangia Service Fee",
-                    tax_behavior: "exclusive"
+                    name: "Pangia Service Fee"
                 },
                 unit_amount: Math.round(serviceFee * 100)
             },
@@ -57,8 +55,7 @@ router.post("/checkout", async (req, res) => {
             price_data: {
                 currency: "usd",
                 product_data: {
-                    name: "Delivery Fee",
-                    tax_behavior: "exclusive"
+                    name: "Delivery Fee"
                 },
                 unit_amount: Math.round(DELIVERY_FEE * 100)
             },
