@@ -69,7 +69,6 @@ function createOrder() {
       alert("Please complete the billing information correctly.");
       return;
     }
-    
     // First, create the order.
     createOrder()
     .then(orderId => {
