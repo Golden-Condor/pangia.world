@@ -103,8 +103,23 @@ router.post("/webhook", express.raw({ type: "application/json" }), async (req, r
             const session = event.data.object;
             const orderId = session.metadata.orderId;
 
-            await Order.findByIdAndUpdate(orderId, { paymentStatus: "Paid" });
-            const order = await Order.findById(orderId).lean();
+            const order = await Order.findById(orderId);
+            let productSubtotal = 0;
+
+            order.items = order.items.map(item => {
+                const itemTotal = item.price * item.quantity;
+                const platformCut = Number((itemTotal * 0.03).toFixed(2));
+                productSubtotal += itemTotal;
+
+                return {
+                    ...item.toObject(),
+                    platformCut
+                };
+            });
+
+            order.platformCut = Number((productSubtotal * 0.03).toFixed(2));
+            order.paymentStatus = "Paid";
+            await order.save();
             await sendTextToAVL(order);
             console.log(`✅ Order ${orderId} marked as Paid`);
         }

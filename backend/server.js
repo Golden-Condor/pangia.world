@@ -2,7 +2,10 @@ require("dotenv").config({ path: __dirname + '/.env' });
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
+
 const path = require("path");
+app.set("view engine", "ejs");
+app.set("views", path.join(__dirname, "views"));
 
 
 const app = express();

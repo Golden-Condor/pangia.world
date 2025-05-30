@@ -1,0 +1,28 @@
+<h1>Pangia Dashboard</h1>
+<p>Total Platform Cut: $<%= totalPlatformCut.toFixed(2) %></p>
+<p>Last 7 Days Platform Cut: $<%= last7DaysCut.toFixed(2) %></p>
+
+<table>
+  <tr>
+    <th>Order ID</th>
+    <th>Date</th>
+    <th>Platform Cut</th>
+    <th>Items</th>
+  </tr>
+  <% orders.forEach(order => { %>
+    <tr>
+      <td><%= order._id %></td>
+      <td><%= new Date(order.createdAt).toLocaleDateString() %></td>
+      <td>$<%= order.platformCut.toFixed(2) %></td>
+      <td>
+        <ul>
+          <% order.items.forEach(item => { %>
+            <li>
+              <%= item.productId %> — Qty: <%= item.quantity %>, Price: $<%= item.price %>, Pangia Cut: $<%= item.platformCut.toFixed(2) %>
+            </li>
+          <% }) %>
+        </ul>
+      </td>
+    </tr>
+  <% }) %>
+</table>
