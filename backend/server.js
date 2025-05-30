@@ -4,11 +4,10 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 
 const path = require("path");
-app.set("view engine", "ejs");
-app.set("views", path.join(__dirname, "views"));
-
 
 const app = express();
+app.set("view engine", "ejs");
+app.set("views", path.join(__dirname, "views"));
 let server; // Store the server instance
 console.log("🧩 FULL ENV:", process.env);
 console.log("✅ CLIENT_URL:", process.env.CLIENT_URL);
