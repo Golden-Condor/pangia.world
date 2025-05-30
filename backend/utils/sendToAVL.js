@@ -48,7 +48,7 @@ const sendOrderToAVL = async (order) => {
   `;
 
   const msg = {
-    to: 'alistair@avlspring.com',
+    to: 'pangia.test@gmail.com', // Replace with your AVL email
     bcc: ['hello.world@pangia.world'],
     from: process.env.FROM_EMAIL,
     subject: `New Pangia Order: ${_id}`,
