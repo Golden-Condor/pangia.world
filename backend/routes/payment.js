@@ -2,6 +2,7 @@ const express = require("express");
 const Stripe = require("stripe");
 const Order = require("../models/Order");
 const sendTextToAVL = require("../utils/sendTextToAVL");
+const STRIPE_PRICE_MAP = require("../utils/stripePriceMap");
 
 const DELIVERY_FEE = 4.50;
 
@@ -27,36 +28,37 @@ router.post("/checkout", async (req, res) => {
         await order.save();
 
         const subtotal = order.items.reduce((sum, item) => sum + item.price * item.quantity, 0);
+
+        const lineItems = [];
+
+        for (const item of order.items) {
+            const priceId = STRIPE_PRICE_MAP[item.productId];
+            if (!priceId) {
+                throw new Error(`Missing Stripe price for product: ${item.productId}`);
+            }
+            lineItems.push({
+                price: priceId,
+                quantity: item.quantity
+            });
+        }
+
+        // Dynamically calculated service fee
         const serviceFeeRate = 0.05;
         const serviceFee = subtotal * serviceFeeRate;
-        const lineItems = order.items.map(item => ({
-            price_data: {
-                currency: "usd",
-                product_data: {
-                    name: item.productName || `Product ${item.productId}`
-                },
-                unit_amount: item.price * 100 // Stripe accepts amounts in cents
-            },
-            quantity: item.quantity
-        }));
-
         lineItems.push({
             price_data: {
                 currency: "usd",
-                product_data: {
-                    name: "Pangia Service Fee"
-                },
+                product_data: { name: "Pangia Service Fee" },
                 unit_amount: Math.round(serviceFee * 100)
             },
             quantity: 1
         });
 
+        // Fixed delivery fee
         lineItems.push({
             price_data: {
                 currency: "usd",
-                product_data: {
-                    name: "Delivery Fee"
-                },
+                product_data: { name: "Delivery Fee" },
                 unit_amount: Math.round(DELIVERY_FEE * 100)
             },
             quantity: 1
