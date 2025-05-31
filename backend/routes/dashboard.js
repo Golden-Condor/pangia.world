@@ -1,3 +1,5 @@
+const express = require('express');
+const router = express.Router();
 router.get("/dashboard", async (req, res) => {
   const orders = await Order.find({ paymentStatus: "Paid" }).sort({ createdAt: -1 }).limit(20);
   const totalPlatformCut = orders.reduce((sum, order) => sum + (order.platformCut || 0), 0);
@@ -10,3 +12,4 @@ router.get("/dashboard", async (req, res) => {
 
   res.render("dashboard", { orders, totalPlatformCut, last7DaysCut });
 });
+module.exports = router;
