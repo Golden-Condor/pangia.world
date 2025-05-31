@@ -6,6 +6,10 @@ const cors = require("cors");
 const path = require("path");
 
 const app = express();
+
+app.get("/test", (req, res) => {
+  res.send("It works!");
+});
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 let server; // Store the server instance
