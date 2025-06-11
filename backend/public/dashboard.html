@@ -29,7 +29,7 @@
   <div id="orders"></div>
 
   <script>
-    fetch('http://localhost:5000/dashboard')
+    fetch('/dashboard')
       .then(res => res.json())
       .then(data => {
         document.getElementById('total').textContent = data.totalOrders;
