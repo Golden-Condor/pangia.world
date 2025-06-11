@@ -44,6 +44,11 @@ app.use((req, res, next) => {
 // Serve static files from the public directory
 app.use(express.static(path.join(__dirname, 'public')));
 
+// Serve dashboard.html for /dashboard route
+app.get("/dashboard", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "dashboard.html"));
+});
+
 // Import Routes
 const authRoutes = require(path.join(__dirname, "routes", "auth"));
 app.use("/api/orders", require("./routes/order")); // Order routes

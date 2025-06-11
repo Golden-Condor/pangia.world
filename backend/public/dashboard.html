@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Pangia Dashboard</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 2rem;
+      background: #f9f9f9;
+    }
+    h1, h2 {
+      color: #222;
+    }
+    .order {
+      background: #fff;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      border-left: 4px solid #4CAF50;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+    .order small {
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+  <h1>Total Orders: <span id="total">...</span></h1>
+  <h2>Recent Orders</h2>
+  <div id="orders"></div>
+
+  <script>
+    fetch('http://localhost:5000/dashboard')
+      .then(res => res.json())
+      .then(data => {
+        document.getElementById('total').textContent = data.totalOrders;
+        const ordersDiv = document.getElementById('orders');
+
+        data.recentOrders.forEach(order => {
+          const div = document.createElement('div');
+          div.className = 'order';
+          div.innerHTML = `
+            <strong>${order.billing.fullName}</strong> — $${order.totalPrice}<br/>
+            <small>${new Date(order.createdAt).toLocaleString()}</small><br/>
+            ${order.items.map(i => `${i.productName} ×${i.quantity}`).join(', ')}
+          `;
+          ordersDiv.appendChild(div);
+        });
+      })
+      .catch(err => {
+        document.body.innerHTML = '<p style="color:red;">Failed to load dashboard data.</p>';
+        console.error(err);
+      });
+  </script>
+</body>
+</html>
