@@ -47,7 +47,10 @@
         });
       })
       .catch(err => {
-        document.body.innerHTML = '<p style="color:red;">Failed to load dashboard data.</p>';
+        const msg = document.createElement('p');
+        msg.style.color = 'red';
+        msg.textContent = 'Failed to load dashboard data.';
+        document.body.appendChild(msg);
         console.error(err);
       });
   </script>
