@@ -17,16 +17,21 @@
   <h1>Total Orders: <span id="total">...</span></h1>
   <h2>Recent Orders</h2>
   <table>
-  <thead>
-    <tr>
-      <th>Customer</th>
-      <th>Order Created</th>
-      <th>Paid?</th>
-      <th>Email Sent?</th>
-    </tr>
-  </thead>
-  <tbody id="recentOrders"></tbody>
-</table>
+    <thead>
+      <tr>
+        <th>Customer</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Address</th>
+        <th>Items</th>
+        <th>Total</th>
+        <th>Paid?</th>
+        <th>Email Sent?</th>
+        <th>Created</th>
+      </tr>
+    </thead>
+    <tbody id="recentOrders"></tbody>
+  </table>
 
   <script>
     fetch('/api/dashboard')
@@ -34,12 +39,19 @@
       .then(data => {
         document.getElementById('total').textContent = data.totalOrders;
         const recentOrdersHTML = data.recentOrders.map(order => {
+          const itemsList = order.items.map(i => `${i.productName} ×${i.quantity}`).join(', ');
+          const billing = order.billing || {};
           return `
             <tr>
-              <td>${order.billing?.fullName || order.guestEmail || 'N/A'}</td>
-              <td>✅</td>
+              <td>${billing.fullName || order.guestEmail || 'N/A'}</td>
+              <td>${billing.email || order.guestEmail || 'N/A'}</td>
+              <td>${billing.phoneNumber || 'N/A'}</td>
+              <td>${billing.address || ''}, ${billing.city || ''} ${billing.postalCode || ''}</td>
+              <td>${itemsList}</td>
+              <td>$${order.totalPrice?.toFixed(2) || '0.00'}</td>
               <td>${order.paymentStatus === 'Paid' ? '✅' : '❌'}</td>
               <td>${order.emailSent ? '✅' : '❌'}</td>
+              <td>${new Date(order.createdAt).toLocaleString()}</td>
             </tr>
           `;
         }).join('');
