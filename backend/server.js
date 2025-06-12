@@ -55,7 +55,7 @@ app.use("/api/orders", require("./routes/order")); // Order routes
 app.use("/api/payments", require("./routes/payment")); // Payment routes
 app.use("/api/auth", authRoutes);
 app.use("/api/connect", require("./routes/connect"));
-app.use("/api", require("./routes/dashboard"));
+app.use("/api/dashboard", require("./routes/dashboard"));
 
 
 // Redirect root to homepage
