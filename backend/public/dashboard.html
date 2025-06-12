@@ -52,6 +52,7 @@
   </table>
 
   <script>
+    function fetchDashboardData() {
     fetch('/api/dashboard')
       .then(res => res.json())
       .then(data => {
@@ -82,6 +83,10 @@
         document.body.appendChild(msg);
         console.error(err);
       });
+    }
+      fetchDashboardData();
+      setInterval(fetchDashboardData, 10000); // Refreshes every 10 seconds
   </script>
+  
 </body>
 </html>

@@ -6,7 +6,6 @@ router.get("/", async (req, res) => {
     const totalOrders = await Order.countDocuments();
     const recentOrders = await Order.find({})
       .sort({ createdAt: -1 })
-      .limit(10)
       .select('billing.fullName billing.email billing.phoneNumber billing.address billing.city billing.postalCode guestEmail items totalPrice paymentStatus emailSent createdAt');
     res.json({ totalOrders, recentOrders });
   } catch (error) {
