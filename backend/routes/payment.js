@@ -101,9 +101,20 @@ router.post("/webhook", express.raw({ type: "application/json" }), async (req, r
 
         if (event.type === "checkout.session.completed") {
             const session = event.data.object;
-            const orderId = session.metadata.orderId;
+            console.log("🔎 Received session with metadata:", session.metadata);
+
+            const orderId = session.metadata?.orderId;
+            console.log("🧩 Looking up order with ID:", orderId);
 
             const order = await Order.findById(orderId);
+
+            if (!order) {
+                console.warn("⚠️ No order found with ID:", orderId);
+                return res.status(404).json({ message: "Order not found" });
+            }
+
+            console.log("✅ Order found:", order._id);
+
             let productSubtotal = 0;
 
             order.items = order.items.map(item => {

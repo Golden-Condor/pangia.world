@@ -11,40 +11,39 @@
     h1, h2 {
       color: #222;
     }
-    .order {
-      background: #fff;
-      padding: 1rem;
-      margin-bottom: 1rem;
-      border-left: 4px solid #4CAF50;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-    }
-    .order small {
-      color: #666;
-    }
   </style>
 </head>
 <body>
   <h1>Total Orders: <span id="total">...</span></h1>
   <h2>Recent Orders</h2>
-  <div id="orders"></div>
+  <table>
+  <thead>
+    <tr>
+      <th>Customer</th>
+      <th>Order Created</th>
+      <th>Paid?</th>
+      <th>Email Sent?</th>
+    </tr>
+  </thead>
+  <tbody id="recentOrders"></tbody>
+</table>
 
   <script>
     fetch('/api/dashboard')
       .then(res => res.json())
       .then(data => {
         document.getElementById('total').textContent = data.totalOrders;
-        const ordersDiv = document.getElementById('orders');
-
-        data.recentOrders.forEach(order => {
-          const div = document.createElement('div');
-          div.className = 'order';
-          div.innerHTML = `
-            <strong>${order.billing.fullName}</strong> — $${order.totalPrice}<br/>
-            <small>${new Date(order.createdAt).toLocaleString()}</small><br/>
-            ${order.items.map(i => `${i.productName} ×${i.quantity}`).join(', ')}
+        const recentOrdersHTML = data.recentOrders.map(order => {
+          return `
+            <tr>
+              <td>${order.billing?.fullName || order.guestEmail || 'N/A'}</td>
+              <td>✅</td>
+              <td>${order.paymentStatus === 'Paid' ? '✅' : '❌'}</td>
+              <td>${order.emailSent ? '✅' : '❌'}</td>
+            </tr>
           `;
-          ordersDiv.appendChild(div);
-        });
+        }).join('');
+        document.getElementById("recentOrders").innerHTML = recentOrdersHTML;
       })
       .catch(err => {
         const msg = document.createElement('p');
