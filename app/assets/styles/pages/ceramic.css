@@ -1,0 +1,20 @@
+.color-selector {
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.color-selector label {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.color-selector select {
+  padding: 6px 10px;
+  font-size: 0.9rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  cursor: pointer;
+}
