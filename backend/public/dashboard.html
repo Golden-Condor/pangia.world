@@ -46,6 +46,8 @@
         <th>Paid?</th>
         <th>Email Sent?</th>
         <th>Created</th>
+        <th>UTM Source</th>
+        <th>Referrer</th>
       </tr>
     </thead>
     <tbody id="recentOrders"></tbody>
@@ -71,6 +73,8 @@
               <td>${order.paymentStatus === 'Paid' ? '✅' : '❌'}</td>
               <td>${order.emailSent ? '✅' : '❌'}</td>
               <td>${new Date(order.createdAt).toLocaleString()}</td>
+              <td>${order.trackingInfo?.utmSource || 'N/A'}</td>
+              <td>${order.trackingInfo?.referrer || 'N/A'}</td>
             </tr>
           `;
         }).join('');

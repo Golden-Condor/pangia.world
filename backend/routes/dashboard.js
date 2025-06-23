@@ -30,7 +30,7 @@ router.get("/", async (req, res) => {
     const totalOrders = await Order.countDocuments();
     const recentOrders = await Order.find({})
       .sort({ createdAt: -1 })
-      .select('billing.fullName billing.email billing.phoneNumber billing.address billing.city billing.postalCode guestEmail items totalPrice paymentStatus emailSent createdAt');
+      .select('billing.fullName billing.email billing.phoneNumber billing.address billing.city billing.postalCode guestEmail items totalPrice paymentStatus emailSent createdAt trackingInfo');
     res.json({ totalOrders, recentOrders });
   } catch (error) {
     console.error("Error fetching dashboard data:", error);

@@ -54,6 +54,14 @@ router.post("/create", async (req, res) => {
             email = guestEmail
         } = req.body;
 
+        const trackingInfo = {
+          utmSource: req.body.utm_source || req.query.utm_source || null,
+          utmMedium: req.body.utm_medium || req.query.utm_medium || null,
+          utmCampaign: req.body.utm_campaign || req.query.utm_campaign || null,
+          referrer: req.body.referrer || req.get('referer') || null,
+          userAgent: req.headers['user-agent'] || null
+        };
+
         const order = new Order({
             user: userId || null,
             guestEmail: guestEmail || null,
@@ -74,7 +82,8 @@ router.post("/create", async (req, res) => {
                 postalCode: req.body.postalCode,
                 country: req.body.country,
                 email: req.body.email || req.body.guestEmail
-            }
+            },
+            trackingInfo,
         });
         await order.save();
 
