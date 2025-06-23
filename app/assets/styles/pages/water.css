@@ -4,8 +4,8 @@ body {
 
 /* CSS Variables for maintainability */
 :root {
-    --primary-color: #4CAF50;
-    --primary-color-hover: #45a049;
+    --primary-color: #007bff;
+    --primary-color-hover: #0056b3;
     --max-width: 1000px;
     --margin-base: 40px;
     --gap: 20px;
@@ -296,4 +296,34 @@ footer {
         padding: 0 10px;
         margin: 0 auto;
     }
+}
+
+/* Stamp overlay on hero image */
+.hero-image-wrapper {
+  position: relative;
+  display: block;
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.hero-image-wrapper img#hero-img {
+  width: 100%;
+  height: 400px;
+  max-height: 50vh;
+  object-fit: cover;
+  display: block;
+  border-radius: 10px;
+}
+
+.stamp-overlay {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 92px;
+    opacity: 0.99;
+    pointer-events: none;
+    transform: rotate(-10deg);
 }
