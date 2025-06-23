@@ -16,6 +16,15 @@ router.post("/create", async (req, res) => {
 
         const { userId = null, guestEmail, items } = req.body;
 
+        // Normalize incoming UTM/referrer fields into a trackingInfo object
+        const trackingInfo = {
+          utmSource: req.body.utm_source || req.query.utm_source || null,
+          utmMedium: req.body.utm_medium || req.query.utm_medium || null,
+          utmCampaign: req.body.utm_campaign || req.query.utm_campaign || null,
+          referrer: req.body.referrer || req.get('referer') || null,
+          userAgent: req.headers['user-agent'] || null
+        };
+
         if (!req.body.items || req.body.items.length === 0) {
             return res.status(400).json({ message: "Order items are required" });
         }
@@ -53,14 +62,6 @@ router.post("/create", async (req, res) => {
             country,
             email = guestEmail
         } = req.body;
-
-        const trackingInfo = {
-          utmSource: req.body.utm_source || req.query.utm_source || null,
-          utmMedium: req.body.utm_medium || req.query.utm_medium || null,
-          utmCampaign: req.body.utm_campaign || req.query.utm_campaign || null,
-          referrer: req.body.referrer || req.get('referer') || null,
-          userAgent: req.headers['user-agent'] || null
-        };
 
         const order = new Order({
             user: userId || null,
