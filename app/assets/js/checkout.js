@@ -26,6 +26,15 @@ function createOrder() {
     email: guestEmail,
   };
 
+  const urlParams = new URLSearchParams(window.location.search);
+
+  const utmData = {
+    utm_source: urlParams.get('utm_source'),
+    utm_medium: urlParams.get('utm_medium'),
+    utm_campaign: urlParams.get('utm_campaign'),
+    referrer: document.referrer
+  };
+
   const orderPayload = {
     guestEmail: guestEmail,
     fullName: billing.fullName,
@@ -41,7 +50,8 @@ function createOrder() {
       quantity: item.quantity,
       price: item.price
     })),
-    totalPrice: totalPrice
+    totalPrice: totalPrice,
+    ...utmData,
   };
 
   return fetch('/api/orders/create', {
