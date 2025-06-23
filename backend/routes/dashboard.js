@@ -1,6 +1,30 @@
 const express = require('express');
 const router = express.Router();
 const Order = require("../models/Order");
+const dotenv = require('dotenv');
+dotenv.config();
+
+router.use((req, res, next) => {
+  const auth = req.headers.authorization || '';
+  const [type, credentials] = auth.split(' ');
+  if (type !== 'Basic' || !credentials) {
+    res.setHeader('WWW-Authenticate', 'Basic');
+    return res.status(401).send('Authentication required');
+  }
+
+  const decoded = Buffer.from(credentials, 'base64').toString();
+  const [user, pass] = decoded.split(':');
+
+  const validUser = user === 'connor';
+  const validPass = pass === process.env.DASHBOARD_PASSWORD;
+
+  if (!validUser || !validPass) {
+    return res.status(403).send('Access denied');
+  }
+
+  next();
+});
+
 router.get("/", async (req, res) => {
   try {
     const totalOrders = await Order.countDocuments();
