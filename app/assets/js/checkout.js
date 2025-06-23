@@ -2,6 +2,16 @@
 
 const DELIVERY_FEE = 4.50;
 
+// UTM capture logic: store UTM values in localStorage if present in URL
+(function storeUTMParams() {
+  const urlParams = new URLSearchParams(window.location.search);
+  if (urlParams.get('utm_source')) {
+    localStorage.setItem('utm_source', urlParams.get('utm_source'));
+    localStorage.setItem('utm_medium', urlParams.get('utm_medium'));
+    localStorage.setItem('utm_campaign', urlParams.get('utm_campaign'));
+  }
+})();
+
 /**
  * createOrder: Calls the backend to create a new order with the current cart data.
  * Returns a promise that resolves with the new order's ID.
@@ -26,12 +36,10 @@ function createOrder() {
     email: guestEmail,
   };
 
-  const urlParams = new URLSearchParams(window.location.search);
-
   const utmData = {
-    utm_source: urlParams.get('utm_source'),
-    utm_medium: urlParams.get('utm_medium'),
-    utm_campaign: urlParams.get('utm_campaign'),
+    utm_source: localStorage.getItem('utm_source'),
+    utm_medium: localStorage.getItem('utm_medium'),
+    utm_campaign: localStorage.getItem('utm_campaign'),
     referrer: document.referrer
   };
 
