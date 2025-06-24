@@ -87,6 +87,19 @@ function createOrder() {
       alert("Please complete the billing information correctly.");
       return;
     }
+
+    const allowedZipCodes = [
+      '28704', '28715', '28732', '28801',
+      '28803', '28804', '28805', '28806', '28810'
+    ];
+
+    const postalCode = document.getElementById('postal-code').value.trim();
+
+    if (!allowedZipCodes.includes(postalCode)) {
+      alert("Sorry, we currently only deliver to select ZIP codes in the Asheville area.");
+      return;
+    }
+
     // First, create the order.
     createOrder()
     .then(orderId => {
