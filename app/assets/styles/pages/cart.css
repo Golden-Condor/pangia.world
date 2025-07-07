@@ -207,3 +207,14 @@ footer {
         margin-top: 20px;
     }
 }
+
+.delivery-zip-note {
+    font-size: 14px;
+    margin-top: 10px;
+    color: #2e7d32;
+    font-weight: bold;
+    background-color: #f1f8f4;
+    padding: 10px;
+    border-radius: 8px;
+    line-height: 1.5;
+}
