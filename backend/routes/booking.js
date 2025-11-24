@@ -1,0 +1,72 @@
+const express = require("express");
+const Booking = require("../models/Booking");
+
+const router = express.Router();
+
+const REQUIRED_FIELDS = ["fullName", "email", "phone"];
+
+router.post("/create", async (req, res) => {
+  try {
+    const errors = [];
+    REQUIRED_FIELDS.forEach((field) => {
+      if (!req.body[field]) {
+        errors.push(`${field} is required`);
+      }
+    });
+
+    const address =
+      req.body.address && typeof req.body.address === "object"
+        ? req.body.address
+        : {
+            street: req.body.address || "",
+            city: req.body.city || "",
+            state: req.body.state || "",
+            postalCode: req.body.postalCode || req.body["postal-code"] || "",
+          };
+
+    if (!address.postalCode) {
+      errors.push("postalCode is required");
+    }
+
+    if (errors.length) {
+      return res.status(400).json({ message: "Validation failed", errors });
+    }
+
+    const booking = new Booking({
+      fullName: req.body.fullName,
+      email: req.body.email,
+      phone: req.body.phone,
+      address,
+      serviceArea: req.body.serviceArea || address.postalCode,
+      waterSource: req.body.waterSource || req.body["water-source"],
+      propertyType: req.body.propertyType || req.body["property-type"],
+      concerns: req.body.concerns || "",
+      preferredDate: req.body.preferredDate || req.body["preferred-date"] || "",
+      preferredTime: req.body.preferredTime || req.body["preferred-time"] || "",
+      contactMethod: req.body.contactMethod || req.body["contact-method"] || "email",
+      notes: req.body.notes || "",
+      utm: {
+        source: req.body.utm_source || null,
+        medium: req.body.utm_medium || null,
+        campaign: req.body.utm_campaign || null,
+        referrer: req.body.referrer || req.get("referer") || null,
+      },
+      metadata: {
+        userAgent: req.headers["user-agent"] || "",
+      },
+    });
+
+    await booking.save();
+
+    res.status(201).json({
+      message: "Booking created",
+      bookingId: booking._id,
+      booking,
+    });
+  } catch (error) {
+    console.error("❌ Booking creation error:", error);
+    res.status(500).json({ message: "Unable to create booking", error: error.message });
+  }
+});
+
+module.exports = router;

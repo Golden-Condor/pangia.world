@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Your Water Quality Assessment - Pangia</title>
+    <meta name="description" content="Schedule a Pangia managed water-quality assessment. Tell us about your home, water source, and timing to get a bundled quote.">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png">
+    <link rel="stylesheet" href="/assets/styles/main.css">
+    <link rel="stylesheet" href="/assets/styles/pages/book.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+          <div class="logo">
+            <a href="/pages/index.html">
+              <img src="/assets/Images/Logo-Day.png" alt="Pangia Logo" />
+            </a>
+          </div>
+            <div class="menu-container">
+              <div class="nav-wrapper nav-inline">
+                <nav class="menu" aria-label="Main navigation">
+                  <ul>
+                    <li><a href="/pages/index.html">Home</a></li>
+                    <li><a href="/pages/package.html">Service Package</a></li>
+                    <li><a href="/pages/water-quality.html">Quality Proof</a></li>
+                    <li><a href="/pages/book.html" class="btn book-cta">Book an Assessment</a></li>
+                  </ul>
+                </nav>
+              </div>
+            </div>    
+        </div>
+    </header>
+
+    <section class="booking-hero">
+        <div class="hero-inner">
+            <div>
+                <h1>Book Your Water Quality Assessment</h1>
+                <p>Share a few details about your home and water goals. We’ll schedule certified testing, curate the ideal filter setup, coordinate install, and send lab-verified proof.</p>
+                <ul>
+                    <li>Certified lab test (pre + post)</li>
+                    <li>Filter selection & install management</li>
+                    <li>Post-test report + maintenance plan</li>
+                </ul>
+            </div>
+            <div class="price-highlight">
+                <span>Assessment starting at</span>
+                <strong>$250</strong>
+                <p>Applied toward install. Collected online after you submit this form.</p>
+            </div>
+        </div>
+    </section>
+
+    <main class="booking-main">
+        <section class="booking-form-section">
+            <h2>Tell us about your water</h2>
+            <p>We respond within one business day with next steps and a scheduling link.</p>
+            <form id="booking-form">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="full-name">Full Name</label>
+                        <input type="text" id="full-name" name="full-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="water-source">Water Source</label>
+                        <select id="water-source" name="water-source" required>
+                            <option value="">Select one</option>
+                            <option value="municipal">Municipal / City</option>
+                            <option value="well">Well</option>
+                            <option value="spring">Spring</option>
+                            <option value="unknown">Not sure</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="property-type">Property Type</label>
+                        <select id="property-type" name="property-type" required>
+                            <option value="">Select one</option>
+                            <option value="single-family">Single Family</option>
+                            <option value="multi-family">Multi-Family</option>
+                            <option value="business">Commercial</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group full-width">
+                        <label for="concerns">What prompted this request?</label>
+                        <textarea id="concerns" name="concerns" placeholder="Taste, contaminants, appliance protection, etc."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="address">Service Address</label>
+                        <input type="text" id="address" name="address" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="city">City</label>
+                        <input type="text" id="city" name="city" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="state">State</label>
+                        <input type="text" id="state" name="state" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="postal-code">ZIP Code</label>
+                        <input type="text" id="postal-code" name="postal-code" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="preferred-date">Preferred Date</label>
+                        <input type="date" id="preferred-date" name="preferred-date">
+                    </div>
+                    <div class="form-group">
+                        <label for="preferred-time">Preferred Time</label>
+                        <select id="preferred-time" name="preferred-time">
+                            <option value="">Any time</option>
+                            <option value="morning">Morning (8a-12p)</option>
+                            <option value="afternoon">Afternoon (12p-4p)</option>
+                            <option value="evening">Evening (4p-7p)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="contact-method">Preferred Contact</label>
+                        <select id="contact-method" name="contact-method">
+                            <option value="email">Email</option>
+                            <option value="phone">Phone</option>
+                            <option value="text">Text</option>
+                        </select>
+                    </div>
+                    <div class="form-group full-width">
+                        <label for="notes">Anything else?</label>
+                        <textarea id="notes" name="notes" placeholder="Access notes, current equipment, budget, etc."></textarea>
+                    </div>
+                </div>
+                <div id="booking-alert" class="booking-alert" role="status" aria-live="polite"></div>
+                <button type="submit" class="btn btn-primary book-submit" id="booking-submit">Submit &amp; Proceed to Payment</button>
+            </form>
+        </section>
+        <aside class="booking-summary">
+            <h3>What happens next</h3>
+            <ol>
+                <li>We confirm receipt and send a scheduling link for your lab test.</li>
+                <li>Within five days of testing, you receive a lab report + filter proposal.</li>
+                <li>We schedule install, coordinate equipment, and manage onsite day-of.</li>
+                <li>Post-test report proves contaminant reductions and unlocks maintenance support.</li>
+            </ol>
+            <div class="summary-card">
+                <h4>Support Team</h4>
+                <p>Email: <a href="mailto:hello.world@pangia.world">hello.world@pangia.world</a></p>
+                <p>Phone: <a href="tel:8282200118">(828) 220-0118</a></p>
+                <p>Service Area: Asheville metro + nearby counties.</p>
+            </div>
+            <div class="summary-card">
+                <h4>Need financing?</h4>
+                <p>We can split payments between the assessment and install milestone or offer financing via our equipment partners. Mention it in the form and we’ll walk you through options.</p>
+            </div>
+        </aside>
+    </main>
+
+    <section class="booking-faq">
+        <h3>Not ready to book?</h3>
+        <p>Send questions to <a href="mailto:hello.world@pangia.world">hello.world@pangia.world</a> or call/text (828) 220-0118. We’re happy to talk through your water goals.</p>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2024 Pangia. All rights reserved.</p>
+            <nav class="footer-menu">
+                <ul>
+                    <li><a href="/pages/privacy-policy.html">Privacy Policy</a></li>
+                    <li><a href="/pages/terms-of-service.html">Terms of Service</a></li>
+                    <li><a href="/pages/contact.html">Contact Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </footer>
+
+    <script src="/assets/js/booking.js"></script>
+    <script src="/assets/js/utm.js"></script>
+</body>
+</html>

@@ -1,0 +1,166 @@
+body {
+  background-color: #f7f4ec;
+  color: #2f2f2f;
+}
+
+.booking-hero {
+  background: linear-gradient(135deg, #f2d7a4, #f7f2e5);
+  padding: 80px 20px 50px;
+}
+
+.booking-hero .hero-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 40px;
+  align-items: center;
+}
+
+.booking-hero h1 {
+  font-size: clamp(2rem, 5vw, 3.25rem);
+  margin-bottom: 16px;
+}
+
+.booking-hero p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.price-highlight {
+  background: #fff;
+  border-radius: 16px;
+  padding: 30px;
+  box-shadow: 0 20px 35px rgba(0, 0, 0, 0.12);
+  text-align: center;
+}
+
+.price-highlight span {
+  display: block;
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+  color: #6b4b1d;
+}
+
+.price-highlight strong {
+  font-size: 2.5rem;
+  color: #2f5a3d;
+}
+
+.booking-main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px 80px;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 32px;
+}
+
+.booking-form-section,
+.booking-summary {
+  background: #fff;
+  border-radius: 20px;
+  padding: 32px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+}
+
+.booking-form-section h2 {
+  margin-top: 0;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  margin-top: 24px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group.full-width {
+  grid-column: 1 / -1;
+}
+
+.form-group label {
+  font-weight: 600;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid #d7c4a5;
+  background: #faf6ef;
+  font-size: 1rem;
+}
+
+.form-group textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.booking-alert {
+  margin-top: 20px;
+  padding: 12px 16px;
+  border-radius: 10px;
+  display: none;
+}
+
+.booking-alert.show {
+  display: block;
+}
+
+.booking-alert.info {
+  background: #e2f2e9;
+  color: #1f4e32;
+}
+
+.booking-alert.error {
+  background: #fdeaea;
+  color: #7d1f1f;
+}
+
+.booking-summary ol {
+  padding-left: 20px;
+  color: #555;
+  line-height: 1.6;
+}
+
+.summary-card {
+  margin-top: 30px;
+  padding: 20px;
+  border-radius: 16px;
+  background: #f7f2e5;
+}
+
+.summary-card p {
+  margin: 0;
+  line-height: 1.5;
+}
+
+.booking-faq {
+  max-width: 900px;
+  margin: 0 auto 80px;
+  padding: 20px;
+  text-align: center;
+  color: #555;
+}
+
+.book-submit {
+  margin-top: 24px;
+  padding: 14px 28px;
+  font-size: 1.1rem;
+}
+
+@media (max-width: 992px) {
+  .booking-main {
+    grid-template-columns: 1fr;
+  }
+}

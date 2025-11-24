@@ -1,15 +1,12 @@
 body {
-  background-color: #D9B97F;
+  background-color: #f7f4ec;
   font-family: 'Inter', Arial, sans-serif;
 }
 
 .water-quality-main {
-  max-width: 900px;
-  margin: 50px auto 0 auto;
-  background-color: #EAD6A8;
-  border-radius: 16px;
-  box-shadow: 0 12px 24px rgba(0,0,0,0.15);
-  padding: 48px 30px 36px 30px;
+  max-width: 1100px;
+  margin: 40px auto 80px auto;
+  padding: 0 20px;
 }
 
 .water-quality-main h1 {
@@ -76,6 +73,110 @@ body {
   background: #218838;
 }
 
+.quality-hero {
+  background: #f7f2e5;
+  border-radius: 18px;
+  padding: 32px 28px;
+  box-shadow: 0 10px 26px rgba(0,0,0,0.08);
+}
+
+.quality-hero .eyebrow {
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+  color: #7a5a2c;
+  margin-bottom: 8px;
+}
+
+.quality-hero h1 {
+  margin-bottom: 12px;
+}
+
+.baseline-points {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+  gap: 16px;
+  margin: 20px 0;
+}
+
+.baseline-card {
+  background: #fff;
+  border-radius: 14px;
+  padding: 18px 16px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+}
+
+.baseline-card h3 {
+  margin: 0 0 6px 0;
+  color: #2f5a3d;
+}
+
+.quality-cta {
+  display: inline-block;
+  margin-top: 12px;
+}
+
+.baseline-note {
+  font-size: 0.93rem;
+  color: #5d5d5d;
+  margin-top: 0.2rem;
+}
+
+.quality-section {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 28px;
+  margin-top: 32px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+  margin-bottom: 12px;
+}
+
+.section-tag {
+  align-self: center;
+  background: #eef6ec;
+  color: #2f5a3d;
+  border-radius: 999px;
+  padding: 8px 16px;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.quality-proof-summary {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-top: 32px;
+}
+
+.summary-card {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 24px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+.quality-cta-panel {
+  margin-top: 32px;
+  background: #2f5a3d;
+  color: #fff;
+  border-radius: 20px;
+  text-align: center;
+  padding: 36px 28px;
+  box-shadow: 0 16px 32px rgba(0,0,0,0.18);
+}
+
+.quality-cta-panel .btn {
+  margin-top: 12px;
+}
+
 /* Links inside main */
 .water-quality-main a {
   color: #186e4b;
@@ -89,8 +190,8 @@ body {
 /* Responsive tweaks */
 @media (max-width: 600px) {
   .water-quality-main {
-    padding: 18px 6px 18px 6px;
-    margin: 16px 0;
+    padding: 0 10px;
+    margin: 30px 0 60px 0;
   }
   .water-quality-table th, .water-quality-table td {
     padding: 0.56em;
@@ -98,6 +199,10 @@ body {
   }
   .water-quality-main h1 {
     font-size: 1.25em;
+  }
+  .section-header {
+    flex-direction: column;
+    align-items: flex-start;
   }
 }
 
@@ -141,9 +246,6 @@ body {
     white-space: nowrap;
     font-size: 0.93em;
     min-width: 480px;
-  }
-  .water-quality-main {
-    padding: 8px 2px 16px 2px;
   }
 }
 
@@ -202,6 +304,12 @@ footer {
   }
   .water-quality-table {
     min-width: 380px;
+  }
+  .quality-section {
+    padding: 20px;
+  }
+  .summary-card {
+    padding: 18px;
   }
 }
 

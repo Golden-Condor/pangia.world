@@ -1,86 +1,70 @@
-/* Header-specific styles */
-
-/* General Header Layout */
 header {
-    background-color: rgba(255, 255, 255, 0.629); /* Semi-transparent white */
+    background-color: rgba(255, 255, 255, 0.95);
     border-bottom: 1px solid #e0e0e0;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
     position: sticky;
     top: 0;
     z-index: 1000;
-    padding: 10px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    backdrop-filter: blur(10px);
-    max-width: 570px;
-    margin: 0 auto;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
-    
+    padding: 14px 20px;
 }
 
-/* Constrain header content so it doesn't stretch fully */
 .header-content {
     display: flex;
     align-items: center;
     justify-content: center;
-    max-width: 1200px; /* Adjust as needed */
+    max-width: 1100px;
     margin: 0 auto;
 }
 
-/* Logo */
 .header-content .logo {
     display: flex;
     align-items: center;
 }
 
 .logo img {
-    height: 50px !important;
+    height: 48px;
     width: auto;
 }
-.logo {
-    margin-left: 5px;
+
+.menu-container {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
 }
 
-/* Spacing */
-.header-spacer {
-    flex-grow: 1;
+.menu-container .menu ul {
+    display: flex;
+    gap: 18px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
-/* Utility Buttons (e.g., Cart, Sign-In) */
-.utility-buttons a {
+.menu-container .menu a {
     text-decoration: none;
-    color: #ffffff;
-    background-color: #28a745;
-    padding: 8px 12px;
-    border-radius: 5px;
-    font-size: 14px;
-    font-weight: 500;
+    color: #2f2f2f;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    font-size: 0.82rem;
+}
+
+.menu-container .menu a:hover {
+    color: #2f5a3d;
+}
+
+.book-cta {
     display: inline-block;
+    padding: 10px 18px;
+    border-radius: 999px;
+    background-color: #2f5a3d;
+    color: #fff !important;
+    font-weight: 600;
+    border: 2px solid transparent;
+    transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
-.utility-buttons a:hover {
-    background-color: #218838;
+.book-cta:hover {
+    background-color: #20402a;
+    transform: translateY(-1px);
 }
-
-.utility-buttons a.cart {
-    margin-left: 10px;
-    position: relative;
-}
-
-.utility-buttons a.cart .cart-count {
-    position: absolute;
-    top: -5px;
-    right: -10px;
-    background-color: red;
-    color: white;
-    border-radius: 50%;
-    padding: 2px 6px;
-    font-size: 12px;
-}
-
-
-
-/* Remove unrelated styles */
-/* Search and menu styles moved to their respective files */

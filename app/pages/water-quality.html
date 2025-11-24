@@ -30,35 +30,53 @@
       </div>
         <div class="menu-container">
           <div class="nav-wrapper nav-inline">
-            <nav class="menu" aria-label="Main navigation">
-              <ul>
-                <li><a href="/pages/water/water.html">Water</a></li>
-                <li><a href="/pages/water-quality.html" class="active">Quality</a></li>
-                <li><a href="/pages/cart.html" class="btn.cart">Cart<span id="cart-count" class="cart-count">0</span></a></li>
-              </ul>
-            </nav>
+                                            <nav class="menu" aria-label="Main navigation">
+                  <ul>
+                    <li><a href="/pages/index.html">Home</a></li>
+                    <li><a href="/pages/package.html">Service Package</a></li>
+                    <li><a href="/pages/water-quality.html">Quality Proof</a></li>
+                    <li><a href="/pages/book.html" class="btn book-cta">Book an Assessment</a></li>
+                  </ul>
+                </nav>
           </div>
         </div>    
     </div>
 </header>
-<body>
     <main class="water-quality-main">
-        <section>
-            <h2>Why Water Quality Matters</h2>
+        <section class="quality-hero">
+            <p class="eyebrow">Baseline · Asheville, NC Municipal Water</p>
+            <h1>Start With the City Baseline, Then Replace It With Your Own Data</h1>
             <p>
-                Clean, natural water isn’t just about taste—it’s about health, safety, and trust. We test our spring water regularly and publish results so you can know exactly what you’re drinking. Transparency is a core Pangia value.
+                These tables show the most recent Asheville city tap results—this is the water most homes start with. When you book Pangia's managed assessment, we collect samples at your sink, install the right filtration, and publish personalized pre/post lab reports so your column replaces the "Pangia Post-Test Goal" targets below.
             </p>
+            <div class="baseline-points">
+                <div class="baseline-card">
+                    <h3>City Reference</h3>
+                    <p>2024 Consumer Confidence Report (CCR) published by City of Asheville Water Resources.</p>
+                </div>
+                <div class="baseline-card">
+                    <h3>Pangia Post-Test Goal</h3>
+                    <p>Target values we design for after install. Your home's post-test replaces these once your lab results are in.</p>
+                </div>
+            </div>
+            <a href="/pages/book.html" class="btn btn-primary quality-cta">Book Your Assessment</a>
         </section>
 
         <!-- DISINFECTION BYPRODUCTS -->
-<section>
-  <h2>Disinfection Byproducts</h2>
+<section class="quality-section" aria-labelledby="byproducts-heading">
+  <div class="section-header">
+    <div>
+      <h2 id="byproducts-heading">Baseline: Disinfection Byproducts</h2>
+      <p class="baseline-note">City of Asheville results come directly from the 2024 CCR. Pangia targets "ND" (not detected) levels once filtration and post-testing are complete.</p>
+    </div>
+    <span class="section-tag">Stage 1 CCR · 2024</span>
+  </div>
   <table class="water-quality-table">
     <thead>
       <tr>
         <th>Contaminant</th>
-        <th>AVL Spring Water</th>
-        <th>City of Asheville</th>
+        <th>Pangia Post-Test Goal</th>
+        <th>City of Asheville Baseline</th>
         <th>EWG Guideline</th>
         <th>% Over EWG</th>
         <th>Health Impact</th>
@@ -142,14 +160,20 @@
 </section>
 
 <!-- METALS & MINERALS -->
-<section>
-  <h2>Metals & Minerals</h2>
+<section class="quality-section" aria-labelledby="metals-heading">
+  <div class="section-header">
+    <div>
+      <h2 id="metals-heading">Baseline: Metals &amp; Minerals</h2>
+      <p class="baseline-note">We aim to match or beat the strictest guideline for each metal. Book an assessment to get a before/after report specific to your address.</p>
+    </div>
+    <span class="section-tag">EPA + EWG References</span>
+  </div>
   <table class="water-quality-table">
     <thead>
       <tr>
         <th>Contaminant</th>
-        <th>AVL Spring Water</th>
-        <th>City of Asheville</th>
+        <th>Pangia Post-Test Goal</th>
+        <th>City of Asheville Baseline</th>
         <th>EWG Guideline</th>
         <th>% Over EWG</th>
         <th>Health Impact</th>
@@ -421,20 +445,21 @@
 </section>
 
 <!-- LEGEND & NOTES -->
-<div class="note water-quality-note" style="margin-top:1em;">
-  <strong>Legend:</strong>
-  <br>
-  <b>ND</b>: Not detected during testing. <br>
-  <b>NT</b>: Not tested or data not available from latest published reports.
-</div>
-          <p class="note water-quality-note">
-            *This table shows the clearest difference between Pangia’s AVL Spring Water, Asheville city water, and the strictest EWG guidelines. “ND” = None Detected. See above for full lab details and source links.
-          </p>
-          <div style="margin-top:1em;font-size:1.06em;">
-            <strong>Summary:</strong> AVL Spring Water meets or beats EWG’s “gold standard” for every measured contaminant. Where EWG calls for zero, our lab tests confirm none detected—while city water can exceed EWG’s safest limits by 30,000% or more, despite meeting legal standards. <br>
-            <em>Transparency, science, and source: that's the Pangia difference.</em>
-          </div>
-        <section>
+<section class="quality-proof-summary">
+  <div class="summary-card">
+    <h3>Legend</h3>
+    <p><strong>ND</strong>: Not detected during testing.</p>
+    <p><strong>NT</strong>: Not tested or not reported in the latest data.</p>
+  </div>
+  <div class="summary-card">
+    <h3>What This Means</h3>
+    <p><strong>Summary:</strong> Asheville’s municipal water is legal yet can exceed EWG’s most protective limits by tens of thousands of percent. Pangia’s post-test goal is to bring every contaminant down to “none detected” wherever guidelines call for zero.</p>
+    <p><em>Transparency, science, and source: that's the Pangia difference.</em></p>
+    <a href="/pages/book.html" class="btn btn-primary">Get Your Custom Report</a>
+  </div>
+</section>
+
+        <section class="quality-section">
             <h2>Certifications & Documents</h2>
             <ul>
                 <li>
@@ -449,12 +474,17 @@
                 </li>
             </ul>
         </section>
-        <section>
+        <section class="quality-section">
             <h2>Questions?</h2>
             <p>
                 <a href="/pages/contact.html">Contact us</a> with any questions about water quality, test results, or sourcing.
             </p>
         </section>
+
+        <section class="quality-cta-panel">
+          <h2>Ready to replace the baseline with your own data?</h2>
+          <p>Book Pangia’s managed water assessment to receive a personalized lab report, filter plan, install, and post-test proof.</p>
+          <a href="/pages/book.html" class="btn btn-primary">Book an Assessment</a>
         </section>
     </main>
     <footer class="footer">
