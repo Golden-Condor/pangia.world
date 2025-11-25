@@ -104,6 +104,13 @@ nav.menu a:hover {
 
   nav.menu ul {
     gap: 4px; /* Reduce spacing between buttons on mobile */
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+  }
+
+  nav.menu li {
+    flex: 0 1 auto;
   }
 
   /*
