@@ -154,12 +154,14 @@ nav.menu a:hover {
   }
 
   nav.menu a {
-    width: 100%;
-    display: flex;
+    width: auto;
+    display: inline-flex;
     justify-content: center;
     text-align: center;
-    font-size: 16px;
-    padding: 6px 8px; /* Slightly reduced from 8px 10px */
+    font-size: 0.8rem;
+    letter-spacing: 0.02em;
+    padding: 6px 10px;
+    white-space: nowrap;
   }
 
   .utility-buttons a.cart {
