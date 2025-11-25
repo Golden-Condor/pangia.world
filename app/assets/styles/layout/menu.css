@@ -1,14 +1,11 @@
 /* General Menu Layout */
 .menu-container {
-    padding: 0 20px;
+    padding: 0;
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-evenly;
-    max-width: 1200px;
-    margin: 0 auto;
+    justify-content: center;
     width: 100%;
-    
 }
 
 /* Prevent menu, search, and cart from shrinking */
@@ -20,12 +17,12 @@
 
 nav.menu {
     display: flex;
-    justify-content: center; /* Horizontally center the menu */
+    justify-content: center; /* Center links */
     align-items: center;
     list-style: none; /* Remove bullet points */
     margin: 0;
     padding: 0;
-    gap: 20px; /* Add spacing between menu items */
+    gap: 12px; /* Add spacing between menu items */
 }
 
 nav.menu ul {
@@ -33,22 +30,20 @@ nav.menu ul {
     margin: 0;
     padding: 0;
     display: flex; /* Ensure child `li` elements are inline */
-    gap: 20px; /* Add spacing between list items */
+    gap: 12px; /* Add spacing between list items */
 }
 
 nav.menu li {
     margin: 0;
     padding: 0;
-}
-
-nav.menu li:not(:last-child) {
-    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
 }
 
 nav.menu a {
     text-decoration: none; /* Remove underlines */
     color: #4A6543; /* Default text color */
-    font-size: 18px;
+    font-size: 14px;
     font-weight: 500;
     padding: 8px 12px;
     border-radius: 5px;
@@ -59,11 +54,6 @@ nav.menu a {
 nav.menu a:hover {
     background-color: #FFF7E6;
     color: #4A6543;
-}
-
-nav.menu a.active {
-    background-color: #A88F61;
-    color: #ffffff;
 }
 
 /* Cart button alignment */

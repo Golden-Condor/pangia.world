@@ -6,7 +6,7 @@ body {
 .cart-main-container {
     display: flex;
     max-width: 1200px;
-    margin: 20px auto;
+    margin: 40px auto;
     padding: 20px;
     gap: 20px;
 }

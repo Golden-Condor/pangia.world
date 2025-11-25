@@ -252,7 +252,7 @@ footer {
 /* Center the place order button beneath the form */
 .place-order-button {
     display: block;
-    margin: 20px auto 40px;
+    margin: 40px auto 40px;
 }
 
 .quantity-controls > button {

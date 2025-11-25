@@ -7,3 +7,9 @@
     localStorage.setItem('utm_campaign', urlParams.get('utm_campaign'));
   }
 })();
+
+document.addEventListener('contextmenu', function (event) {
+  if (event.target && event.target.tagName === 'IMG') {
+    event.preventDefault();
+  }
+});
