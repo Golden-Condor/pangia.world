@@ -44,6 +44,11 @@ const BookingSchema = new mongoose.Schema(
       userAgent: String,
     },
     stripeSessionId: String,
+    originType: {
+      type: String,
+      enum: ["quote", "booking", "unknown"],
+      default: "unknown",
+    },
   },
   { timestamps: true }
 );

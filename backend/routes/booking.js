@@ -1,9 +1,58 @@
 const express = require("express");
 const Booking = require("../models/Booking");
+const fetch = require("node-fetch");
 
 const router = express.Router();
 
 const REQUIRED_FIELDS = ["fullName", "email", "phone"];
+const SLACK_WEBHOOK_URL = process.env.SLACK_WEBHOOK_URL;
+
+const extractPreferredPlan = (body = {}) => {
+  if (body.preferredPlan || body["preferred-plan"]) {
+    return body.preferredPlan || body["preferred-plan"];
+  }
+  const noteSource = body.notes || "";
+  const match = noteSource.match(/Preferred Plan:\s*(.+)/i);
+  return match ? match[1].trim() : null;
+};
+
+async function sendSlackNotification(booking, preferredPlan) {
+  if (!SLACK_WEBHOOK_URL) return;
+
+  const heading =
+    booking.originType === "quote"
+      ? "*📝 New Pangia quote request*"
+      : "*✅ New Pangia booking*";
+
+  const lines = [
+    heading,
+    `• Name: ${booking.fullName || "N/A"}`,
+    `• Email: ${booking.email || "N/A"}`,
+    `• Phone: ${booking.phone || "N/A"}`,
+    `• ZIP: ${booking.address?.postalCode || booking.serviceArea || "N/A"}`,
+    `• Water source: ${booking.waterSource || "N/A"}`,
+  ];
+
+  if (preferredPlan) {
+    lines.push(`• Preferred plan: ${preferredPlan}`);
+  }
+
+  const notesPreview = booking.notes
+    ? booking.notes.substring(0, 280)
+    : booking.concerns || "";
+
+  if (notesPreview) {
+    lines.push(`• Notes: ${notesPreview}`);
+  }
+
+  const payload = { text: lines.join("\n") };
+
+  await fetch(SLACK_WEBHOOK_URL, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(payload),
+  });
+}
 
 router.post("/create", async (req, res) => {
   try {
@@ -32,6 +81,9 @@ router.post("/create", async (req, res) => {
       return res.status(400).json({ message: "Validation failed", errors });
     }
 
+    const preferredPlan = extractPreferredPlan(req.body);
+    const originType = req.body.originType || "unknown";
+
     const booking = new Booking({
       fullName: req.body.fullName,
       email: req.body.email,
@@ -54,9 +106,14 @@ router.post("/create", async (req, res) => {
       metadata: {
         userAgent: req.headers["user-agent"] || "",
       },
+      originType,
     });
 
     await booking.save();
+
+    sendSlackNotification(booking, preferredPlan).catch((err) =>
+      console.error("❌ Slack notification failed:", err.message)
+    );
 
     res.status(201).json({
       message: "Booking created",
