@@ -1,3 +1,12 @@
+const API_BASE =
+  window.__API_BASE__ ||
+  (window.location.origin.includes("localhost:") ||
+  window.location.origin.includes("127.0.0.1:")
+    ? "http://localhost:5000"
+    : window.location.origin.includes("pangia.world")
+      ? "https://api.pangia.world"
+      : window.location.origin);
+
 document.addEventListener('DOMContentLoaded', () => {
   const quoteForm = document.querySelector('.quote-form');
   if (!quoteForm) return;
@@ -67,6 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
       propertyType: formData.get('home-size'),
       concerns: formData.get('notes')?.trim() || '',
       notes: formData.get('notes')?.trim() || '',
+      originType: 'quote',
       utm_source: localStorage.getItem('utm_source'),
       utm_medium: localStorage.getItem('utm_medium'),
       utm_campaign: localStorage.getItem('utm_campaign'),
@@ -75,7 +85,7 @@ document.addEventListener('DOMContentLoaded', () => {
     setStatus('Sending your quote request...');
 
     try {
-      const response = await fetch('/api/bookings/create', {
+    const response = await fetch(`${API_BASE}/api/bookings/create`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

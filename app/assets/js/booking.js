@@ -3,7 +3,9 @@ const API_BASE =
   window.__API_BASE__ ||
   (window.location.origin.includes("localhost:") || window.location.origin.includes("127.0.0.1:")
     ? "http://localhost:5000"
-    : window.location.origin);
+    : window.location.origin.includes("pangia.world")
+      ? "https://api.pangia.world"
+      : window.location.origin);
 
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("booking-form");
@@ -45,6 +47,7 @@ function buildBookingPayload() {
     preferredTime: getFormValue("preferred-time"),
     contactMethod: getFormValue("contact-method"),
     notes: getFormValue("notes"),
+    originType: "booking",
     ...getUtmData()
   };
 }

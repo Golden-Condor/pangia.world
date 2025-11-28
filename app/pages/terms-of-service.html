@@ -3,396 +3,123 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Terms of Service - Pangia Clean</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', 'Helvetica Neue', Arial, 'Liberation Sans', sans-serif;
-      background-color: #D9B97F;
-      color: #2a2a2a;
-      line-height: 1.75;
-      font-size: 1.06rem;
-    }
-    .water-quality-main {
-      max-width: 900px;
-      margin: 2.5rem auto 3rem auto;
-      background-color: #EAD6A8;
-      padding: 2rem 2.5rem;
-      box-shadow: 0 2px 18px rgba(0,0,0,0.07);
-      border-radius: 12px;
-    }
-    h1 {
-      font-size: 2.4rem;
-      margin-bottom: 0.5rem;
-      font-weight: 700;
-      color: #2a6a3b;
-      letter-spacing: -1px;
-      line-height: 1.15;
-    }
-    h2 {
-      font-size: 1.45rem;
-      margin-top: 2.2rem;
-      margin-bottom: 0.9rem;
-      font-weight: 700;
-      border-bottom: 2px solid #186e4b;
-      padding-bottom: 0.25rem;
-      color: #186e4b;
-      background: none;
-    }
-    h3 {
-      font-size: 1.13rem;
-      margin-top: 1.7rem;
-      margin-bottom: 0.6rem;
-      font-weight: 600;
-      color: #218838;
-      letter-spacing: 0.01em;
-    }
-    p {
-      margin-bottom: 1.1rem;
-      font-size: 1rem;
-      color: #2a2a2a;
-      max-width: 100%;
-    }
-    ul, ol {
-      margin: 0 0 1.1rem 1.7rem;
-      padding: 0;
-      color: #2a2a2a;
-      font-size: 1rem;
-    }
-    li {
-      margin-bottom: 0.6rem;
-      font-size: 1rem;
-    }
-    a {
-      color: #186e4b;
-      text-decoration: none;
-      transition: text-decoration 0.12s;
-      font-weight: 500;
-    }
-    a:hover, a:focus {
-      text-decoration: underline;
-      color: #186e4b;
-    }
-    .last-updated {
-      font-size: 0.97rem;
-      color: #4a4a4a;
-      margin-bottom: 2.1rem;
-      font-style: italic;
-      letter-spacing: 0.01em;
-    }
-    nav.toc {
-      margin-bottom: 2.3rem;
-      background: #f7efd9;
-      border-radius: 10px;
-      padding: 1.2rem 1.4rem 1rem 1.4rem;
-      box-shadow: 0 1px 6px rgba(186, 161, 94, 0.13);
-    }
-    nav.toc h2 {
-      border-bottom: none;
-      margin-top: 0;
-      margin-bottom: 0.7rem;
-      color: #218838;
-      font-size: 1.15rem;
-      font-weight: 700;
-      letter-spacing: 0.02em;
-    }
-    nav.toc ul {
-      list-style-type: none;
-      padding-left: 0;
-      margin-bottom: 0;
-    }
-    nav.toc li {
-      margin-bottom: 0.45rem;
-      font-size: 1rem;
-      line-height: 1.5;
-    }
-    nav.toc a {
-      color: #186e4b;
-      text-decoration: none;
-      border-radius: 4px;
-      padding: 0.05em 0.1em;
-      transition: background 0.13s;
-    }
-    nav.toc a:hover, nav.toc a:focus {
-      text-decoration: underline;
-      background: #e3e6cf;
-    }
-
-    @media (max-width: 650px) {
-      .water-quality-main {
-        padding: 1.2rem 0.7rem;
-        margin: 1.2rem 0.3rem 2rem 0.3rem;
-        border-radius: 8px;
-      }
-      nav.toc {
-        padding: 1rem 0.7rem 0.7rem 0.7rem;
-        border-radius: 7px;
-      }
-      h1 {
-        font-size: 1.6rem;
-      }
-      h2 {
-        font-size: 1.1rem;
-      }
-      h3 {
-        font-size: 0.98rem;
-      }
-      p, ul, ol, li {
-        font-size: 0.99rem;
-      }
-    }
-    /* Footer Styles */
-footer {
-    background-color: transparent;
-    color: #333;
-    text-align: center;
-    padding: 20px 0;
-    box-shadow: none;
-    border-radius: 0;
-}
-
-.footer-content {
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.footer-menu ul {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-}
-
-.footer-menu li a {
-    text-decoration: none;
-    color: #333;
-    transition: color 0.3s ease;
-}
-
-.footer-menu li a:hover {
-    color: #4CAF50;
-}
-    @media (max-width: 400px) {
-      .water-quality-main {
-        padding: 1rem 0.5rem;
-        margin: 1rem 0.2rem 1.5rem 0.2rem;
-        border-radius: 6px;
-      }
-      nav.toc {
-        padding: 0.8rem 0.5rem 0.5rem 0.5rem;
-        border-radius: 6px;
-      }
-      h1 {
-        font-size: 1.4rem;
-      }
-      h2 {
-        font-size: 1rem;
-      }
-      h3 {
-        font-size: 0.9rem;
-      }
-    }
-
-  </style>
+  <title>Terms of Service - Pangia</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png">
+  <link rel="stylesheet" href="/assets/styles/main.css">
+  <link rel="stylesheet" href="/assets/styles/pages/policy.css">
 </head>
 <body>
-  <main class="water-quality-main">
-    <h1>Terms of Service</h1>
-    <p class="last-updated">Last Updated: June 2024</p>
-
-    <section id="agreement-to-legal-terms">
-      <h2>Agreement to Legal Terms</h2>
-      <p>Welcome to Pangia Clean. These Terms of Service ("Terms") constitute a legally binding agreement made between you, whether personally or on behalf of an entity (“you”) and Pangia Clean ("Company," "we," "us," or "our"), concerning your access to and use of the pangiaclean.com website as well as any other media form, media channel, mobile website, or mobile application related, linked, or otherwise connected thereto (collectively, the "Site" or "Services").</p>
-      <p>Please read these Terms carefully prior to using our Services. By accessing or using our Services, you agree to be bound by these Terms. If you do not agree to all the terms and conditions of this agreement, then you may not access the Services.</p>
-      <p>We recommend that you print a copy of these Terms for your records.</p>
-    </section>
-
-    <nav class="toc" aria-label="Table of Contents">
-      <h2>Table of Contents</h2>
-      <ul>
-                    <li><a href="/pages/index.html">Pangia</a></li>
-                    <li><a href="#our-services">1. Our Services</a></li>
-        <li><a href="#intellectual-property-rights">2. Intellectual Property Rights</a></li>
-        <li><a href="#user-representations">3. User Representations</a></li>
-        <li><a href="#prohibited-activities">4. Prohibited Activities</a></li>
-        <li><a href="#user-generated-contributions">5. User Generated Contributions</a></li>
-        <li><a href="#contribution-license">6. Contribution License</a></li>
-        <li><a href="#services-management">7. Services Management</a></li>
-        <li><a href="#term-and-termination">8. Term and Termination</a></li>
-        <li><a href="#modifications-and-interruptions">9. Modifications and Interruptions</a></li>
-        <li><a href="#governing-law">10. Governing Law</a></li>
-        <li><a href="#dispute-resolution">11. Dispute Resolution</a></li>
-        <li><a href="#corrections">12. Corrections</a></li>
-        <li><a href="#disclaimer">13. Disclaimer</a></li>
-        <li><a href="#limitations-of-liability">14. Limitations of Liability</a></li>
-        <li><a href="#indemnification">15. Indemnification</a></li>
-        <li><a href="#user-data">16. User Data</a></li>
-        <li><a href="#electronic-communications">17. Electronic Communications, Transactions, and Signatures</a></li>
-        <li><a href="#miscellaneous">18. Miscellaneous</a></li>
-        <li><a href="#contact-us">19. Contact Us</a></li>
-      </ul>
-    </nav>
-
-    <section id="our-services">
-      <h2>1. Our Services</h2>
-      <p>We provide a variety of services through our website and related platforms designed to assist users in accessing information and tools related to environmental and water quality topics. Our Services may include content, tools, and interactive features to enhance your experience.</p>
-      <p>We reserve the right to update, modify, or discontinue any aspect of our Services at any time without prior notice.</p>
-    </section>
-
-    <section id="intellectual-property-rights">
-      <h2>2. Intellectual Property Rights</h2>
-      <p>Unless otherwise indicated, the Site and its original content, features, and functionality are and will remain the exclusive property of Pangia Clean and its licensors. Our trademarks, service marks, logos, and trade dress may not be used in connection with any product or service without the prior written consent of Pangia Clean.</p>
-    </section>
-
-    <section id="user-representations">
-      <h2>3. User Representations</h2>
-      <p>By using the Services, you represent and warrant that:</p>
-      <ul>
-        <li>You have the legal capacity and you agree to comply with these Terms;</li>
-        <li>You will not use the Services for any illegal or unauthorized purpose;</li>
-        <li>Your use of the Services will not violate any applicable law or regulation;</li>
-        <li>You are not a minor in the jurisdiction in which you reside;</li>
-        <li>You will not engage in any conduct that restricts or inhibits any other user from using or enjoying the Services.</li>
-      </ul>
-    </section>
-
-    <section id="prohibited-activities">
-      <h2>4. Prohibited Activities</h2>
-      <p>You agree that you will not:</p>
-      <ul>
-        <li>Use the Services for any unlawful purpose or to solicit others to perform or participate in any unlawful acts;</li>
-        <li>Violate any international, federal, provincial or state regulations, rules, laws, or local ordinances;</li>
-        <li>Infringe upon or violate our intellectual property rights or the intellectual property rights of others;</li>
-        <li>Harass, abuse, insult, harm, defame, slander, disparage, intimidate, or discriminate based on gender, sexual orientation, religion, ethnicity, race, age, national origin, or disability;</li>
-        <li>Submit false or misleading information;</li>
-        <li>Upload or transmit viruses or any other type of malicious code that will or may be used in any way that will affect the functionality or operation of the Services;</li>
-        <li>Engage in spamming, phishing, or other unsolicited advertising or promotional activities;</li>
-        <li>Attempt to gain unauthorized access to any portion or feature of the Services, or any other systems or networks connected to the Services;</li>
-        <li>Interfere with or disrupt the Services or servers or networks connected to the Services.</li>
-      </ul>
-    </section>
-
-    <section id="user-generated-contributions">
-      <h2>5. User Generated Contributions</h2>
-      <p>The Services may invite you to chat, contribute to, or participate in blogs, message boards, online forums, and other functionality, and may provide you with the opportunity to create, submit, post, display, transmit, perform, publish, distribute, or broadcast content and materials to us or on the Services ("Contributions").</p>
-      <p>You understand that Contributions may be viewed by other users of the Services and that any personally identifiable information you submit will be disclosed.</p>
-    </section>
-
-    <section id="contribution-license">
-      <h2>6. Contribution License</h2>
-      <p>By posting Contributions, you grant us a worldwide, non-exclusive, royalty-free, sublicensable, and transferable license to use, reproduce, distribute, prepare derivative works of, display, and perform the Contributions in connection with the Services and our business.</p>
-      <p>You represent and warrant that you own or otherwise control all of the rights to your Contributions and that your Contributions do not infringe or violate the rights of any third party.</p>
-    </section>
-
-    <section id="services-management">
-      <h2>7. Services Management</h2>
-      <p>We reserve the right, but not the obligation, to:</p>
-      <ul>
-        <li>Monitor the Services for violations of these Terms;</li>
-        <li>Take appropriate legal action against anyone who violates the law or these Terms;</li>
-        <li>In our sole discretion and without limitation, refuse, restrict access to, limit the availability of, or disable (to the extent technologically feasible) any user’s Contributions or any portion thereof;</li>
-        <li>Remove any Contributions or content that we determine to be unlawful, offensive, threatening, libelous, defamatory, obscene, or otherwise objectionable;</li>
-        <li>Disclose your identity or other information about you to any third party who claims that material posted by you violates their rights, including their intellectual property rights or their right to privacy.</li>
-      </ul>
-    </section>
-
-    <section id="term-and-termination">
-      <h2>8. Term and Termination</h2>
-      <p>These Terms remain in effect while you use the Services. We reserve the right, in our sole discretion and without notice or liability, to deny access to and use of the Services (including blocking certain IP addresses), to any user for any reason, including for breach of these Terms or any applicable law or regulation. We may terminate your use or participation in the Services, or delete any content or information you posted, at any time, without warning.</p>
-      <p>If we terminate or suspend your account, you are prohibited from registering and creating a new account under your name, a fake or borrowed name, or the name of any third party. We reserve the right to take appropriate legal action, including civil, criminal, and injunctive redress.</p>
-    </section>
-
-    <section id="modifications-and-interruptions">
-      <h2>9. Modifications and Interruptions</h2>
-      <p>We reserve the right to change, modify, or remove the contents of the Services at any time or for any reason at our sole discretion without notice. We have no obligation to update any information on our Services.</p>
-      <p>We cannot guarantee the Services will always be available. We may experience hardware, software, or other issues, or need to perform maintenance, resulting in interruptions, delays, or errors. We reserve the right to change, revise, update, suspend, discontinue, or otherwise modify the Services at any time or for any reason without notice.</p>
-      <p>You agree that we have no liability whatsoever for any loss, damage, or inconvenience caused by your inability to access or use the Services during any downtime or discontinuance.</p>
-    </section>
-
-    <section id="governing-law">
-      <h2>10. Governing Law</h2>
-      <p>These Terms and your use of the Services are governed by and construed in accordance with the laws of the State of North Carolina, without regard to conflict of law principles. You consent to the exclusive jurisdiction of the courts in that state for the resolution of any dispute arising in connection with these Terms or the Services.</p>
-    </section>
-
-    <section id="dispute-resolution">
-      <h2>11. Dispute Resolution</h2>
-      <h3>Informal Negotiations</h3>
-      <p>To expedite resolution and control the cost of any dispute, controversy, or claim related to these Terms ("Dispute"), you and Pangia agree to first attempt to negotiate any Dispute informally for at least 30 days before initiating arbitration.</p>
-      <h3>Binding Arbitration</h3>
-      <p>If informal negotiations do not resolve the Dispute, the Dispute shall be resolved by binding arbitration, conducted in North Carolina in English and governed by the substantive laws of that state.</p>
-      <h3>Restrictions</h3>
-      <p>The Parties agree that any arbitration shall be limited to the dispute between the Parties individually. To the fullest extent permitted by law: (a) no arbitration shall be joined with any other proceeding; (b) there is no right or authority for any Dispute to be arbitrated on a class-action basis or to utilize class action procedures; and (c) there is no right or authority for any Dispute to be brought in a purported representative capacity on behalf of the general public or any other persons.</p>
-      <h3>Exceptions to Informal Negotiations and Arbitration</h3>
-      <p>The Parties agree that the following Disputes are not subject to the above provisions regarding informal negotiations and binding arbitration: (a) any Disputes seeking to enforce or protect, or concerning the validity of, any of the intellectual property rights of a Party; (b) any Dispute related to, or arising from, allegations of theft, piracy, invasion of privacy, or unauthorized use; and (c) any claim for injunctive relief. If this provision is found to be illegal or unenforceable, then neither Party will elect to arbitrate any Dispute falling within that portion of this provision, and such Dispute shall be decided by a court of competent jurisdiction within the courts listed for jurisdiction above. The Parties agree to submit to the personal jurisdiction of that court.</p>
-    </section>
-
-    <section id="corrections">
-      <h2>12. Corrections</h2>
-      <p>There may be information on the Services that contains typographical errors, inaccuracies, or omissions, including descriptions, pricing, availability, or other information. We reserve the right to correct any errors, inaccuracies, or omissions and to change or update information on the Services at any time, without prior notice.</p>
-    </section>
-
-    <section id="disclaimer">
-      <h2>13. Disclaimer</h2>
-      <p>THE SERVICES ARE PROVIDED ON AN "AS IS" AND "AS AVAILABLE" BASIS. YOUR USE OF THE SERVICES IS AT YOUR SOLE RISK. TO THE FULLEST EXTENT PERMITTED BY LAW, WE DISCLAIM ALL WARRANTIES, EXPRESS OR IMPLIED, INCLUDING WITHOUT LIMITATION WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT.</p>
-      <p>WE MAKE NO WARRANTIES OR REPRESENTATIONS ABOUT THE ACCURACY OR COMPLETENESS OF THE SERVICES' CONTENT OR ANY WEBSITES LINKED TO THE SERVICES, AND WE WILL ASSUME NO LIABILITY FOR: (1) ERRORS, MISTAKES, OR INACCURACIES OF CONTENT AND MATERIALS; (2) PERSONAL INJURY OR PROPERTY DAMAGE RESULTING FROM YOUR USE OF THE SERVICES; (3) UNAUTHORIZED ACCESS TO OR USE OF OUR SERVERS AND/OR ANY PERSONAL OR FINANCIAL INFORMATION STORED THEREIN; (4) ANY INTERRUPTION OR CESSATION OF TRANSMISSION TO OR FROM THE SERVICES; (5) ANY BUGS, VIRUSES, TROJAN HORSES, OR THE LIKE TRANSMITTED BY ANY THIRD PARTY; (6) ANY ERRORS OR OMISSIONS IN ANY CONTENT, OR ANY LOSS OR DAMAGE INCURRED AS A RESULT OF THE USE OF ANY CONTENT POSTED OR MADE AVAILABLE THROUGH THE SERVICES. WE DO NOT WARRANT, ENDORSE, GUARANTEE, OR ASSUME RESPONSIBILITY FOR ANY PRODUCT OR SERVICE ADVERTISED OR OFFERED BY A THIRD PARTY THROUGH THE SERVICES OR ANY HYPERLINKED WEBSITE.</p>
-    </section>
-
-    <section id="limitations-of-liability">
-      <h2>14. Limitations of Liability</h2>
-      <p>IN NO EVENT WILL WE OR OUR DIRECTORS, EMPLOYEES, OR AGENTS BE LIABLE TO YOU OR ANY THIRD PARTY FOR ANY DIRECT, INDIRECT, CONSEQUENTIAL, EXEMPLARY, INCIDENTAL, SPECIAL, OR PUNITIVE DAMAGES, INCLUDING LOST PROFITS, LOST REVENUE, LOSS OF DATA, OR OTHER DAMAGES ARISING FROM YOUR USE OF THE SERVICES, EVEN IF WE HAVE BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES. NOTWITHSTANDING ANYTHING TO THE CONTRARY, OUR LIABILITY TO YOU FOR ANY CAUSE WHATSOEVER, AND REGARDLESS OF THE FORM OF ACTION, WILL AT ALL TIMES BE LIMITED TO THE LESSER OF THE AMOUNT PAID BY YOU TO US OR THE AMOUNT SPECIFIED IN OUR TERMS. SOME JURISDICTIONS DO NOT ALLOW LIMITATIONS ON IMPLIED WARRANTIES OR THE EXCLUSION OR LIMITATION OF CERTAIN DAMAGES. IF THESE LAWS APPLY TO YOU, SOME OR ALL OF THE ABOVE DISCLAIMERS OR LIMITATIONS MAY NOT APPLY TO YOU.</p>
-    </section>
-
-    <section id="indemnification">
-      <h2>15. Indemnification</h2>
-      <p>You agree to defend, indemnify, and hold Pangia (including its affiliates, officers, agents, partners, and employees) harmless from and against any loss, damage, liability, claim, or demand, including reasonable attorneys’ fees, made by any third party due to or arising out of: (1) your use of the Services; (2) your breach of these Terms; (3) your violation of the rights of a third party, including intellectual property rights; or (4) any harmful act toward another user of the Services. We reserve the right, at your expense, to assume the exclusive defense and control of any matter for which you are required to indemnify us, and you agree to cooperate with our defense of such claims.</p>
-    </section>
-
-    <section id="user-data">
-      <h2>16. User Data</h2>
-      <p>We maintain certain data you transmit to the Services for performance and management purposes. While we perform regular backups, you are solely responsible for all data that you transmit or that relates to your activity on the Services. We are not liable for any loss or corruption of such data.</p>
-    </section>
-
-    <section id="electronic-communications">
-      <h2>17. Electronic Communications, Transactions, and Signatures</h2>
-      <p>By visiting the Services, sending us emails, or completing forms, you consent to receive electronic communications. All agreements, notices, disclosures, and communications we provide electronically satisfy any legal requirement that such communications be in writing. YOU CONSENT TO THE USE OF ELECTRONIC SIGNATURES, CONTRACTS, AND RECORDS, AND TO ELECTRONIC DELIVERY OF NOTICES AND POLICIES. YOU WAIVE ANY RIGHTS THAT REQUIRE AN ORIGINAL SIGNATURE OR NON-ELECTRONIC RECORDS.</p>
-      <h3>SMS Communications</h3>
-      <p>By providing your phone number during checkout or account creation, you consent to receive SMS messages from Pangia related to your purchases, order status, delivery updates, and customer service. Message and data rates may apply. You can opt out at any time by replying STOP.</p>
-    </section>
-
-    <section id="miscellaneous">
-      <h2>18. Miscellaneous</h2>
-      <p>These Terms, along with any policies or operating rules posted by Pangia on the Services, constitute the entire agreement between you and us. Our failure to exercise or enforce any right or provision shall not operate as a waiver of such right or provision. These Terms operate to the fullest extent permitted by law. We may assign any or all of our rights and obligations at any time. We are not responsible for any loss, damage, or delay caused by any cause beyond our reasonable control. If any provision is deemed unlawful, void, or unenforceable, that provision is severable and does not affect the validity of the remaining provisions. No joint venture, partnership, employment, or agency relationship exists between you and Pangia as a result of these Terms or use of the Services.</p>
-    </section>
-
-    <section id="contact-us">
-      <h2>19. Contact Us</h2>
-      <p>To resolve a complaint about the Services or to receive further information about their use, please contact us at:</p>
-      <p><strong>Pangia LLC</strong><br>
-      37 Biltmore Ave, Unit 301<br>
-      Asheville, NC 28801<br>
-      USA<br>
-      <strong>Email:</strong> hello.world@pangia.world</p>
-    </section>
-
-    <section id="privacy-policy">
-        <h2>Privacy Policy</h2>
-        <p>For information about our data practices, please see our <a href="/pages/privacy-policy.html">Privacy Policy</a>.</p>
-    </section>
-    </main>
-    <!-- Footer Section -->
-     
-
-        <footer class="footer">
-        <div class="footer-content">
-            <p>&copy; 2024 Pangia. All rights reserved.</p>
-            <nav class="footer-links">
-                    <a href="/pages/privacy-policy.html">Privacy Policy</a>
-                    <a href="/pages/terms-of-service.html">Terms of Service</a>
-                    <a href="/pages/contact.html">Contact Us</a>
-                </nav>
+  <header>
+    <div class="header-content">
+      <div class="menu-container">
+        <div class="nav-wrapper nav-inline">
+          <nav class="menu" aria-label="Main navigation">
+            <ul>
+              <li><a href="/pages/index.html">Pangia</a></li>
+              <li><a href="/pages/package.html">Service</a></li>
+              <li><a href="/pages/water-quality.html">Quality</a></li>
+              <li><a href="/pages/support.html">Support</a></li>
+              <li><a href="/pages/book.html" class="btn book-cta">Book an Assessment</a></li>
+            </ul>
+          </nav>
         </div>
-    </footer>
-    </main>
+      </div>
+    </div>
+  </header>
+
+  <main class="policy-main">
+    <section class="policy-hero">
+      <p class="eyebrow">Legal</p>
+      <h1>Terms of Service</h1>
+      <p class="last-updated">Last updated: January 1, 2024</p>
+      <p>Pangia coordinates certified water testing, filtration recommendations, equipment sourcing, installation, and post-proof documentation. These terms govern your use of our website, services, and managed offerings.</p>
+    </section>
+
+    <section class="policy-content">
+      <nav class="policy-toc" aria-label="Table of contents">
+        <strong>Contents</strong>
+        <ul>
+          <li><a href="#overview">1. Overview</a></li>
+          <li><a href="#eligibility">2. Eligibility & Service Area</a></li>
+          <li><a href="#scheduling">3. Scheduling & Payments</a></li>
+          <li><a href="#lab">4. Testing & Results</a></li>
+          <li><a href="#install">5. Installation & Warranty</a></li>
+          <li><a href="#support">6. Support & Maintenance</a></li>
+          <li><a href="#liability">7. Liability</a></li>
+          <li><a href="#updates">8. Updates</a></li>
+          <li><a href="#contact">9. Contact</a></li>
+        </ul>
+      </nav>
+
+      <article id="overview">
+        <h2>1. Overview</h2>
+        <p>These Terms of Service (“Terms”) apply to Pangia LLC’s managed water quality services, including assessment, lab coordination, equipment sourcing, install management, and support. By booking or using our services you agree to these Terms.</p>
+      </article>
+
+      <article id="eligibility">
+        <h2>2. Eligibility & Service Area</h2>
+        <ul>
+          <li>We currently serve Asheville, NC and surrounding counties. We may review requests outside this area on a case-by-case basis.</li>
+          <li>You must be at least 18 years old and authorized to schedule services for the property.</li>
+          <li>We may decline projects that fall outside our expertise or partner network.</li>
+        </ul>
+      </article>
+
+      <article id="scheduling">
+        <h2>3. Scheduling & Payments</h2>
+        <ul>
+          <li>Managed assessments start at $250, which is credited toward install projects.</li>
+          <li>Install pricing varies based on equipment, complexity, and partner availability. We provide a quote before work begins.</li>
+          <li>Payments may be split between assessment and install milestones. We accept Stripe, ACH, or check for larger projects.</li>
+        </ul>
+      </article>
+
+      <article id="lab">
+        <h2>4. Testing & Results</h2>
+        <p>Pangia coordinates with certified labs to collect and analyze water samples. Results are provided as shared by the lab and interpreted by Pangia partners. Lab sampling windows depend on inventory, shipping, and county regulations.</p>
+      </article>
+
+      <article id="install">
+        <h2>5. Installation & Warranty</h2>
+        <ul>
+          <li>Installations are completed by licensed and insured professionals. Pangia manages coordination but final workmanship responsibility rests with the installer.</li>
+          <li>Equipment warranties follow the manufacturer’s policy. Pangia assists with warranty claims but is not liable for manufacturing defects.</li>
+          <li>Homeowner is responsible for ensuring safe access, necessary utilities, and any required permits not included in the scope.</li>
+        </ul>
+      </article>
+
+      <article id="support">
+        <h2>6. Support & Maintenance</h2>
+        <p>We provide maintenance reminders, cartridge schedules, and ongoing support options. Any recurring or annual maintenance plan will be outlined in writing before enrollment.</p>
+      </article>
+
+      <article id="liability">
+        <h2>7. Liability</h2>
+        <p>Pangia is not responsible for damages caused by water system use outside design parameters, pre-existing plumbing issues, or misuse of equipment. Our liability is limited to the total amount paid for services rendered.</p>
+      </article>
+
+      <article id="updates">
+        <h2>8. Updates to Terms</h2>
+        <p>We may revise these Terms to reflect new services, regulations, or policies. We will post updates to this page and list the revision date above.</p>
+      </article>
+
+      <article id="contact">
+        <h2>9. Contact</h2>
+        <p>Questions? Email <a href="mailto:hello.world@pangia.world">hello.world@pangia.world</a> or call (828) 412-9278.</p>
+      </article>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-content">
+      <p>&copy; 2024 Pangia. All rights reserved.</p>
+      <nav class="footer-links">
+        <a href="/pages/privacy-policy.html">Privacy Policy</a>
+        <a href="/pages/terms-of-service.html">Terms of Service</a>
+        <a href="/pages/contact.html">Contact Us</a>
+      </nav>
+    </div>
+  </footer>
 </body>
 </html>
