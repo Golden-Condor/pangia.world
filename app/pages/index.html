@@ -22,6 +22,9 @@
 
 </head>
 <body>
+  <div id="splash" class="splash-screen" role="dialog" aria-label="Loading Pangia" tabindex="0" style="display:none;">
+    <div class="splash-logo">Pangia</div>
+  </div>
   <header>
     <div class="header-content">
         <div class="menu-container">
@@ -191,6 +194,36 @@
     <script src="assets/js/menu.js"></script>
     <script src="/assets/js/cart-count.js"></script>
     <script src="/assets/js/utm.js"></script>
+    <script>
+      (function () {
+        const splash = document.getElementById('splash');
+        if (!splash) return;
+        const hasSeen = localStorage.getItem('pangiaSplashSeen') === 'true';
+        const hideSplash = () => {
+          splash.classList.add('is-hidden');
+          setTimeout(() => splash.remove(), 1700);
+        };
+        const completeSplash = () => {
+          localStorage.setItem('pangiaSplashSeen', 'true');
+          hideSplash();
+        };
+        if (hasSeen) {
+          splash.remove();
+          return;
+        }
+        splash.style.display = 'flex';
+        splash.addEventListener('click', completeSplash);
+        splash.addEventListener('keydown', (event) => {
+          if (event.key === 'Enter' || event.key === ' ') {
+            event.preventDefault();
+            completeSplash();
+          }
+        });
+        window.addEventListener('load', () => {
+          setTimeout(completeSplash, 4000);
+        });
+      })();
+    </script>
 
 </body>
 </html>
