@@ -54,6 +54,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const email = formData.get('email')?.trim();
     const phone = formData.get('phone')?.trim();
     const postalCode = formData.get('zip')?.trim();
+    const honeypot = formData.get('contact-code')?.trim();
+
+    if (honeypot) {
+      setStatus('Unable to submit at this time.', 'error');
+      return;
+    }
 
     if (!fullName || !email || !phone || !postalCode) {
       setStatus('Please complete all required fields.', 'error');
@@ -77,6 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
       concerns: formData.get('notes')?.trim() || '',
       notes: formData.get('notes')?.trim() || '',
       originType: 'quote',
+      honeypot,
       utm_source: localStorage.getItem('utm_source'),
       utm_medium: localStorage.getItem('utm_medium'),
       utm_campaign: localStorage.getItem('utm_campaign'),

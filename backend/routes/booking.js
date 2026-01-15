@@ -56,6 +56,10 @@ async function sendSlackNotification(booking, preferredPlan) {
 
 router.post("/create", async (req, res) => {
   try {
+    if (req.body["contact-code"] || req.body.honeypot) {
+      return res.status(204).send();
+    }
+
     const errors = [];
     REQUIRED_FIELDS.forEach((field) => {
       if (!req.body[field]) {

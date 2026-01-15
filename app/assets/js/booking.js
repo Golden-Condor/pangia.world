@@ -47,6 +47,7 @@ function buildBookingPayload() {
     preferredTime: getFormValue("preferred-time"),
     contactMethod: getFormValue("contact-method"),
     notes: getFormValue("notes"),
+    honeypot: getFormValue("contact-code"),
     originType: "booking",
     ...getUtmData()
   };
@@ -65,6 +66,14 @@ async function handleBookingSubmit(event) {
   if (submitBtn) {
     submitBtn.disabled = true;
     submitBtn.textContent = "Submitting...";
+  }
+  if (getFormValue("contact-code")) {
+    showBookingAlert("Unable to submit at this time.", "error");
+    if (submitBtn) {
+      submitBtn.disabled = false;
+      submitBtn.textContent = "Submit & Proceed to Payment";
+    }
+    return;
   }
   showBookingAlert("Creating your booking...", "info");
 
