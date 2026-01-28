@@ -1,11 +1,11 @@
 :root {
     /* Colors */
-    --primary-color: #4CAF50;        /* Main action color */
-    --secondary-color: #ff5722;      /* Accent color */
-    --background-color: #f4f4f4;     /* Background color */
-    --text-color: #333;              /* Primary text color */
-    --light-text-color: #666;        /* Lighter text color for secondary content */
-    --border-color: #e0e0e0;         /* For dividers and borders */
+    --primary-color: #1c8d76;        /* Main action color */
+    --secondary-color: #21b195;      /* Accent color */
+    --background-color: #031712;     /* Deep green background */
+    --text-color: #f4f4ec;           /* Primary text color */
+    --light-text-color: #b4c2bb;     /* Lighter text color for secondary content */
+    --border-color: #0e2b21;         /* For dividers and borders */
 
     /* Typography */
     --font-family: 'Arial', sans-serif;

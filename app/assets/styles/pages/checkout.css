@@ -146,7 +146,7 @@ input[type="number"]:focus {
     align-items: center;
     margin: 40px auto;
     max-width: 600px;
-    padding: 0 20px;
+    padding: 0 10px;
 }
 
 .progress-step {

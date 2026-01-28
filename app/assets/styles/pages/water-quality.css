@@ -1,8 +1,3 @@
-body {
-  background-color: #f7f4ec;
-  font-family: 'Inter', Arial, sans-serif;
-}
-
 .page-hero-placeholder {
   width: 100%;
   margin: 0 0 40px 0;
@@ -20,18 +15,18 @@ body {
 .water-quality-main {
   max-width: 1100px;
   margin: 40px auto 80px auto;
-  padding: 0 20px;
+  padding: 0 10px;
 }
 
 .water-quality-main h1 {
-  color: #186e4b;
+  color: #d9f1e6;
   font-size: 2.2rem;
   margin-bottom: 8px;
-  text-shadow: 0 3px 8px rgba(0, 51, 102, 0.25);
+  text-shadow: 0 3px 8px rgba(0, 0, 0, 0.4);
 }
 
 .water-quality-main h2 {
-  color: #218838;
+  color: #9fe0cc;
   font-size: 1.45rem;
   margin-top: 2.5rem;
   margin-bottom: 0.5rem;
@@ -41,22 +36,23 @@ body {
   width: 100%;
   margin: 2rem 0 0.5rem 0;
   border-collapse: collapse;
-  background-color: #fff;
+  background-color: #0a231a;
   border-radius: 10px;
-  box-shadow: 0 4px 18px rgba(40, 167, 69, 0.09);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.45);
   overflow: hidden;
+  border: 1px solid #143528;
 }
 
 .water-quality-table th,
 .water-quality-table td {
   padding: 1em;
   text-align: left;
-  border-bottom: 1px solid #efefef;
+  border-bottom: 1px solid #123427;
 }
 
 .water-quality-table th {
-  background: #f4faee;
-  color: #28a745;
+  background: #0f2f24;
+  color: #8fe0c9;
   font-size: 1.06em;
   font-weight: 600;
 }
@@ -67,7 +63,7 @@ body {
 
 .water-quality-note {
   font-size: 0.97em;
-  color: #7d857b;
+  color: #c4d5ce;
   margin-top: 0.6em;
 }
 
@@ -75,8 +71,8 @@ body {
   display: inline-block;
   margin-top: 1.5rem;
   padding: 12px 28px;
-  background-color: #28a745;
-  color: #fff;
+  background-color: var(--secondary-color);
+  color: #031712;
   border-radius: 6px;
   font-weight: 500;
   font-size: 1.07em;
@@ -85,20 +81,21 @@ body {
 }
 
 .cta-btn:hover {
-  background: #218838;
+  background: #7aeed4;
 }
 
 .quality-hero {
-  background: linear-gradient(135deg, #f7f2e5 0%, #f2e1c8 60%, #f7f2e5 100%);
+  background: linear-gradient(135deg, rgba(4,25,18,0.95) 0%, rgba(8,52,39,0.9) 70%, rgba(6,32,24,0.95) 100%);
   padding: 60px 0;
   margin: 40px calc(50% - 50vw) 40px calc(50% - 50vw);
   width: 100vw;
+  color: #f4f4ec;
 }
 
 .quality-hero-content {
   max-width: 1100px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 10px;
 }
 
 .quality-hero .eyebrow {
@@ -106,7 +103,7 @@ body {
   font-size: 0.85rem;
   letter-spacing: 0.08em;
   font-weight: 600;
-  color: #7a5a2c;
+  color: #94d9c5;
   margin-bottom: 8px;
 }
 
@@ -145,11 +142,12 @@ body {
 }
 
 .quality-section {
-  background: #ffffff;
+  background: #0a231a;
   border-radius: 18px;
   padding: 28px;
   margin-top: 32px;
-  box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.4);
+  border: 1px solid #143528;
 }
 
 .section-header {

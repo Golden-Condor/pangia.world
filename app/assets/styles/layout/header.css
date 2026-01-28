@@ -1,19 +1,17 @@
 header {
-    background-color: rgba(255, 255, 255, 0.95);
-    border-bottom: 1px solid #e0e0e0;
-    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    padding: 10px 16px;
+    background-color: rgba(3, 23, 18, 0.95);
+    border-bottom: none;
+    box-shadow: none;
+    position: static;
+    padding: 14px 6px;
 }
 
 .header-content {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     max-width: 1100px;
-    margin: 0 auto;
+    margin: 0;
     gap: 16px;
 }
 
@@ -24,22 +22,49 @@ header nav.menu ul {
     list-style: none;
     margin: 0;
     padding: 0;
+    flex-wrap: wrap;
+    justify-content: flex-start;
 }
 
 .menu-container .menu a {
     text-decoration: none;
-    color: #2f2f2f;
-    font-weight: 600;
+    color: #f3f3ee;
+    font-weight: 400;
     letter-spacing: 0.05em;
     text-transform: uppercase;
-    font-size: 0.62rem;
+    font-size: 0.82rem;
     line-height: 1;
     display: flex;
     align-items: center;
+    background: transparent;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .menu-container .menu a:hover {
-    color: #2f5a3d;
+    color: #c9f5e5;
+    text-decoration: underline;
+}
+
+.menu-container .menu a:focus,
+.menu-container .menu a:active {
+    outline: none;
+    background: transparent;
+}
+
+.menu-container .menu .logo-slot a {
+    font-size: 1.2375rem;
+    letter-spacing: 0.25em;
+    font-weight: 700;
+    margin-right: 32px;
+    text-decoration: none;
+    font-family: 'Bodoni 72', 'Arsenal', sans-serif;
+}
+
+.menu-container .menu .logo-slot a:focus,
+.menu-container .menu .logo-slot a:active {
+    outline: none;
+    text-decoration: none;
+    background: transparent;
 }
 
 .header-content .menu-container {
@@ -50,16 +75,16 @@ header nav.menu ul {
 
 .book-cta {
     display: inline-block;
-    padding: 6px 14px;
+    padding: 6px 16px;
     border-radius: 999px;
-    background-color: #007bff !important;
-    color: #fff !important;
-    font-weight: 600;
+    background-color: var(--secondary-color) !important;
+    color: #031712 !important;
+    font-weight: 700;
     border: 2px solid transparent;
     transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
 .book-cta:hover {
-    background-color: #0056b3 !important;
+    background-color: #78f0d0 !important;
     transform: translateY(-1px);
 }
