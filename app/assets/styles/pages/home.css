@@ -2,6 +2,7 @@
     position: fixed;
     inset: 0;
     background: radial-gradient(circle, #031712 0%, #08281f 60%, #0c3a2a 100%);
+    animation: splashFade 2.75s ease-out forwards;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -21,13 +22,14 @@
     letter-spacing: 0.2em;
     text-transform: uppercase;
     color: #f4f4ec;
-    animation: splashPulse 1.75s ease-in-out infinite;
+    font-family: 'Bodoni 72', 'Bodoni Moda', serif;
+    animation: splashPulse 2.75s ease-out forwards;
 }
 
 @keyframes splashPulse {
-    0% { transform: scale(1); opacity: 0.8; }
-    50% { transform: scale(1.1); opacity: 1; }
-    100% { transform: scale(1); opacity: 0.8; }
+    0% { transform: scale(1); opacity: 1; }
+    70% { transform: scale(1.1); opacity: 1; }
+    100% { transform: scale(1.25); opacity: 0; }
 }
 
 .hero-card,
@@ -211,7 +213,9 @@
 
 .hero-help-grid {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 0.85fr));
+    grid-template-columns: repeat(3, minmax(280px, 1fr));
+    justify-content: center;
+    padding: 0 40px;
     gap: 28px;
 }
 
@@ -222,14 +226,16 @@
 }
 
 .hero-help-card h3 {
-    margin-top: 0;
+    margin-top: 12px;
     color: #f3fff8;
     font-family: 'Arsenal', sans-serif;
+    font-size: 1.56rem;
 }
 
 .hero-help-card p {
     color: #c6e7da;
     line-height: 1.5;
+    font-size: 1.25rem;
 }
 
 .coming-soon-overlay {
@@ -371,7 +377,7 @@
 .card-section h2,
 .pillars-header h2 {
     margin: 4px 0 8px 0;
-    font-size: clamp(1.8rem, 4vw, 2.4rem);
+    font-size: clamp(2.25rem, 5vw, 3rem);
 }
 
 .link-arrow {
@@ -518,7 +524,7 @@
 }
 
 .pillar-consult::before {
-    background-image: url('/assets/Images/gallery/cells_2.jpg');
+    background-image: url('/assets/Images/gallery/home_1.avif');
 }
 
 .pillar-card h3 {
@@ -803,4 +809,12 @@
     height: 200px;
     background-size: cover;
     background-position: center;
+}
+
+.thin { font-weight: 400; }
+
+@keyframes splashFade {
+    0% { opacity: 1; }
+    80% { opacity: 1; }
+    100% { opacity: 0; }
 }
