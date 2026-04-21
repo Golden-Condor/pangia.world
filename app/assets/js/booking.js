@@ -1,4 +1,3 @@
-const SERVICE_ASSESSMENT_PRICE = 250;
 const API_BASE =
   window.__API_BASE__ ||
   (window.location.origin.includes("localhost:") || window.location.origin.includes("127.0.0.1:")
@@ -29,24 +28,25 @@ function getUtmData() {
 }
 
 function buildBookingPayload() {
+  const location = getFormValue("location");
   return {
     fullName: getFormValue("full-name"),
     email: getFormValue("email"),
     phone: getFormValue("phone"),
     address: {
-      street: getFormValue("address"),
-      city: getFormValue("city"),
-      state: getFormValue("state"),
-      postalCode: getFormValue("postal-code")
+      street: location,
+      city: "",
+      state: "",
+      postalCode: ""
     },
-    serviceArea: getFormValue("postal-code"),
+    serviceArea: location,
     waterSource: getFormValue("water-source"),
     propertyType: getFormValue("property-type"),
     concerns: getFormValue("concerns"),
-    preferredDate: getFormValue("preferred-date"),
-    preferredTime: getFormValue("preferred-time"),
-    contactMethod: getFormValue("contact-method"),
-    notes: getFormValue("notes"),
+    preferredDate: "",
+    preferredTime: "",
+    contactMethod: "",
+    notes: "",
     honeypot: getFormValue("contact-code"),
     originType: "booking",
     ...getUtmData()
@@ -71,11 +71,11 @@ async function handleBookingSubmit(event) {
     showBookingAlert("Unable to submit at this time.", "error");
     if (submitBtn) {
       submitBtn.disabled = false;
-      submitBtn.textContent = "Submit & Proceed to Payment";
+      submitBtn.textContent = "Submit Inquiry";
     }
     return;
   }
-  showBookingAlert("Creating your booking...", "info");
+  showBookingAlert("Sending your inquiry...", "info");
 
   try {
     const payload = buildBookingPayload();
@@ -97,34 +97,15 @@ async function handleBookingSubmit(event) {
     if (!bookingId) {
       throw new Error("Booking created but no ID returned.");
     }
-
-    const paymentPayload = {
-      bookingId,
-      amount: SERVICE_ASSESSMENT_PRICE,
-      email: payload.email,
-      description: "Pangia Water Quality Assessment"
-    };
-
-    const paymentResponse = await fetch(`${API_BASE}/api/payments/checkout`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(paymentPayload)
-    });
-    const paymentData = await paymentResponse.json();
-
-    if (paymentResponse.ok && paymentData.url) {
-      window.location.href = paymentData.url;
-      return;
-    }
-
-    throw new Error(paymentData.message || "Unable to start payment.");
+    form.reset();
+    showBookingAlert("Thanks. We will review your inquiry and respond within one business day.", "info");
   } catch (error) {
     console.error("Booking error", error);
     showBookingAlert(error.message || "An error occurred. Please try again.", "error");
   } finally {
     if (submitBtn) {
       submitBtn.disabled = false;
-      submitBtn.textContent = "Submit & Proceed to Payment";
+      submitBtn.textContent = "Submit Inquiry";
     }
   }
 }

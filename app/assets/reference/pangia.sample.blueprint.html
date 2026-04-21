@@ -1,0 +1,1389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pangia Water Health Blueprint</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --forest: #0a2318;
+    --forest-mid: #0f2e1e;
+    --forest-light: #163d28;
+    --green-accent: #1db954;
+    --green-soft: #2ecc71;
+    --cream: #f5f0e8;
+    --cream-dark: #e8e2d4;
+    --text-primary: #f0ebe0;
+    --text-secondary: #a8b5a0;
+    --text-muted: #6b7d65;
+
+    --pass: #1a5c35;
+    --pass-border: #2ecc71;
+    --pass-text: #7effa8;
+    --elevated: #5c4a0a;
+    --elevated-border: #f0b429;
+    --elevated-text: #ffd97d;
+    --fail: #5c1a1a;
+    --fail-border: #e74c3c;
+    --fail-text: #ff8a8a;
+    --nd: #1a2a1f;
+    --nd-border: #2d4a35;
+    --nd-text: #6b9e7a;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--forest);
+    color: var(--text-primary);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  /* ── COVER ── */
+  .cover {
+    min-height: 100vh;
+    background: linear-gradient(160deg, #0a2318 0%, #071a10 60%, #030e08 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 60px;
+    position: relative;
+    overflow: hidden;
+    page-break-after: always;
+  }
+
+  .cover::before {
+    content: '';
+    position: absolute;
+    top: -200px;
+    right: -200px;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(29,185,84,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .cover::after {
+    content: '';
+    position: absolute;
+    bottom: -100px;
+    left: -100px;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(29,185,84,0.05) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .cover-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .cover-label {
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+  }
+
+  .cover-badge {
+    border: 1px solid rgba(29,185,84,0.3);
+    padding: 8px 16px;
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--green-accent);
+  }
+
+  .cover-main {
+    position: relative;
+    z-index: 1;
+  }
+
+  .cover-eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--green-accent);
+    margin-bottom: 24px;
+  }
+
+  .cover-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(52px, 7vw, 96px);
+    font-weight: 300;
+    line-height: 1.0;
+    color: var(--cream);
+    margin-bottom: 12px;
+  }
+
+  .cover-title em {
+    font-style: italic;
+    color: var(--text-secondary);
+  }
+
+  .cover-subtitle {
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    color: var(--text-secondary);
+    margin-top: 20px;
+    max-width: 480px;
+    line-height: 1.7;
+  }
+
+  .cover-divider {
+    width: 60px;
+    height: 1px;
+    background: var(--green-accent);
+    margin: 32px 0;
+  }
+
+  .cover-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+
+  .cover-meta {
+    font-size: 11px;
+    color: var(--text-muted);
+    letter-spacing: 0.05em;
+  }
+
+  .cover-meta strong {
+    color: var(--text-secondary);
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  .cover-pangia {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 13px;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--green-accent);
+  }
+
+  /* ── FRAMEWORK EXPLAINER ── */
+  .framework {
+    background: var(--forest-mid);
+    padding: 60px;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+  }
+
+  .section-label {
+    font-size: 10px;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--green-accent);
+    margin-bottom: 32px;
+  }
+
+  .framework-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2px;
+    margin-top: 40px;
+  }
+
+  .framework-card {
+    padding: 32px;
+    position: relative;
+  }
+
+  .framework-card:nth-child(1) { background: var(--pass); border: 1px solid var(--pass-border); }
+  .framework-card:nth-child(2) { background: var(--elevated); border: 1px solid var(--elevated-border); }
+  .framework-card:nth-child(3) { background: var(--fail); border: 1px solid var(--fail-border); }
+
+  .framework-card-label {
+    font-size: 9px;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  .framework-card:nth-child(1) .framework-card-label { color: var(--pass-text); }
+  .framework-card:nth-child(2) .framework-card-label { color: var(--elevated-text); }
+  .framework-card:nth-child(3) .framework-card-label { color: var(--fail-text); }
+
+  .framework-card-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    font-weight: 300;
+    color: var(--cream);
+    margin-bottom: 12px;
+  }
+
+  .framework-card-desc {
+    font-size: 12px;
+    line-height: 1.7;
+    color: var(--text-secondary);
+  }
+
+  /* ── STANDARDS EXPLAINER ── */
+  .standards-explainer {
+    padding: 60px;
+    background: var(--forest);
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+  }
+
+  .standards-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-top: 40px;
+  }
+
+  .standard-block {
+    padding: 32px;
+    border: 1px solid rgba(255,255,255,0.08);
+    position: relative;
+  }
+
+  .standard-block::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px;
+    height: 100%;
+  }
+
+  .standard-block.epa::before { background: #4a9eff; }
+  .standard-block.ewg::before { background: var(--green-accent); }
+
+  .standard-block-org {
+    font-size: 9px;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .standard-block.epa .standard-block-org { color: #4a9eff; }
+  .standard-block.ewg .standard-block-org { color: var(--green-accent); }
+
+  .standard-block-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 300;
+    color: var(--cream);
+    margin-bottom: 16px;
+  }
+
+  .standard-block-desc {
+    font-size: 12px;
+    line-height: 1.8;
+    color: var(--text-secondary);
+  }
+
+  /* ── RESULTS TABLE ── */
+  .results-section {
+    padding: 60px;
+  }
+
+  .results-section + .results-section {
+    border-top: 1px solid rgba(255,255,255,0.05);
+  }
+
+  .category-header {
+    display: flex;
+    align-items: baseline;
+    gap: 20px;
+    margin-bottom: 8px;
+  }
+
+  .category-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 32px;
+    font-weight: 300;
+    color: var(--cream);
+  }
+
+  .category-count {
+    font-size: 11px;
+    color: var(--text-muted);
+    letter-spacing: 0.1em;
+  }
+
+  .category-desc {
+    font-size: 12px;
+    color: var(--text-secondary);
+    margin-bottom: 40px;
+    max-width: 680px;
+    line-height: 1.7;
+  }
+
+  /* Column headers */
+  .table-header {
+    display: grid;
+    grid-template-columns: 280px 1fr 160px 160px 160px;
+    gap: 0;
+    padding: 0 0 12px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    margin-bottom: 0;
+  }
+
+  .table-header-cell {
+    font-size: 9px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    padding: 0 16px;
+  }
+
+  .table-header-cell.center { text-align: center; }
+  .table-header-cell.ewg-col { color: rgba(29,185,84,0.7); }
+  .table-header-cell.epa-col { color: rgba(74,158,255,0.7); }
+
+  /* Result rows */
+  .result-row {
+    display: grid;
+    grid-template-columns: 280px 1fr 160px 160px 160px;
+    gap: 0;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    transition: background 0.15s ease;
+  }
+
+  .result-row:hover { background: rgba(255,255,255,0.02); }
+
+  .result-row.status-pass { border-left: 3px solid var(--pass-border); }
+  .result-row.status-elevated { border-left: 3px solid var(--elevated-border); }
+  .result-row.status-fail { border-left: 3px solid var(--fail-border); }
+  .result-row.status-nd { border-left: 3px solid var(--nd-border); }
+
+  .cell {
+    padding: 14px 16px;
+    display: flex;
+    align-items: center;
+  }
+
+  .cell-name {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 3px;
+  }
+
+  .analyte-name {
+    font-size: 13px;
+    color: var(--text-primary);
+    font-weight: 400;
+  }
+
+  .analyte-why {
+    font-size: 10px;
+    color: var(--text-muted);
+    line-height: 1.4;
+    max-width: 240px;
+  }
+
+  .cell-result {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+
+  .result-value {
+    font-family: 'DM Mono', monospace;
+    font-size: 15px;
+    font-weight: 500;
+  }
+
+  .result-row.status-pass .result-value { color: var(--pass-text); }
+  .result-row.status-elevated .result-value { color: var(--elevated-text); }
+  .result-row.status-fail .result-value { color: var(--fail-text); }
+  .result-row.status-nd .result-value { color: var(--nd-text); }
+
+  .result-unit {
+    font-size: 10px;
+    color: var(--text-muted);
+    letter-spacing: 0.05em;
+  }
+
+  .result-health {
+    font-size: 10px;
+    color: var(--text-secondary);
+    line-height: 1.4;
+    max-width: 200px;
+  }
+
+  .cell-benchmark {
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+  }
+
+  .benchmark-value {
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    color: var(--text-secondary);
+    text-align: center;
+  }
+
+  .benchmark-label {
+    font-size: 9px;
+    color: var(--text-muted);
+    letter-spacing: 0.05em;
+    text-align: center;
+  }
+
+  .benchmark-na {
+    font-size: 10px;
+    color: var(--text-muted);
+    font-style: italic;
+  }
+
+  .status-pill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px 10px;
+    border-radius: 2px;
+    font-size: 9px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  .pill-pass { background: rgba(46,204,113,0.15); color: var(--pass-text); border: 1px solid rgba(46,204,113,0.3); }
+  .pill-elevated { background: rgba(240,180,41,0.15); color: var(--elevated-text); border: 1px solid rgba(240,180,41,0.3); }
+  .pill-fail { background: rgba(231,76,60,0.15); color: var(--fail-text); border: 1px solid rgba(231,76,60,0.3); }
+  .pill-nd { background: rgba(29,185,84,0.08); color: var(--nd-text); border: 1px solid rgba(29,185,84,0.15); }
+
+  /* ── SUMMARY BANNER ── */
+  .summary-banner {
+    margin: 0 60px 40px;
+    padding: 32px 40px;
+    border: 1px solid rgba(255,255,255,0.08);
+    background: var(--forest-mid);
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+  }
+
+  .summary-stat {
+    padding: 0 32px;
+    border-right: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .summary-stat:first-child { padding-left: 0; }
+  .summary-stat:last-child { border-right: none; }
+
+  .summary-stat-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 48px;
+    font-weight: 300;
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .summary-stat-number.pass { color: var(--pass-text); }
+  .summary-stat-number.elevated { color: var(--elevated-text); }
+  .summary-stat-number.fail { color: var(--fail-text); }
+  .summary-stat-number.nd { color: var(--nd-text); }
+
+  .summary-stat-label {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  /* ── HIGHLIGHTED FINDINGS ── */
+  .key-findings {
+    margin: 0 60px 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+  }
+
+  .finding-card {
+    padding: 32px;
+    position: relative;
+  }
+
+  .finding-card.critical { background: rgba(231,76,60,0.08); border: 1px solid rgba(231,76,60,0.25); }
+  .finding-card.notable { background: rgba(240,180,41,0.06); border: 1px solid rgba(240,180,41,0.2); }
+
+  .finding-card-tag {
+    font-size: 9px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  .finding-card.critical .finding-card-tag { color: var(--fail-text); }
+  .finding-card.notable .finding-card-tag { color: var(--elevated-text); }
+
+  .finding-card-analyte {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 26px;
+    font-weight: 300;
+    color: var(--cream);
+    margin-bottom: 8px;
+  }
+
+  .finding-card-value {
+    font-family: 'DM Mono', monospace;
+    font-size: 32px;
+    margin-bottom: 12px;
+  }
+
+  .finding-card.critical .finding-card-value { color: var(--fail-text); }
+  .finding-card.notable .finding-card-value { color: var(--elevated-text); }
+
+  .finding-card-context {
+    font-size: 12px;
+    line-height: 1.7;
+    color: var(--text-secondary);
+  }
+
+  .finding-multiplier {
+    display: inline-block;
+    padding: 2px 8px;
+    margin-left: 8px;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+  }
+
+  .finding-card.critical .finding-multiplier { background: rgba(231,76,60,0.2); color: var(--fail-text); }
+  .finding-card.notable .finding-multiplier { background: rgba(240,180,41,0.15); color: var(--elevated-text); }
+
+  /* ── FOOTER / METHODOLOGY ── */
+  .methodology {
+    margin: 60px;
+    padding-top: 40px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .methodology-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 40px;
+    margin-top: 32px;
+  }
+
+  .method-block-title {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--green-accent);
+    margin-bottom: 12px;
+  }
+
+  .method-block-text {
+    font-size: 12px;
+    line-height: 1.8;
+    color: var(--text-secondary);
+  }
+
+  .doc-footer {
+    margin: 40px 60px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding-top: 24px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .doc-footer-pangia {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 11px;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--green-accent);
+  }
+
+  .doc-footer-note {
+    font-size: 10px;
+    color: var(--text-muted);
+    max-width: 480px;
+    text-align: right;
+    line-height: 1.6;
+  }
+
+  /* ── INTRO TEXT ── */
+  .intro-block {
+    padding: 60px;
+    background: var(--forest-mid);
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+  }
+
+  .intro-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 60px;
+    align-items: start;
+  }
+
+  .intro-headline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 38px;
+    font-weight: 300;
+    line-height: 1.2;
+    color: var(--cream);
+  }
+
+  .intro-headline em {
+    font-style: italic;
+    color: var(--text-secondary);
+  }
+
+  .intro-body {
+    font-size: 13px;
+    line-height: 1.9;
+    color: var(--text-secondary);
+  }
+
+  .intro-body p + p { margin-top: 16px; }
+
+  /* ── SAMPLE INFO BAR ── */
+  .sample-bar {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0;
+    background: var(--forest-light);
+    margin: 0 60px 40px;
+    border: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .sample-item {
+    padding: 20px 24px;
+    border-right: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .sample-item:last-child { border-right: none; }
+
+  .sample-item-label {
+    font-size: 9px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 6px;
+  }
+
+  .sample-item-value {
+    font-size: 13px;
+    color: var(--text-primary);
+    font-weight: 400;
+  }
+
+  /* Scroll hint */
+  @media print {
+    .cover { min-height: auto; padding: 40px; }
+    .result-row { break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ══ COVER PAGE ══ -->
+<div class="cover">
+  <div class="cover-top">
+    <div class="cover-label">Pangia · Human Environment Audit</div>
+    <div class="cover-badge">Sample Reference Document</div>
+  </div>
+
+  <div class="cover-main">
+    <div class="cover-eyebrow">Applied Biological Sciences</div>
+    <div class="cover-title">Water Health<br><em>Blueprint</em></div>
+    <div class="cover-divider"></div>
+    <div class="cover-subtitle">
+      A comprehensive assessment of residential drinking water quality. Results are evaluated against two independent frameworks: the EPA's legal standards and EWG's science-based health guidelines. Together they provide a complete picture of what is in your water and what it means for your health.
+    </div>
+  </div>
+
+  <div class="cover-bottom">
+    <div class="cover-meta">
+      <strong>Prepared For</strong>
+      Sample Residential Assessment<br>
+      Asheville, NC · Municipal Water Supply
+    </div>
+    <div class="cover-meta" style="text-align:right">
+      <strong>Prepared By</strong>
+      Connor P. Moore<br>
+      CEO, Pangia
+    </div>
+    <div class="cover-pangia">Pangia</div>
+  </div>
+</div>
+
+<!-- ══ INTRO ══ -->
+<div class="intro-block">
+  <div class="section-label">About This Assessment</div>
+  <div class="intro-grid">
+    <div class="intro-headline">What your water contains, and what it <em>means</em></div>
+    <div class="intro-body">
+      <p>A standard water bill tells you your water is legal. This report tells you whether it is safe. Those are two different questions with two different answers. Most households have only ever been given one of them.</p>
+      <p>This assessment tests for compounds that municipal systems are not required to disclose individually, evaluates results against health-based thresholds developed by independent scientists, and presents findings in a framework designed for decisions. Not compliance.</p>
+      <p>Every result in this document is an actual laboratory measurement conducted by an accredited analytical facility using EPA-approved methods. Nothing is estimated or extrapolated. Where compounds were not detected, that result is documented with the specific instrument detection limit, so you know exactly how low we looked.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ══ SAMPLE INFO ══ -->
+<div class="sample-bar">
+  <div class="sample-item">
+    <div class="sample-item-label">Collection Date</div>
+    <div class="sample-item-value">March 18, 2026</div>
+  </div>
+  <div class="sample-item">
+    <div class="sample-item-label">Sample Location</div>
+    <div class="sample-item-value">Kitchen Sink, First Draw</div>
+  </div>
+  <div class="sample-item">
+    <div class="sample-item-label">Water Source</div>
+    <div class="sample-item-value">Asheville Municipal</div>
+  </div>
+  <div class="sample-item">
+    <div class="sample-item-label">Testing Labs</div>
+    <div class="sample-item-value">Microbac / Enthalpy Analytical</div>
+  </div>
+  <div class="sample-item">
+    <div class="sample-item-label">Total Analytes</div>
+    <div class="sample-item-value">96 Compounds Tested</div>
+  </div>
+</div>
+
+<!-- ══ FRAMEWORK EXPLAINER ══ -->
+<div class="framework">
+  <div class="section-label">How to Read This Report</div>
+
+  <div class="framework-grid">
+    <div class="framework-card">
+      <div class="framework-card-label">✓ Meets Both Standards</div>
+      <div class="framework-card-title">Pass</div>
+      <div class="framework-card-desc">The measured level is below both the EPA legal limit and EWG's science-based health guideline. No action required for this compound at this time.</div>
+    </div>
+    <div class="framework-card">
+      <div class="framework-card-label">⚠ Below Legal Limit. Above Health Guideline</div>
+      <div class="framework-card-title">Elevated</div>
+      <div class="framework-card-desc">The measured level meets EPA legal requirements but exceeds EWG's health-based threshold. This compound is present at a level that independent scientists consider relevant to long-term health.</div>
+    </div>
+    <div class="framework-card">
+      <div class="framework-card-label">✗ Confirmed Finding</div>
+      <div class="framework-card-title">Exceeds Threshold</div>
+      <div class="framework-card-desc">The measured level exceeds one or more health-based benchmarks. This result requires attention and informs the protocol recommendations in Section IV of the full report.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ STANDARDS EXPLAINER ══ -->
+<div class="standards-explainer">
+  <div class="section-label">The Two Frameworks</div>
+
+  <div class="standards-grid">
+    <div class="standard-block epa">
+      <div class="standard-block-org">EPA · U.S. Environmental Protection Agency</div>
+      <div class="standard-block-name">Maximum Contaminant Levels</div>
+      <div class="standard-block-desc">
+        The EPA sets legally enforceable limits for approximately 90 contaminants under the Safe Drinking Water Act. These limits are established through a process that balances public health protection with economic and technical feasibility. Cost of treatment affects where the line is drawn. EPA limits have not been meaningfully updated for most compounds in over 20 years. A water supply can fully comply with all EPA standards and still contain carcinogens at levels associated with increased cancer risk.
+      </div>
+    </div>
+    <div class="standard-block ewg">
+      <div class="standard-block-org">EWG · Environmental Working Group</div>
+      <div class="standard-block-name">Health-Based Guidelines</div>
+      <div class="standard-block-desc">
+        EWG's health guidelines are derived exclusively from peer-reviewed scientific literature, the same research used by California's Office of Environmental Health Hazard Assessment and the EPA's own toxicology division. Unlike legal limits, EWG guidelines are not constrained by cost of treatment or political feasibility. They represent the concentration at which independent scientists have determined health risk to be negligible. For known carcinogens, EWG guidelines are typically calibrated to a one-in-one-million excess lifetime cancer risk.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ SUMMARY STATS ══ -->
+<div style="padding: 60px 60px 0;">
+  <div class="section-label">Assessment Summary · 96 Analytes</div>
+</div>
+
+<div class="summary-banner">
+  <div class="summary-stat">
+    <div class="summary-stat-number fail">4</div>
+    <div class="summary-stat-label">Confirmed Findings<br>Above Health Thresholds</div>
+  </div>
+  <div class="summary-stat">
+    <div class="summary-stat-number elevated">0</div>
+    <div class="summary-stat-label">Elevated<br>Legal but Above Guideline</div>
+  </div>
+  <div class="summary-stat">
+    <div class="summary-stat-number nd">88</div>
+    <div class="summary-stat-label">Not Detected<br>Below Instrument Detection</div>
+  </div>
+  <div class="summary-stat">
+    <div class="summary-stat-number pass">4</div>
+    <div class="summary-stat-label">Detected & Within<br>All Standards</div>
+  </div>
+</div>
+
+<!-- ══ KEY FINDINGS CALLOUTS ══ -->
+<div style="padding: 0 60px 12px;">
+  <div class="section-label">Primary Findings</div>
+</div>
+
+<div class="key-findings">
+  <div class="finding-card critical">
+    <div class="finding-card-tag">Confirmed. Exceeds Health Threshold</div>
+    <div class="finding-card-analyte">Hexavalent Chromium (Cr-6)</div>
+    <div class="finding-card-value">0.39 ppb <span class="finding-multiplier">19.5× over EWG</span></div>
+    <div class="finding-card-context">Classified as a known human carcinogen by the International Agency for Research on Cancer. Detected at 3.9× the laboratory's reporting limit, a confirmed and accurately quantified result. EPA has no federal limit for Cr-6 specifically; a federal standard is expected by 2027. California's health-based limit is 0.02 ppb. Targets gastrointestinal tissue and liver via direct DNA damage.</div>
+  </div>
+  <div class="finding-card critical">
+    <div class="finding-card-tag">Confirmed. Exceeds Health Threshold</div>
+    <div class="finding-card-analyte">Chloroform (THM)</div>
+    <div class="finding-card-value">33 ppb <span class="finding-multiplier">82× over EWG</span></div>
+    <div class="finding-card-context">Chloroform constitutes 96% of the total trihalomethane load in this sample. Trihalomethanes form when chlorine used to disinfect water reacts with naturally occurring organic matter. Human cohort studies show a 68% relative increase in colorectal cancer risk at the concentration range detected here. Exposure occurs through both drinking and shower inhalation.</div>
+  </div>
+  <div class="finding-card critical">
+    <div class="finding-card-tag">Confirmed. Exceeds Health Threshold</div>
+    <div class="finding-card-analyte">Total Trihalomethanes</div>
+    <div class="finding-card-value">34.4 ppb <span class="finding-multiplier">229× over EWG</span></div>
+    <div class="finding-card-context">The sum of all four regulated trihalomethanes. While below the EPA's 80 ppb legal limit, total TTHMs are 229 times over EWG's health-based guideline of 0.15 ppb. The 2020 EWG peer-reviewed study established that disinfection byproducts at national average levels, lower than this sample, contribute to approximately 3 excess cancer cases per 1,000 people over a lifetime.</div>
+  </div>
+  <div class="finding-card critical">
+    <div class="finding-card-tag">Confirmed. Exceeds Health Threshold</div>
+    <div class="finding-card-analyte">Bromodichloromethane (THM)</div>
+    <div class="finding-card-value">1.36 ppb <span class="finding-multiplier">23× over EWG</span></div>
+    <div class="finding-card-context">A brominated trihalomethane. The presence of bromine indicates active bromination chemistry in this distribution system. The National Toxicology Program classifies bromodichloromethane as a probable human carcinogen. Brominated THMs are associated with elevated bladder cancer risk in epidemiological studies. This finding also signals likely presence of brominated haloacetic acids, which are more carcinogenic than TTHMs by mass.</div>
+  </div>
+</div>
+
+<!-- ══ WATER CHEMISTRY SECTION ══ -->
+<div class="results-section" style="background: var(--forest-mid);">
+  <div class="section-label">Section I</div>
+  <div class="category-header">
+    <div class="category-title">Water Chemistry Profile</div>
+    <div class="category-count">9 parameters</div>
+  </div>
+  <div class="category-desc">Physical and chemical characteristics that define how your water behaves: its corrosivity, mineral content, and treatment byproduct formation potential. These parameters provide context for all other findings.</div>
+
+  <div class="table-header">
+    <div class="table-header-cell">Analyte</div>
+    <div class="table-header-cell">Measurement & Significance</div>
+    <div class="table-header-cell center ewg-col">EWG Guideline</div>
+    <div class="table-header-cell center">Your Result</div>
+    <div class="table-header-cell center epa-col">EPA Standard</div>
+  </div>
+
+  <!-- pH -->
+  <div class="result-row status-pass">
+    <div class="cell cell-name">
+      <span class="analyte-name">pH</span>
+      <span class="analyte-why">Acidity/alkalinity scale. Affects corrosivity, treatment efficiency, and disinfection byproduct formation.</span>
+    </div>
+    <div class="cell cell-result">
+      <span class="result-value">7.3</span>
+      <span class="result-unit">pH units</span>
+      <span class="result-health">Slightly alkaline. Normal range for treated municipal water. Does not indicate corrosivity alone.</span>
+    </div>
+    <div class="cell cell-benchmark"><span class="benchmark-na">No guideline</span></div>
+    <div class="cell cell-benchmark">
+      <span class="benchmark-value">7.3</span>
+      <span class="benchmark-label">pH</span>
+      <div class="status-pill pill-pass">Pass</div>
+    </div>
+    <div class="cell cell-benchmark">
+      <span class="benchmark-value">6.5 – 8.5</span>
+      <span class="benchmark-label">secondary std</span>
+    </div>
+  </div>
+
+  <!-- LSI -->
+  <div class="result-row status-fail">
+    <div class="cell cell-name">
+      <span class="analyte-name">Langelier Saturation Index</span>
+      <span class="analyte-why">Measures whether water will dissolve or deposit minerals. Negative values indicate corrosive water that leaches pipe materials.</span>
+    </div>
+    <div class="cell cell-result">
+      <span class="result-value">−2.84</span>
+      <span class="result-unit">unitless index</span>
+      <span class="result-health">Highly corrosive. This water is actively dissolving pipe materials at every contact point. The most aggressive end of the municipal water spectrum. Physical evidence: confirmed zinc detection consistent with pipe leaching.</span>
+    </div>
+    <div class="cell cell-benchmark"><span class="benchmark-na">No guideline</span></div>
+    <div class="cell cell-benchmark">
+      <span class="benchmark-value">−2.84</span>
+      <span class="benchmark-label">corrosive range</span>
+      <div class="status-pill pill-fail">Critical</div>
+    </div>
+    <div class="cell cell-benchmark">
+      <span class="benchmark-value">No limit</span>
+      <span class="benchmark-label">unregulated</span>
+    </div>
+  </div>
+
+  <!-- TDS -->
+  <div class="result-row status-nd">
+    <div class="cell cell-name">
+      <span class="analyte-name">Total Dissolved Solids</span>
+      <span class="analyte-why">Total concentration of dissolved minerals. Very low values indicate chemically "hungry" water that aggressively leaches materials it contacts.</span>
+    </div>
+    <div class="cell cell-result">
+      <span class="result-value">38.8 ppm</span>
+      <span class="result-unit">PPM</span>
+      <span class="result-health">Extremely low. Essentially rainwater in mineral content. Amplifies the corrosivity indicated by the LSI. Soft, low-TDS water leaches pipes more aggressively than hard water.</span>
+    </div>
+    <div class="cell cell-benchmark"><span class="benchmark-na">No guideline</span></div>
+    <div class="cell cell-benchmark">
+      <span class="benchmark-value">38.8</span>
+      <span class="benchmark-label">ppm</span>
+      <div class="status-pill pill-nd">Noted</div>
+    </div>
+    <div class="cell cell-benchmark">
+      <span class="benchmark-value">500 ppm</span>
+      <span class="benchmark-label">secondary std</span>
+    </div>
+  </div>
+
+  <!-- Hardness -->
+  <div class="result-row status-nd">
+    <div class="cell cell-name">
+      <span class="analyte-name">Hardness</span>
+      <span class="analyte-why">Calcium and magnesium concentration. Very soft water is associated with increased leaching of lead and copper from pipes.</span>
+    </div>
+    <div class="cell cell-result">
+      <span class="result-value">4.54 ppm</span>
+      <span class="result-unit">PPM (0.27 grains/gal)</span>
+      <span class="result-health">Exceptionally soft. At 0.27 grains per gallon, this is near the bottom of the measurable range. WHO recommends a minimum of 10 ppm for pipe protection. This water provides essentially no mineral buffering against corrosion.</span>
+    </div>
+    <div class="cell cell-benchmark"><span class="benchmark-na">No guideline</span></div>
+    <div class="cell cell-benchmark">
+      <span class="benchmark-value">4.54</span>
+      <span class="benchmark-label">ppm</span>
+      <div class="status-pill pill-nd">Noted</div>
+    </div>
+    <div class="cell cell-benchmark">
+      <span class="benchmark-value">No limit</span>
+      <span class="benchmark-label">unregulated</span>
+    </div>
+  </div>
+
+  <!-- Total THMs -->
+  <div class="result-row status-fail">
+    <div class="cell cell-name">
+      <span class="analyte-name">Total THMs</span>
+      <span class="analyte-why">Sum of four disinfection byproducts formed when chlorine reacts with organic matter. The primary DBP indicator and the most extensively studied group for cancer associations.</span>
+    </div>
+    <div class="cell cell-result">
+      <span class="result-value">34.4 ppb</span>
+      <span class="result-unit">PPB</span>
+      <span class="result-health">229× over EWG guideline. Below EPA's 80 ppb legal limit but at a level associated with meaningful excess cancer risk in peer-reviewed human cohort studies. 2020 EWG study: national average DBP exposure contributes ~3 excess cancer cases per 1,000 people lifetime; this water exceeds national average on all relevant dimensions.</span>
+    </div>
+    <div class="cell cell-benchmark">
+      <span class="benchmark-value">0.15 ppb</span>
+      <span class="benchmark-label">EWG health guideline</span>
+    </div>
+    <div class="cell cell-benchmark">
+      <span class="benchmark-value">34.4 ppb</span>
+      <span class="benchmark-label">229× over EWG</span>
+      <div class="status-pill pill-fail">Confirmed</div>
+    </div>
+    <div class="cell cell-benchmark">
+      <span class="benchmark-value">80 ppb</span>
+      <span class="benchmark-label">EPA standard. Pass</span>
+    </div>
+  </div>
+
+  <!-- Sodium -->
+  <div class="result-row status-pass">
+    <div class="cell cell-name">
+      <span class="analyte-name">Sodium</span>
+      <span class="analyte-why">Relevant for individuals managing hypertension or on sodium-restricted diets. Elevated levels can indicate water softener use or road salt infiltration.</span>
+    </div>
+    <div class="cell cell-result">
+      <span class="result-value">12.4 ppm</span>
+      <span class="result-unit">PPM</span>
+      <span class="result-health">Well below EPA's 20 ppm advisory level for individuals on low-sodium diets. Not a concern at this level for the general population.</span>
+    </div>
+    <div class="cell cell-benchmark"><span class="benchmark-na">No guideline</span></div>
+    <div class="cell cell-benchmark">
+      <span class="benchmark-value">12.4</span>
+      <span class="benchmark-label">ppm</span>
+      <div class="status-pill pill-pass">Pass</div>
+    </div>
+    <div class="cell cell-benchmark">
+      <span class="benchmark-value">20 ppm</span>
+      <span class="benchmark-label">advisory</span>
+    </div>
+  </div>
+
+  <!-- Phosphorus -->
+  <div class="result-row status-nd">
+    <div class="cell cell-name">
+      <span class="analyte-name">Phosphorus</span>
+      <span class="analyte-why">Often added by municipalities as orthophosphate, a corrosion inhibitor that coats pipe walls to reduce lead and copper leaching.</span>
+    </div>
+    <div class="cell cell-result">
+      <span class="result-value">0.542 ppm</span>
+      <span class="result-unit">PPM</span>
+      <span class="result-health">Consistent with orthophosphate corrosion inhibitor dosing. The city is actively adding phosphate to reduce lead and copper leaching, an acknowledgment of the water's corrosive character. Despite this treatment, LSI remains highly negative.</span>
+    </div>
+    <div class="cell cell-benchmark"><span class="benchmark-na">No guideline</span></div>
+    <div class="cell cell-benchmark">
+      <span class="benchmark-value">0.542</span>
+      <span class="benchmark-label">ppm</span>
+      <div class="status-pill pill-nd">Noted</div>
+    </div>
+    <div class="cell cell-benchmark">
+      <span class="benchmark-value">No limit</span>
+      <span class="benchmark-label">unregulated</span>
+    </div>
+  </div>
+
+  <!-- Zinc -->
+  <div class="result-row status-nd">
+    <div class="cell cell-name">
+      <span class="analyte-name">Zinc</span>
+      <span class="analyte-why">Zinc is not present in Asheville's source water. Detection at the tap is physical evidence of pipe leaching. Galvanized or brass components are dissolving into the water supply.</span>
+    </div>
+    <div class="cell cell-result">
+      <span class="result-value">0.137 ppm</span>
+      <span class="result-unit">PPM</span>
+      <span class="result-health">Confirmed leachate from distribution system or in-home plumbing. Not a health concern at this level, but forensic evidence that Asheville's corrosive, low-TDS water is actively dissolving pipe materials. This same mechanism drives concern for lead in pre-1986 homes.</span>
+    </div>
+    <div class="cell cell-benchmark"><span class="benchmark-na">No guideline</span></div>
+    <div class="cell cell-benchmark">
+      <span class="benchmark-value">0.137</span>
+      <span class="benchmark-label">ppm</span>
+      <div class="status-pill pill-nd">Noted</div>
+    </div>
+    <div class="cell cell-benchmark">
+      <span class="benchmark-value">5 ppm</span>
+      <span class="benchmark-label">secondary std</span>
+    </div>
+  </div>
+</div>
+
+<!-- ══ DISINFECTION BYPRODUCTS ══ -->
+<div class="results-section">
+  <div class="section-label">Section II</div>
+  <div class="category-header">
+    <div class="category-title">Disinfection Byproducts</div>
+    <div class="category-count">4 THMs tested. 2 detected</div>
+  </div>
+  <div class="category-desc">Trihalomethanes form when chlorine reacts with naturally occurring organic matter in source water. All four regulated THMs were tested. Two were detected above the reporting limit. The 2020 peer-reviewed EWG study found that disinfection byproducts at national average levels contribute approximately 3 excess cancer cases per 1,000 people over a lifetime. This sample exceeds national average DBP levels.</div>
+
+  <div class="table-header">
+    <div class="table-header-cell">Analyte</div>
+    <div class="table-header-cell">Measurement & Significance</div>
+    <div class="table-header-cell center ewg-col">EWG Guideline</div>
+    <div class="table-header-cell center">Your Result</div>
+    <div class="table-header-cell center epa-col">EPA Standard</div>
+  </div>
+
+  <!-- Chloroform -->
+  <div class="result-row status-fail">
+    <div class="cell cell-name">
+      <span class="analyte-name">Chloroform</span>
+      <span class="analyte-why">The most abundant THM in chlorinated municipal water. Classified as a probable human carcinogen. Primary target organs: liver, kidney, colorectal tissue. Also absorbed through skin and inhaled during showering.</span>
+    </div>
+    <div class="cell cell-result">
+      <span class="result-value">33 ppb</span>
+      <span class="result-unit">PPB</span>
+      <span class="result-health">Constitutes 96% of total TTHM load. At the concentration range documented in the Iowa Women's Health Study (14–287 ppb), human cohort data shows a 68% relative increase in colorectal cancer risk. Dual exposure pathway: ingestion and shower inhalation. Blood chloroform increases 2–7× after showering.</span>
+    </div>
+    <div class="cell cell-benchmark">
+      <span class="benchmark-value">0.4 ppb</span>
+      <span class="benchmark-label">EWG health guideline</span>
+    </div>
+    <div class="cell cell-benchmark">
+      <span class="benchmark-value">33 ppb</span>
+      <span class="benchmark-label">82× over EWG</span>
+      <div class="status-pill pill-fail">Confirmed</div>
+    </div>
+    <div class="cell cell-benchmark">
+      <span class="benchmark-value">70 ppb MCLG</span>
+      <span class="benchmark-label">EPA standard. Pass</span>
+    </div>
+  </div>
+
+  <!-- Bromodichloromethane -->
+  <div class="result-row status-fail">
+    <div class="cell cell-name">
+      <span class="analyte-name">Bromodichloromethane</span>
+      <span class="analyte-why">A brominated THM, more reactive than chloroform in certain tissue systems. Its presence indicates active bromination chemistry and predicts presence of brominated haloacetic acids, which are more carcinogenic than TTHMs.</span>
+    </div>
+    <div class="cell cell-result">
+      <span class="result-value">1.36 ppb</span>
+      <span class="result-unit">PPB</span>
+      <span class="result-health">NTP classifies as probable human carcinogen. A 2024 study found a hazard ratio of 1.30 for cancer mortality at levels consistent with this finding. The brominated fraction is specifically associated with bladder cancer risk. This detection strongly suggests brominated haloacetic acids (HAA9) are present but were not included in this panel.</span>
+    </div>
+    <div class="cell cell-benchmark">
+      <span class="benchmark-value">0.06 ppb</span>
+      <span class="benchmark-label">EWG health guideline</span>
+    </div>
+    <div class="cell cell-benchmark">
+      <span class="benchmark-value">1.36 ppb</span>
+      <span class="benchmark-label">23× over EWG</span>
+      <div class="status-pill pill-fail">Confirmed</div>
+    </div>
+    <div class="cell cell-benchmark">
+      <span class="benchmark-value">0 MCLG</span>
+      <span class="benchmark-label">EPA goal (unenforced)</span>
+    </div>
+  </div>
+
+  <!-- Bromoform -->
+  <div class="result-row status-nd">
+    <div class="cell cell-name">
+      <span class="analyte-name">Bromoform</span>
+      <span class="analyte-why">THM associated with higher organic content water and stronger bromination. NTP probable human carcinogen. Not detected at this location.</span>
+    </div>
+    <div class="cell cell-result">
+      <span class="result-value">ND</span>
+      <span class="result-unit">&lt; 0.5 ppb detection limit</span>
+      <span class="result-health">Not detected. Instrument was calibrated to detect at 0.294 ppb. Clean result.</span>
+    </div>
+    <div class="cell cell-benchmark">
+      <span class="benchmark-value">0.4 ppb</span>
+      <span class="benchmark-label">EWG health guideline</span>
+    </div>
+    <div class="cell cell-benchmark">
+      <span class="benchmark-value">&lt; 0.5 ppb</span>
+      <span class="benchmark-label">Not Detected</span>
+      <div class="status-pill pill-nd">Not Detected</div>
+    </div>
+    <div class="cell cell-benchmark">
+      <span class="benchmark-value">0 MCLG</span>
+      <span class="benchmark-label">EPA goal (unenforced)</span>
+    </div>
+  </div>
+
+  <!-- Dibromochloromethane -->
+  <div class="result-row status-nd">
+    <div class="cell cell-name">
+      <span class="analyte-name">Dibromochloromethane</span>
+      <span class="analyte-why">The fourth regulated THM. Associated with reproductive effects in addition to cancer risk. Not detected at this location.</span>
+    </div>
+    <div class="cell cell-result">
+      <span class="result-value">ND</span>
+      <span class="result-unit">&lt; 0.5 ppb detection limit</span>
+      <span class="result-health">Not detected. Instrument detection limit 0.216 ppb. Clean result.</span>
+    </div>
+    <div class="cell cell-benchmark">
+      <span class="benchmark-value">0.4 ppb</span>
+      <span class="benchmark-label">EWG health guideline</span>
+    </div>
+    <div class="cell cell-benchmark">
+      <span class="benchmark-value">&lt; 0.5 ppb</span>
+      <span class="benchmark-label">Not Detected</span>
+      <div class="status-pill pill-nd">Not Detected</div>
+    </div>
+    <div class="cell cell-benchmark">
+      <span class="benchmark-value">60 ppb MCLG</span>
+      <span class="benchmark-label">EPA standard</span>
+    </div>
+  </div>
+</div>
+
+<!-- ══ HEAVY METALS ══ -->
+<div class="results-section" style="background: var(--forest-mid);">
+  <div class="section-label">Section III</div>
+  <div class="category-header">
+    <div class="category-title">Heavy Metals &amp; Inorganics</div>
+    <div class="category-count">19 metals tested. 1 confirmed finding</div>
+  </div>
+  <div class="category-desc">Metals enter drinking water from two sources: the original water supply and in-home plumbing. Because this assessment tested both Cr-6 (a separate standalone test) and total chromium (as part of the Level 2 panel), together they provide a complete picture of metal contamination. 18 of 19 metals tested were below detection.</div>
+
+  <div class="table-header">
+    <div class="table-header-cell">Analyte</div>
+    <div class="table-header-cell">Measurement & Significance</div>
+    <div class="table-header-cell center ewg-col">EWG Guideline</div>
+    <div class="table-header-cell center">Your Result</div>
+    <div class="table-header-cell center epa-col">EPA Standard</div>
+  </div>
+
+  <!-- Cr-6 -->
+  <div class="result-row status-fail">
+    <div class="cell cell-name">
+      <span class="analyte-name">Hexavalent Chromium (Cr-6)</span>
+      <span class="analyte-why">The carcinogen from the film Erin Brockovich. Classified as a known human carcinogen by IARC when ingested. Distinct from total chromium. Requires separate, specialized testing via EPA Method 218.6.</span>
+    </div>
+    <div class="cell cell-result">
+      <span class="result-value">0.39 ppb</span>
+      <span class="result-unit">PPB · EPA Method 218.6</span>
+      <span class="result-health">Detected at 3.9× the laboratory's own reporting limit, a confirmed and accurately quantified result. No federal limit for Cr-6 specifically. California's cancer-protective threshold is 0.02 ppb. Mechanism: direct DNA adduct formation in GI tract, liver, and systemic circulation. Only reverse osmosis effectively removes Cr-6 from drinking water.</span>
+    </div>
+    <div class="cell cell-benchmark">
+      <span class="benchmark-value">0.02 ppb</span>
+      <span class="benchmark-label">EWG / CA PHG</span>
+    </div>
+    <div class="cell cell-benchmark">
+      <span class="benchmark-value">0.39 ppb</span>
+      <span class="benchmark-label">19.5× over EWG</span>
+      <div class="status-pill pill-fail">Confirmed</div>
+    </div>
+    <div class="cell cell-benchmark">
+      <span class="benchmark-value">No federal<br>Cr-6 limit</span>
+      <span class="benchmark-label">Expected 2027</span>
+    </div>
+  </div>
+
+  <!-- Lead -->
+  <div class="result-row status-pass">
+    <div class="cell cell-name">
+      <span class="analyte-name">Lead</span>
+      <span class="analyte-why">No safe level. Causes irreversible neurological damage especially in children. Sources: lead service lines (pre-1986), lead solder in copper pipes, brass fixtures. This was a first-draw kitchen tap sample, the highest-risk collection method.</span>
+    </div>
+    <div class="cell cell-result">
+      <span class="result-value">ND</span>
+      <span class="result-unit">&lt; 0.0004 ppm, first draw</span>
+      <span class="result-health">Not detected at this tap on this collection. Lead contamination can vary significantly by collection method and time of day. This result is reassuring and consistent with North Fork watershed protection, but does not eliminate lead risk in older homes with pre-1986 plumbing. Retesting under varying conditions is recommended for homes built before 1986.</span>
+    </div>
+    <div class="cell cell-benchmark">
+      <span class="benchmark-value">0.001 ppb</span>
+      <span class="benchmark-label">EWG health guideline</span>
+    </div>
+    <div class="cell cell-benchmark">
+      <span class="benchmark-value">&lt; 0.0004 ppm</span>
+      <span class="benchmark-label">Not Detected</span>
+      <div class="status-pill pill-pass">Pass</div>
+    </div>
+    <div class="cell cell-benchmark">
+      <span class="benchmark-value">15 ppb</span>
+      <span class="benchmark-label">EPA action level</span>
+    </div>
+  </div>
+
+  <!-- Arsenic -->
+  <div class="result-row status-pass">
+    <div class="cell cell-name">
+      <span class="analyte-name">Arsenic</span>
+      <span class="analyte-why">Known human carcinogen associated with bladder, lung, and skin cancers. Occurs naturally in bedrock geology and from industrial contamination. EWG's guideline is significantly lower than EPA's legal limit.</span>
+    </div>
+    <div class="cell cell-result">
+      <span class="result-value">ND</span>
+      <span class="result-unit">&lt; 0.001 ppm</span>
+      <span class="result-health">Not detected. Clean result consistent with North Fork's protected watershed. Arsenic-bearing geology is more prevalent in other WNC formations; North Fork's granite catchment is protective.</span>
+    </div>
+    <div class="cell cell-benchmark">
+      <span class="benchmark-value">0.0004 ppb</span>
+      <span class="benchmark-label">EWG health guideline</span>
+    </div>
+    <div class="cell cell-benchmark">
+      <span class="benchmark-value">&lt; 0.001 ppm</span>
+      <span class="benchmark-label">Not Detected</span>
+      <div class="status-pill pill-pass">Pass</div>
+    </div>
+    <div class="cell cell-benchmark">
+      <span class="benchmark-value">10 ppb</span>
+      <span class="benchmark-label">EPA MCL</span>
+    </div>
+  </div>
+
+  <!-- Mercury -->
+  <div class="result-row status-pass">
+    <div class="cell cell-name">
+      <span class="analyte-name">Mercury</span>
+      <span class="analyte-why">Neurotoxin. Affects kidney and nervous system. Sources: coal combustion fallout, industrial discharge. Duke Energy Asheville (Lake Julian coal ash site) is within the watershed region.</span>
+    </div>
+    <div class="cell cell-result">
+      <span class="result-value">ND</span>
+      <span class="result-unit">&lt; 0.0008 ppm</span>
+      <span class="result-health">Not detected. Despite proximity to coal ash facilities, North Fork's source protection is effective for mercury. Clean result.</span>
+    </div>
+    <div class="cell cell-benchmark">
+      <span class="benchmark-value">No guideline</span>
+      <span class="benchmark-label">EWG</span>
+    </div>
+    <div class="cell cell-benchmark">
+      <span class="benchmark-value">&lt; 0.0008 ppm</span>
+      <span class="benchmark-label">Not Detected</span>
+      <div class="status-pill pill-pass">Pass</div>
+    </div>
+    <div class="cell cell-benchmark">
+      <span class="benchmark-value">2 ppb</span>
+      <span class="benchmark-label">EPA MCL</span>
+    </div>
+  </div>
+
+  <!-- Barium -->
+  <div class="result-row status-pass">
+    <div class="cell cell-name">
+      <span class="analyte-name">Barium</span>
+      <span class="analyte-why">Can cause elevated blood pressure and cardiovascular effects at high concentrations. Naturally occurring in some geological formations.</span>
+    </div>
+    <div class="cell cell-result">
+      <span class="result-value">0.0037 ppm</span>
+      <span class="result-unit">PPM</span>
+      <span class="result-health">Detected but well within all standards, at 540× below the EPA limit. No health concern at this level.</span>
+    </div>
+    <div class="cell cell-benchmark">
+      <span class="benchmark-value">No guideline</span>
+      <span class="benchmark-label">EWG</span>
+    </div>
+    <div class="cell cell-benchmark">
+      <span class="benchmark-value">0.0037 ppm</span>
+      <span class="benchmark-label">Well within limits</span>
+      <div class="status-pill pill-pass">Pass</div>
+    </div>
+    <div class="cell cell-benchmark">
+      <span class="benchmark-value">2 ppm</span>
+      <span class="benchmark-label">EPA MCL</span>
+    </div>
+  </div>
+</div>
+
+<!-- ══ VOLATILES (SUMMARY) ══ -->
+<div class="results-section">
+  <div class="section-label">Section IV</div>
+  <div class="category-header">
+    <div class="category-title">Volatile Organic Compounds</div>
+    <div class="category-count">55 compounds tested. 0 detected</div>
+  </div>
+  <div class="category-desc">
+    VOCs include industrial solvents, fuel components, and chlorinated compounds used in manufacturing. This panel tested 55 compounds including benzene, TCE, vinyl chloride, carbon tetrachloride, and all regulated halogenated solvents. Every compound in this category was below the instrument detection limit. This is a comprehensive clean result reflecting the effectiveness of North Fork Reservoir's protected watershed status.
+  </div>
+
+  <div style="padding: 32px; border: 1px solid rgba(29,185,84,0.2); background: rgba(29,185,84,0.04); margin-top: 8px;">
+    <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 16px;">
+      <div class="status-pill pill-pass" style="font-size: 11px; padding: 6px 16px;">All 55 Compounds. Not Detected</div>
+      <span style="font-size: 11px; color: var(--text-muted);">Detection limits ranged from 0.123 ppb to 0.5 ppb depending on compound</span>
+    </div>
+    <p style="font-size: 12px; color: var(--text-secondary); line-height: 1.8; max-width: 800px;">
+      Compounds tested and not detected include: Benzene, Toluene, Ethylbenzene, all Xylenes (BTEX group), Trichloroethylene (TCE), Tetrachloroethylene (PCE), Vinyl Chloride, Carbon Tetrachloride, 1,2-Dichloroethane, Methylene Chloride, all Trihalomethanes except Chloroform and Bromodichloromethane (reported in Section II), MTBE, and 40 additional regulated and monitored compounds. The absence of industrial VOCs is consistent with North Fork Reservoir's protected status and distance from major industrial contamination sources.
+    </p>
+  </div>
+</div>
+
+<!-- ══ METHODOLOGY ══ -->
+<div class="methodology">
+  <div class="section-label">Methodology & Laboratory Information</div>
+  <div class="methodology-grid">
+    <div>
+      <div class="method-block-title">Analytical Laboratories</div>
+      <div class="method-block-text">
+        Level 2 panel analyzed by Microbac Laboratories, Pittston, Pennsylvania. Hexavalent chromium analyzed by Enthalpy Analytical, Orange, California (California ELAP Certificate No. 1338, effective 11/1/2024, expires 10/31/2026). Both facilities operate under ISO/IEC 17025 accreditation. All analyses performed using EPA-approved methods.
+      </div>
+    </div>
+    <div>
+      <div class="method-block-title">Collection Protocol</div>
+      <div class="method-block-text">
+        Sample collected March 18, 2026 from kitchen sink tap using first-draw protocol. Water was standing in pipes overnight with no flushing before collection. This method captures the highest-risk scenario for pipe leachates including lead and metals. Chain of custody maintained throughout collection and shipment per laboratory requirements.
+      </div>
+    </div>
+    <div>
+      <div class="method-block-title">Standards Referenced</div>
+      <div class="method-block-text">
+        EWG health guidelines sourced from Environmental Working Group Tap Water Database (2023). California public health goals sourced from California OEHHA (2011, 2020). EPA MCLs and MCLGs sourced from 40 CFR Part 141 (current). Human health risk data sourced from peer-reviewed literature including Villanueva et al. (2020) PMC7142415 and IARC Monographs.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ FOOTER ══ -->
+<div class="doc-footer">
+  <div>
+    <div class="doc-footer-pangia">Pangia</div>
+    <div style="font-size: 10px; color: var(--text-muted); margin-top: 6px;">828-412-9278 · Asheville, NC</div>
+  </div>
+  <div class="doc-footer-note">
+    This report is prepared for informational and educational purposes. Results represent conditions at the time and location of sample collection. Water quality may vary by season, tap location, and distribution system dynamics. This document does not constitute medical advice. For protocol recommendations based on these findings, contact Pangia directly.
+  </div>
+</div>
+
+</body>
+</html>

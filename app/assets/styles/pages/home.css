@@ -478,13 +478,31 @@
 .pillar-card {
     position: relative;
     border-radius: 0;
-    padding: 24px;
+    padding: 30px 28px;
     min-height: 500px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-start;
     color: #f4f4ec;
     overflow: hidden;
+    border: 1px solid rgba(205, 237, 226, 0.08);
+    text-decoration: none;
+    transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+    cursor: pointer;
+}
+
+.pillar-card:hover,
+.pillar-card:focus-visible,
+.pillar-card:hover *,
+.pillar-card:focus-visible * {
+    text-decoration: none;
+}
+
+.pillar-card:hover,
+.pillar-card:focus-visible {
+    transform: translateY(-6px);
+    box-shadow: 0 34px 82px rgba(0, 0, 0, 0.2);
+    border-color: rgba(223, 247, 238, 0.18);
 }
 
 .pillar-card::before {
@@ -502,8 +520,16 @@
     content: "";
     position: absolute;
     inset: 0;
-    background: linear-gradient(180deg, rgba(3, 23, 18, 0.15), rgba(3, 23, 18, 0.9));
+    background:
+        linear-gradient(180deg, rgba(3, 23, 18, 0.08) 0%, rgba(3, 23, 18, 0.36) 42%, rgba(3, 23, 18, 0.92) 100%),
+        linear-gradient(90deg, rgba(7, 26, 20, 0.38) 0%, rgba(7, 26, 20, 0.08) 48%, rgba(7, 26, 20, 0.18) 100%);
     z-index: -1;
+}
+
+.pillar-consult::after {
+    background:
+        linear-gradient(180deg, rgba(3, 23, 18, 0.28) 0%, rgba(3, 23, 18, 0.58) 42%, rgba(3, 23, 18, 0.96) 100%),
+        linear-gradient(90deg, rgba(7, 26, 20, 0.48) 0%, rgba(7, 26, 20, 0.18) 48%, rgba(7, 26, 20, 0.26) 100%);
 }
 
 .pillar-card > * {
@@ -529,13 +555,57 @@
 
 .pillar-card h3 {
     margin-top: 0;
-    margin-bottom: 6px;
-    color: #cfeee3;
+    margin-bottom: 12px;
+    color: #dff7ee;
+    font-family: 'Arsenal', sans-serif;
+    font-size: 1.08rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
 }
 
 .pillar-card p {
-    margin-bottom: 10px;
-    color: #d4e2da;
+    margin-bottom: 16px;
+    color: #f3faf7;
+    font-size: clamp(1.18rem, 1.9vw, 1.52rem);
+    line-height: 1.42;
+    max-width: 20ch;
+    text-wrap: balance;
+}
+
+.hero-pillars .pillar-card p {
+    margin-top: auto;
+}
+
+.pillar-card .link-arrow {
+    align-self: flex-start;
+    color: #dff7ee;
+    border: 0;
+    background: transparent;
+    backdrop-filter: none;
+    padding: 0;
+    margin-top: 14px;
+    font-size: 0.8rem;
+    letter-spacing: 0.06em;
+    text-decoration: none;
+}
+
+.pillar-card .link-arrow:hover {
+    color: #ffffff;
+}
+
+.pillar-consult p {
+    max-width: 21ch;
+    font-size: clamp(1.89rem, 3vw, 2.52rem);
+    line-height: 1.38;
+}
+
+.pillar-consult h3 {
+    font-size: 1.77rem;
+}
+
+.pillar-consult .link-arrow + .link-arrow {
+    margin-top: 10px;
 }
 
 .insight-grid,
@@ -781,6 +851,15 @@
         margin-top: 0;
     }
 
+    .hero-meta-stack {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .hero-subscribe-card {
+        width: 100%;
+    }
+
     .hero-pillars {
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
         margin-top: 10px;
@@ -797,6 +876,17 @@
     .learning-grid,
     .timeline-grid {
         grid-template-columns: 1fr;
+    }
+
+    .hero-quad-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(4, minmax(250px, auto));
+    }
+
+    .hero-help-grid {
+        grid-template-columns: 1fr;
+        padding: 0;
+        gap: 20px;
     }
 
     .hero-actions {
