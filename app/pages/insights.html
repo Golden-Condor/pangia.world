@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pangia Insights | Asheville Water Knowledge</title>
-  <meta name="description" content="Dive deeper into Pangia's featured insights—data breakdowns, diagnostic implications, and what to watch across Asheville water.">
+  <title>Pangia Insights | Local Environmental Briefs</title>
+  <meta name="description" content="Local environmental intelligence for Asheville and Western North Carolina: water baselines, watershed questions, and issue briefs organized for homeowners.">
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png">
   <link rel="stylesheet" href="/assets/styles/main.css">
-  <link rel="stylesheet" href="/assets/styles/pages/home.css">
+  <link rel="stylesheet" href="/assets/styles/pages/insights.css">
 </head>
-<body>
+<body class="insights-page">
   <header>
     <div class="header-content">
       <div class="menu-container">
@@ -29,62 +29,124 @@
     </div>
   </header>
 
-  <main>
-    <section class="pillar-section featured-insight" id="insight">
-      <div class="pillars-header">
+  <main class="insights-shell">
+    <section class="insights-hero">
+      <div class="insights-hero-heading">
+        <p class="eyebrow">Insights</p>
+        <h1>Local environmental context for residents.</h1>
+      </div>
+      <div class="insights-hero-summary">
+        <p>Pangia Insights organizes Asheville and WNC environmental information into clear briefs: what happened, what may still matter, and when testing is worth doing.</p>
+      </div>
+    </section>
+
+    <section class="insights-section">
+      <div class="insights-section-header">
         <div>
-          <p class="eyebrow">Featured Insight</p>
-          <h2>Disinfection byproducts are still 46,000% above the health guideline</h2>
-          <p>The 2024 CCR shows Asheville tap water far exceeding EWG targets. Our Diagnostic blueprint exists to interpret that gap and publish your own before/after data.</p>
+          <p class="eyebrow">Current dataset</p>
+          <h2>Water-first intelligence</h2>
+          <p>Start with the city baseline, then move into point-of-use interpretation. This is the current lead edge of the Pangia system.</p>
         </div>
-        <a href="/pages/insights.html" class="link-arrow">Full data brief →</a>
       </div>
-      <div class="insight-grid">
-        <article class="insight-card highlight">
-          <p class="eyebrow">Diagnostic note · Week 32</p>
-          <h3>CCR vs Pangia Target</h3>
-          <p>Pangia targets “ND” (not detected) for key disinfection byproducts; the city baseline is still in the thousands-of-percent range compared to the EWG guideline.</p>
-          <ul class="stat-list">
-            <li>
-              <span class="stat-label">Total Trihalomethanes (TTHMs)</span>
-              <strong>46,000% over</strong>
-              <span class="stat-footnote">City 0.0368 ppm · Target ND</span>
-            </li>
-            <li>
-              <span class="stat-label">HAA5 · Haloacetic acids</span>
-              <strong>61,500% over</strong>
-              <span class="stat-footnote">City 0.0369 ppm · Target ND</span>
-            </li>
-            <li>
-              <span class="stat-label">Chlorine (as Cl₂)</span>
-              <strong>2,920% over</strong>
-              <span class="stat-footnote">City 1.46 ppm · Target ND</span>
-            </li>
-          </ul>
-        </article>
-        <article class="insight-card">
-          <h3>Diagnostic Implication</h3>
-          <p>We sample at your sink, run the same certified lab panels, and publish a dossier that shows the delta from city water to your post-treatment proof.</p>
-          <ul class="stat-list mini">
-            <li>Full contaminant tables + commentary</li>
-            <li>System options mapped to each risk driver</li>
-            <li>Install readiness notes + permit cues</li>
-          </ul>
-        </article>
-        <article class="insight-card">
-          <h3>What to Watch</h3>
-          <p>Homes on municipal lines should watch for seasonal swings, chlorine taste, and fixture staining. Bring those observations to the Diagnostic consult.</p>
-          <a href="/pages/book.html" class="btn btn-secondary">Request a Diagnostic</a>
+      <div class="insights-grid">
+        <a href="/pages/asheville-tap-water.html" class="insight-hub-card">
+          <span class="insight-status">Live brief</span>
+          <h3>What is in Asheville tap water?</h3>
+          <p>A homeowner-facing explanation of Asheville’s source water, what the CCR does and does not tell you, and why the last stretch of plumbing still matters.</p>
+          <span class="link-arrow">Open article →</span>
+        </a>
+        <a href="/pages/water-quality.html" class="insight-hub-card">
+          <span class="insight-status">Data set</span>
+          <h3>Asheville water-quality reference</h3>
+          <p>The current baseline page for regulated contaminants, general chemistry, and how Pangia compares public-system readings with health-oriented interpretation.</p>
+          <span class="link-arrow">View the data →</span>
+        </a>
+        <a href="/pages/sample-blueprint.html" class="insight-hub-card">
+          <span class="insight-status insight-status-muted">Method</span>
+          <h3>How Pangia packages interpretation</h3>
+          <p>See how testing, observations, system logic, and next-step planning are organized when Pangia turns scattered inputs into one Diagnostic brief.</p>
+          <span class="link-arrow">Preview the sample →</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="insights-section">
+      <div class="insights-section-header">
+        <div>
+          <p class="eyebrow">Reports</p>
+          <h2>Downloadable research assets</h2>
+          <p>Surveys, reports, and field documents that support the broader baseline work.</p>
+        </div>
+      </div>
+      <div class="insights-grid">
+        <article class="insight-hub-card insight-hub-card-soon">
+          <span class="insight-card-overlay">Coming soon</span>
+          <span class="insight-status">Report</span>
+          <h3>WNC Water Health Survey</h3>
+          <p>A 10-page community insights report summarizing local perspectives on water quality, trust, and safety across Western North Carolina.</p>
+          <span class="link-arrow">Open report page →</span>
         </article>
       </div>
-      <a href="/pages/water-quality.html" class="btn btn-primary insight-cta">Dive into the Asheville data set</a>
+    </section>
+
+    <section class="insights-section">
+      <div class="insights-section-header">
+        <div>
+          <p class="eyebrow">Local issue tracker</p>
+          <h2>Environmental briefs in build</h2>
+          <p>Local issues, industrial legacies, and watershed questions that are difficult to piece together from scattered records.</p>
+        </div>
+      </div>
+      <div class="insights-grid">
+        <article class="insight-hub-card insight-hub-card-soon">
+          <span class="insight-card-overlay">Coming soon</span>
+          <span class="insight-status">Framework</span>
+          <h3>Asheville environmental baseline</h3>
+          <p>The working overview page for how Pangia plans to organize local environmental history: water, legacy industry, watershed issues, and what to watch by geography.</p>
+          <span class="link-arrow">Open baseline →</span>
+        </article>
+        <article class="insight-hub-card insight-hub-card-soon">
+          <span class="insight-card-overlay">Coming soon</span>
+          <span class="insight-status insight-status-muted">Research brief</span>
+          <h3>Coal ash and chromium questions</h3>
+          <p>A structured issue brief tracking how historical coal-ash and chromium reporting may still shape downstream water and homeowner questions in the region.</p>
+          <span class="link-arrow">Open brief →</span>
+        </article>
+        <article class="insight-hub-card insight-hub-card-soon">
+          <span class="insight-card-overlay">Coming soon</span>
+          <span class="insight-status insight-status-muted">Research brief</span>
+          <h3>Canton mill downstream context</h3>
+          <p>An issue page for the paper mill legacy, river concerns, and the difference between a closed facility, a public record trail, and present-day household exposure questions.</p>
+          <span class="link-arrow">Open brief →</span>
+        </article>
+        <article class="insight-hub-card insight-hub-card-soon">
+          <span class="insight-card-overlay">Coming soon</span>
+          <span class="insight-status insight-status-muted">Research brief</span>
+          <h3>DuPont legacy questions</h3>
+          <p>A working brief for historic industrial activity, what residents still ask about nearby land and water, and where Pangia would want firmer records before making claims.</p>
+          <span class="link-arrow">Open brief →</span>
+        </article>
+      </div>
+    </section>
+
+    <section class="insights-section">
+      <div class="insights-section-header">
+        <div>
+          <p class="eyebrow">How to use this section</p>
+          <h2>Read it like a baseline, not a news feed.</h2>
+          <p>Insights should help you decide whether a concern is historical context, an active household question, or a reason to test. The point is to narrow uncertainty, not expand it.</p>
+        </div>
+      </div>
+      <div class="insights-actions">
+        <a href="/pages/book.html" class="btn btn-primary">Start a Diagnostic inquiry</a>
+        <a href="/pages/learning.html" class="link-arrow">Browse Learning Topics →</a>
+      </div>
     </section>
   </main>
 
   <footer class="footer">
     <div class="footer-content">
       <p>&copy; 2024 Pangia. All rights reserved.</p>
-      
     </div>
   </footer>
 </body>

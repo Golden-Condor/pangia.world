@@ -241,35 +241,56 @@
 .coming-soon-overlay {
     position: fixed;
     inset: 0;
-    background: rgba(3, 23, 18, 0.95);
+    background: rgba(3, 23, 18, 0.92);
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 20px;
     z-index: 5000;
-    text-align: center;
 }
 
 .coming-soon-overlay .overlay-card {
-    max-width: 480px;
-    background: rgba(6, 35, 27, 0.95);
-    border: 1px solid #1d4e3f;
-    padding: 32px;
-    border-radius: 16px;
-    color: #f4fff8;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.45);
+    max-width: 560px;
+    background: #fcfaf5;
+    border: 1px solid rgba(6, 20, 15, 0.12);
+    padding: 34px 36px;
+    color: #132820;
+    box-shadow: 0 28px 70px rgba(0, 0, 0, 0.28);
+    text-align: left;
 }
 
 .coming-soon-overlay .overlay-card h2 {
     margin-top: 0;
     font-family: 'Bodoni 72', 'Bodoni Moda', serif;
-    color: #ffffff;
+    color: #132820;
+    margin-bottom: 14px;
 }
 
 .coming-soon-overlay .overlay-card p {
-    color: #d6f0e4;
-    line-height: 1.5;
-    margin-bottom: 20px;
+    color: #314d42;
+    line-height: 1.65;
+    margin-bottom: 0;
+}
+
+.coming-soon-overlay .overlay-card .eyebrow {
+    color: #0d6654;
+    margin-bottom: 10px;
+}
+
+.coming-soon-overlay .overlay-card .link-arrow {
+    color: #0d5d4d;
+}
+
+.coming-soon-overlay .overlay-card .link-arrow:hover {
+    color: #0a4d40;
+}
+
+.overlay-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px 18px;
+    align-items: center;
+    margin-top: 24px;
 }
 
 .hero-content .eyebrow {
