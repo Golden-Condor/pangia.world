@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pangia Reverse Osmosis Assessment</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --forest: #0a2318;
+    --forest-mid: #0f2e1e;
+    --forest-light: #163d28;
+    --forest-deep: #031712;
+    --green-accent: #1db954;
+    --green-soft: #2ecc71;
+    --cream: #f5f0e8;
+    --cream-dark: #e8e2d4;
+    --text-primary: #f0ebe0;
+    --text-secondary: #a8b5a0;
+    --text-muted: #6b7d65;
+
+    --pass: #1a5c35;
+    --pass-border: #2ecc71;
+    --pass-text: #7effa8;
+    --elevated: #5c4a0a;
+    --elevated-border: #f0b429;
+    --elevated-text: #ffd97d;
+    --fail: #5c1a1a;
+    --fail-border: #e74c3c;
+    --fail-text: #ff8a8a;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--forest-deep);
+    color: var(--text-primary);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  /* ══ COVER ══ */
+  .cover {
+    min-height: 100vh;
+    background: linear-gradient(160deg, var(--forest-deep) 0%, #020d08 60%, #000603 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 60px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cover::before {
+    content: '';
+    position: absolute;
+    top: -200px;
+    right: -200px;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(29,185,84,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .cover::after {
+    content: '';
+    position: absolute;
+    bottom: -100px;
+    left: -100px;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(29,185,84,0.05) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .cover-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .cover-label {
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+  }
+
+  .cover-badge {
+    border: 1px solid rgba(29,185,84,0.3);
+    padding: 8px 16px;
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--green-accent);
+  }
+
+  .cover-main { position: relative; z-index: 1; }
+
+  .cover-eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--green-accent);
+    margin-bottom: 24px;
+  }
+
+  .cover-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(52px, 7vw, 96px);
+    font-weight: 300;
+    line-height: 1.0;
+    color: var(--cream);
+    margin-bottom: 12px;
+  }
+
+  .cover-title em {
+    font-style: italic;
+    color: var(--text-secondary);
+  }
+
+  .cover-subtitle {
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    color: var(--text-secondary);
+    margin-top: 20px;
+    max-width: 520px;
+    line-height: 1.7;
+  }
+
+  .cover-divider {
+    width: 60px;
+    height: 1px;
+    background: var(--green-accent);
+    margin: 32px 0;
+  }
+
+  .cover-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+
+  .cover-meta {
+    font-size: 11px;
+    color: var(--text-muted);
+    letter-spacing: 0.05em;
+  }
+
+  .cover-meta strong {
+    color: var(--text-secondary);
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  .cover-pangia {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 13px;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--green-accent);
+  }
+
+  /* ══ SECTION STANDARDS ══ */
+  .section {
+    padding: 80px 60px;
+    position: relative;
+  }
+
+  .section + .section {
+    border-top: 1px solid rgba(255,255,255,0.05);
+  }
+
+  .section-label {
+    font-size: 10px;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--green-accent);
+    margin-bottom: 24px;
+  }
+
+  .section-headline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 48px;
+    font-weight: 300;
+    line-height: 1.1;
+    color: var(--cream);
+    margin-bottom: 40px;
+    max-width: 900px;
+  }
+
+  .section-headline em {
+    font-style: italic;
+    color: var(--text-secondary);
+  }
+
+  /* ══ PURPOSE SECTION ══ */
+  .purpose {
+    background: var(--forest-mid);
+  }
+
+  .purpose-intro {
+    font-size: 16px;
+    line-height: 1.8;
+    color: var(--text-secondary);
+    max-width: 780px;
+    margin-bottom: 60px;
+  }
+
+  .purpose-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    margin-bottom: 60px;
+  }
+
+  .purpose-card {
+    background: rgba(0,0,0,0.2);
+    padding: 40px 36px;
+    border: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .purpose-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 14px;
+    color: var(--green-accent);
+    letter-spacing: 0.2em;
+    margin-bottom: 16px;
+  }
+
+  .purpose-card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 26px;
+    font-weight: 400;
+    color: var(--cream);
+    margin-bottom: 14px;
+    letter-spacing: 0.02em;
+  }
+
+  .purpose-card p {
+    font-size: 13px;
+    line-height: 1.75;
+    color: var(--text-secondary);
+  }
+
+  .purpose-close {
+    background: rgba(29,185,84,0.06);
+    border: 1px solid rgba(29,185,84,0.25);
+    padding: 40px 48px;
+    position: relative;
+  }
+
+  .purpose-close::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px;
+    height: 100%;
+    background: var(--green-accent);
+  }
+
+  .purpose-close-label {
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--green-accent);
+    margin-bottom: 12px;
+  }
+
+  .purpose-close-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 26px;
+    line-height: 1.4;
+    color: var(--cream);
+    font-weight: 300;
+  }
+
+  /* ══ WHAT WE TEST ══ */
+  .testing {
+    background: var(--forest-deep);
+  }
+
+  .testing-intro {
+    font-size: 14px;
+    line-height: 1.8;
+    color: var(--text-secondary);
+    max-width: 720px;
+    margin-bottom: 50px;
+  }
+
+  .category-block {
+    margin-bottom: 40px;
+    border: 1px solid rgba(255,255,255,0.06);
+    background: rgba(0,0,0,0.25);
+  }
+
+  .category-head {
+    display: grid;
+    grid-template-columns: 80px 1fr 180px;
+    align-items: center;
+    padding: 24px 32px;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    background: rgba(29,185,84,0.04);
+  }
+
+  .category-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 36px;
+    font-weight: 300;
+    color: var(--green-accent);
+    letter-spacing: 0;
+  }
+
+  .category-title-wrap h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 26px;
+    font-weight: 400;
+    color: var(--cream);
+    margin-bottom: 4px;
+  }
+
+  .category-title-wrap p {
+    font-size: 12px;
+    color: var(--text-muted);
+    letter-spacing: 0.02em;
+  }
+
+  .category-count-badge {
+    text-align: right;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  .category-count-badge strong {
+    display: block;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    font-weight: 300;
+    color: var(--green-accent);
+    letter-spacing: 0;
+    margin-bottom: 2px;
+  }
+
+  .analyte-list {
+    padding: 24px 32px 28px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 16px;
+  }
+
+  .analyte-tag {
+    font-size: 12px;
+    color: var(--text-secondary);
+    padding: 6px 14px;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 2px;
+    font-family: 'DM Sans', sans-serif;
+    letter-spacing: 0.02em;
+  }
+
+  /* ══ HOW TO READ ══ */
+  .reading {
+    background: var(--forest-mid);
+  }
+
+  .reading-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2px;
+    margin-top: 48px;
+  }
+
+  .reading-card {
+    padding: 40px 32px;
+    position: relative;
+  }
+
+  .reading-card.pass { background: var(--pass); border: 1px solid var(--pass-border); }
+  .reading-card.elevated { background: var(--elevated); border: 1px solid var(--elevated-border); }
+  .reading-card.fail { background: var(--fail); border: 1px solid var(--fail-border); }
+
+  .reading-status {
+    font-size: 10px;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+
+  .reading-card.pass .reading-status { color: var(--pass-text); }
+  .reading-card.elevated .reading-status { color: var(--elevated-text); }
+  .reading-card.fail .reading-status { color: var(--fail-text); }
+
+  .reading-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 36px;
+    font-weight: 300;
+    color: var(--cream);
+    margin-bottom: 16px;
+  }
+
+  .reading-desc {
+    font-size: 13px;
+    line-height: 1.75;
+    color: var(--text-secondary);
+  }
+
+  /* ══ WHAT THIS TELLS YOU ══ */
+  .tells {
+    background: var(--forest-deep);
+  }
+
+  .tells-intro {
+    font-size: 15px;
+    line-height: 1.8;
+    color: var(--text-secondary);
+    max-width: 720px;
+    margin-bottom: 60px;
+  }
+
+  .tells-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+
+  .tells-card {
+    background: rgba(0,0,0,0.3);
+    border: 1px solid rgba(255,255,255,0.06);
+    padding: 40px 36px;
+    position: relative;
+    transition: all 0.2s ease;
+  }
+
+  .tells-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 2px;
+    height: 100%;
+    background: var(--green-accent);
+    opacity: 0.4;
+  }
+
+  .tells-question {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 28px;
+    font-weight: 300;
+    color: var(--cream);
+    margin-bottom: 20px;
+    line-height: 1.3;
+  }
+
+  .tells-answer {
+    font-size: 13px;
+    line-height: 1.8;
+    color: var(--text-secondary);
+  }
+
+  /* ══ OUTPUT SECTION ══ */
+  .output {
+    background: var(--forest-mid);
+  }
+
+  .output-flow {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2px;
+    margin-top: 40px;
+  }
+
+  .output-step {
+    background: rgba(0,0,0,0.2);
+    padding: 48px 36px;
+    border: 1px solid rgba(29,185,84,0.15);
+    text-align: center;
+    position: relative;
+  }
+
+  .output-step-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 14px;
+    color: var(--green-accent);
+    letter-spacing: 0.3em;
+    margin-bottom: 20px;
+  }
+
+  .output-step-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 40px;
+    font-weight: 300;
+    color: var(--cream);
+    margin-bottom: 16px;
+    letter-spacing: 0.02em;
+  }
+
+  .output-step-desc {
+    font-size: 12px;
+    line-height: 1.7;
+    color: var(--text-secondary);
+  }
+
+  /* ══ FOOTER ══ */
+  .doc-footer {
+    padding: 60px;
+    background: var(--forest-deep);
+    border-top: 1px solid rgba(255,255,255,0.06);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+
+  .doc-footer-pangia {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 11px;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--green-accent);
+  }
+
+  .doc-footer-note {
+    font-size: 11px;
+    color: var(--text-muted);
+    max-width: 480px;
+    text-align: right;
+    line-height: 1.7;
+  }
+
+  .doc-footer-contact {
+    font-size: 10px;
+    color: var(--text-muted);
+    margin-top: 8px;
+    letter-spacing: 0.05em;
+  }
+
+  @media (max-width: 900px) {
+    .purpose-grid,
+    .reading-grid,
+    .tells-grid,
+    .output-flow { grid-template-columns: 1fr; }
+    .section-headline { font-size: 36px; }
+  }
+
+  /* Print */
+  @page { size: 11in 17in; margin: 0; }
+  @media print {
+    body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .cover { height: 17in; min-height: auto; page-break-after: always; }
+    .section { page-break-before: always; }
+    .purpose-card, .reading-card, .tells-card, .output-step, .category-block {
+      page-break-inside: avoid;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- ══ COVER ══ -->
+<div class="cover">
+  <div class="cover-top">
+    <div class="cover-label">Pangia · Human Environment Audit</div>
+    <div class="cover-badge">Clinical Assessment Overview</div>
+  </div>
+
+  <div class="cover-main">
+    <div class="cover-eyebrow">Applied Biological Sciences</div>
+    <div class="cover-title">Reverse Osmosis<br><em>Assessment</em></div>
+    <div class="cover-divider"></div>
+    <div class="cover-subtitle">
+      A clinical evaluation of purified drinking water systems. This assessment verifies whether your reverse osmosis system is functioning as a true purification barrier, not just a filter, and identifies the risks that develop after installation when no one is measuring.
+    </div>
+  </div>
+
+  <div class="cover-bottom">
+    <div class="cover-meta">
+      <strong>Document Type</strong>
+      Reference &amp; Methodology<br>
+      For prospective clients
+    </div>
+    <div class="cover-meta" style="text-align:right">
+      <strong>Prepared By</strong>
+      Connor P. Moore<br>
+      CEO, Pangia
+    </div>
+    <div class="cover-pangia">Pangia</div>
+  </div>
+</div>
+
+<!-- ══ PURPOSE ══ -->
+<div class="section purpose">
+  <div class="section-label">Why This Assessment Exists</div>
+  <h2 class="section-headline">An RO system is not set and forget. It is a <em>clinical system</em> that requires verification.</h2>
+
+  <p class="purpose-intro">
+    Most homeowners install a reverse osmosis system, then stop thinking about it. The system works invisibly under the sink. Water comes out. It tastes better. Confidence grows. What the homeowner does not see is that the system has a lifespan, the conditions inside it change, and the assumption that filtered means clean is exactly the assumption that fails silently.
+  </p>
+
+  <div class="purpose-grid">
+    <div class="purpose-card">
+      <div class="purpose-number">01</div>
+      <h3>Performance degrades over time</h3>
+      <p>RO membranes foul, wear, and lose rejection capacity long before they appear to fail. The water still tastes the same. The flow rate may still feel normal. But the membrane's ability to block dissolved contaminants declines with every gallon it processes. Without testing, there is no way to know when that decline has crossed the line from acceptable to concerning.</p>
+    </div>
+    <div class="purpose-card">
+      <div class="purpose-number">02</div>
+      <h3>Contaminants can pass through</h3>
+      <p>No filtration system removes everything. RO is the most effective residential technology available, but membrane integrity, system pressure, and chemistry of the source water all influence what makes it through. Certain contaminants, particularly small volatile compounds and dissolved gases, can bypass RO entirely under specific conditions.</p>
+    </div>
+    <div class="purpose-card">
+      <div class="purpose-number">03</div>
+      <h3>Post-filter contamination is common</h3>
+      <p>The tank, tubing, and post-filter between the membrane and your glass are not sterile. Biofilm can form. Storage tank bladders leach. Remineralization cartridges introduce new variables. The water leaving the membrane is rarely the water arriving at your tap, and the gap between them is where most residential RO failures occur.</p>
+    </div>
+    <div class="purpose-card">
+      <div class="purpose-number">04</div>
+      <h3>You cannot evaluate what you do not measure</h3>
+      <p>RO systems are sold with a promise and installed with confidence. What is missing is the mechanism for verifying the promise, for confirming year after year that the system is producing the water quality it was purchased to produce. A clinical assessment is not redundant. It is the only way the confidence is warranted by data rather than assumption.</p>
+    </div>
+  </div>
+
+  <div class="purpose-close">
+    <div class="purpose-close-label">The Pangia Standard</div>
+    <div class="purpose-close-text">This assessment provides the data required to know whether your system is functioning as a true purification barrier. The numbers themselves are the answer.</div>
+  </div>
+</div>
+
+<!-- ══ WHAT WE TEST ══ -->
+<div class="section testing">
+  <div class="section-label">What This Assessment Measures</div>
+  <h2 class="section-headline">Every category of contaminant an RO system is expected to remove. Every indicator of whether it actually <em>did</em>.</h2>
+
+  <p class="testing-intro">
+    Testing is organized around six categories of information. The first three tell you how the system is performing. The remaining three tell you what, if anything, is making it past the membrane and into your water. Together they provide the complete picture no retail RO installer will ever provide.
+  </p>
+
+  <div class="category-block">
+    <div class="category-head">
+      <div class="category-num">01</div>
+      <div class="category-title-wrap">
+        <h3>System Performance Indicators</h3>
+        <p>Tells you whether the RO membrane is functioning correctly</p>
+      </div>
+      <div class="category-count-badge"><strong>4</strong>Core Metrics</div>
+    </div>
+    <div class="analyte-list">
+      <span class="analyte-tag">Total Dissolved Solids (TDS)</span>
+      <span class="analyte-tag">Conductivity</span>
+      <span class="analyte-tag">pH</span>
+      <span class="analyte-tag">Hardness</span>
+    </div>
+  </div>
+
+  <div class="category-block">
+    <div class="category-head">
+      <div class="category-num">02</div>
+      <div class="category-title-wrap">
+        <h3>Minerals &amp; Inorganics</h3>
+        <p>Confirms remineralization is working or identifies mineral stripping</p>
+      </div>
+      <div class="category-count-badge"><strong>10</strong>Analytes</div>
+    </div>
+    <div class="analyte-list">
+      <span class="analyte-tag">Calcium</span>
+      <span class="analyte-tag">Magnesium</span>
+      <span class="analyte-tag">Sodium</span>
+      <span class="analyte-tag">Potassium</span>
+      <span class="analyte-tag">Boron</span>
+      <span class="analyte-tag">Phosphorus</span>
+      <span class="analyte-tag">Silica</span>
+      <span class="analyte-tag">Sulfate</span>
+      <span class="analyte-tag">Chloride</span>
+      <span class="analyte-tag">Bromide</span>
+    </div>
+  </div>
+
+  <div class="category-block">
+    <div class="category-head">
+      <div class="category-num">03</div>
+      <div class="category-title-wrap">
+        <h3>Heavy Metals</h3>
+        <p>Verifies the membrane is blocking regulated carcinogens and neurotoxins</p>
+      </div>
+      <div class="category-count-badge"><strong>20</strong>Analytes</div>
+    </div>
+    <div class="analyte-list">
+      <span class="analyte-tag">Lead</span>
+      <span class="analyte-tag">Arsenic</span>
+      <span class="analyte-tag">Chromium (Total)</span>
+      <span class="analyte-tag">Mercury</span>
+      <span class="analyte-tag">Cadmium</span>
+      <span class="analyte-tag">Copper</span>
+      <span class="analyte-tag">Nickel</span>
+      <span class="analyte-tag">Aluminum</span>
+      <span class="analyte-tag">Antimony</span>
+      <span class="analyte-tag">Barium</span>
+      <span class="analyte-tag">Beryllium</span>
+      <span class="analyte-tag">Cobalt</span>
+      <span class="analyte-tag">Manganese</span>
+      <span class="analyte-tag">Selenium</span>
+      <span class="analyte-tag">Silver</span>
+      <span class="analyte-tag">Thallium</span>
+      <span class="analyte-tag">Tin</span>
+      <span class="analyte-tag">Uranium</span>
+      <span class="analyte-tag">Vanadium</span>
+      <span class="analyte-tag">Zinc</span>
+    </div>
+  </div>
+
+  <div class="category-block">
+    <div class="category-head">
+      <div class="category-num">04</div>
+      <div class="category-title-wrap">
+        <h3>Disinfection Byproducts</h3>
+        <p>Detects DBPs that survive RO and form in post-storage chemistry</p>
+      </div>
+      <div class="category-count-badge"><strong>6</strong>Analytes</div>
+    </div>
+    <div class="analyte-list">
+      <span class="analyte-tag">Chloroform</span>
+      <span class="analyte-tag">Bromodichloromethane</span>
+      <span class="analyte-tag">Dibromochloromethane</span>
+      <span class="analyte-tag">Bromoform</span>
+      <span class="analyte-tag">Bromochloromethane</span>
+      <span class="analyte-tag">Dibromomethane</span>
+    </div>
+  </div>
+
+  <div class="category-block">
+    <div class="category-head">
+      <div class="category-num">05</div>
+      <div class="category-title-wrap">
+        <h3>VOCs &amp; Industrial Contaminants</h3>
+        <p>Screens for solvents, fuel compounds, and halogenated chemicals</p>
+      </div>
+      <div class="category-count-badge"><strong>55</strong>Analytes</div>
+    </div>
+    <div class="analyte-list">
+      <span class="analyte-tag">Benzene</span>
+      <span class="analyte-tag">Toluene</span>
+      <span class="analyte-tag">Ethylbenzene</span>
+      <span class="analyte-tag">Xylenes</span>
+      <span class="analyte-tag">Trichloroethylene (TCE)</span>
+      <span class="analyte-tag">Tetrachloroethylene (PCE)</span>
+      <span class="analyte-tag">Vinyl Chloride</span>
+      <span class="analyte-tag">Carbon Tetrachloride</span>
+      <span class="analyte-tag">Dichloroethane compounds</span>
+      <span class="analyte-tag">Dichlorobenzene compounds</span>
+      <span class="analyte-tag">Trichlorobenzene compounds</span>
+      <span class="analyte-tag">MTBE</span>
+      <span class="analyte-tag">Naphthalene</span>
+      <span class="analyte-tag">Styrene</span>
+      <span class="analyte-tag">Butylbenzene compounds</span>
+      <span class="analyte-tag">+ 40 additional regulated VOCs</span>
+    </div>
+  </div>
+
+  <div class="category-block">
+    <div class="category-head">
+      <div class="category-num">06</div>
+      <div class="category-title-wrap">
+        <h3>Biological Indicators</h3>
+        <p>Detects microbial contamination from tank, tubing, or post-filter storage</p>
+      </div>
+      <div class="category-count-badge"><strong>2</strong>Analytes</div>
+    </div>
+    <div class="analyte-list">
+      <span class="analyte-tag">Total Coliform</span>
+      <span class="analyte-tag">E. coli</span>
+    </div>
+  </div>
+</div>
+
+<!-- ══ HOW TO READ ══ -->
+<div class="section reading">
+  <div class="section-label">How Results Are Evaluated</div>
+  <h2 class="section-headline">Three states. No ambiguity. <em>Every result has a clear meaning.</em></h2>
+
+  <p class="purpose-intro" style="margin-bottom: 0;">
+    Pangia uses a single evaluation framework across every assessment. Each result is compared against both EPA legal limits and EWG health-based guidelines, then categorized into one of three states. No jargon. No interpretive gray area. If the result is acceptable, you will know. If it is not, you will know that too, and you will know why.
+  </p>
+
+  <div class="reading-grid">
+    <div class="reading-card pass">
+      <div class="reading-status">✓ Within Standards</div>
+      <div class="reading-title">Pass</div>
+      <div class="reading-desc">The measured level is below both the EPA legal limit and EWG's science based health guideline. For this contaminant, the system is producing water that meets both benchmarks at the time of testing.</div>
+    </div>
+    <div class="reading-card elevated">
+      <div class="reading-status">⚠ Above Health Guideline</div>
+      <div class="reading-title">Elevated</div>
+      <div class="reading-desc">The result meets EPA legal requirements but exceeds the health based threshold established by independent scientists. This can be an early signal that warrants further monitoring or evaluation by a qualified professional.</div>
+    </div>
+    <div class="reading-card fail">
+      <div class="reading-status">✗ Exceeds Threshold</div>
+      <div class="reading-title">Failure</div>
+      <div class="reading-desc">A confirmed finding above one or more safety thresholds. The data indicates the system is not performing as a barrier for this contaminant. Follow up evaluation by a licensed plumbing or water treatment professional is advisable.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ WHAT THIS TELLS YOU ══ -->
+<div class="section tells">
+  <div class="section-label">What Your Results Reveal</div>
+  <h2 class="section-headline">This is not a list of numbers. It is <em>four specific things</em> your data can show.</h2>
+
+  <p class="tells-intro">
+    Every RO assessment Pangia conducts is designed to produce clear answers to four questions about your system. The test results are the inputs. The documented findings are the deliverable. What you choose to do with that information, and which licensed professional you work with to act on it, is entirely your call.
+  </p>
+
+  <div class="tells-grid">
+    <div class="tells-card">
+      <div class="tells-question">Is your RO membrane functioning?</div>
+      <div class="tells-answer">Performance indicators (TDS, conductivity, hardness) reveal the membrane's rejection capacity. A functioning RO membrane typically reduces TDS by 90% or more from source to tap. Lower reduction can signal degradation. When results suggest membrane performance concerns, Pangia provides the data to share with a licensed plumber or RO service professional for evaluation.</div>
+    </div>
+    <div class="tells-card">
+      <div class="tells-question">Is there post-filter contamination?</div>
+      <div class="tells-answer">Biological indicators and specific chemistry signatures can reveal whether contamination is being introduced after the membrane. This is one of the most common and least-recognized patterns in residential RO systems, and one that can only be identified through testing at the tap. When the data indicates this pattern, a qualified service professional can evaluate the system components.</div>
+    </div>
+    <div class="tells-card">
+      <div class="tells-question">How does your water compare after RO?</div>
+      <div class="tells-answer">Pure RO water is chemically different from source water, lower in minerals, lower in TDS, more chemically aggressive. The mineral panel results show exactly where your post-RO water sits on this spectrum. Whether that matches the profile you want for drinking, cooking, and in-home use is a decision you can make with the data in hand.</div>
+    </div>
+    <div class="tells-card">
+      <div class="tells-question">What signatures show up at the tap?</div>
+      <div class="tells-answer">RO storage tanks sit under sinks for years, under pressure, with bladder materials in contact with low-TDS water. Certain patterns in the chemistry at the tap can indicate storage-related factors. The assessment documents what is present. If the results suggest further evaluation is warranted, that evaluation belongs to a licensed plumbing or water treatment professional.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ OUTPUT ══ -->
+<div class="section output">
+  <div class="section-label">Where This Assessment Fits</div>
+  <h2 class="section-headline">Testing is one step. <em>The Pangia method is a system.</em></h2>
+
+  <p class="purpose-intro" style="margin-bottom: 0;">
+    Every assessment Pangia conducts feeds into the same clinical framework. Diagnose what exists. Report what the data shows. Verify the outcome after any service occurs. An RO assessment is not a standalone deliverable. It is the diagnostic input that makes informed decisions possible.
+  </p>
+
+  <div class="output-flow">
+    <div class="output-step">
+      <div class="output-step-num">Step 01</div>
+      <div class="output-step-title">Diagnose</div>
+      <div class="output-step-desc">Complete laboratory analysis of the water leaving your RO system at the tap. Results organized, interpreted, and presented against both legal and health based benchmarks.</div>
+    </div>
+    <div class="output-step">
+      <div class="output-step-num">Step 02</div>
+      <div class="output-step-title">Report</div>
+      <div class="output-step-desc">A written, detailed report documenting every finding against both legal and health based benchmarks. Clear identification of what the data shows. The report is the deliverable. Any physical modifications to plumbing, filtration, or water treatment systems are directed to appropriately licensed professionals.</div>
+    </div>
+    <div class="output-step">
+      <div class="output-step-num">Step 03</div>
+      <div class="output-step-title">Verify</div>
+      <div class="output-step-desc">Post-service retesting confirms whether changes made by your licensed professional achieved the intended outcome. The data itself is the verification. No assumptions, no guesswork, no reliance on visual inspection alone.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ FOOTER ══ -->
+<div class="doc-footer">
+  <div>
+    <div class="doc-footer-pangia">Pangia</div>
+    <div class="doc-footer-contact">828-412-9278 · Asheville, NC</div>
+  </div>
+  <div class="doc-footer-note">
+    This document outlines the scope and methodology of the Pangia Reverse Osmosis Assessment. It is prepared for prospective clients as a reference to the service itself. For a home specific assessment and protocol, contact Pangia directly.
+  </div>
+</div>
+
+</body>
+</html>

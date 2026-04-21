@@ -1,7 +1,7 @@
 .sample-page {
     background:
         radial-gradient(circle at top right, rgba(33, 154, 126, 0.16), transparent 28%),
-        linear-gradient(180deg, #07150f 0%, #08110d 24%, #f4f2ec 24%, #f4f2ec 100%);
+        linear-gradient(180deg, #07150f 0%, #08110d 28%, #f4f2ec 28%, #f4f2ec 100%);
     min-height: 100vh;
 }
 
@@ -12,7 +12,7 @@
 }
 
 .sample-hero {
-    padding: 72px 0 32px;
+    padding: 72px 0 48px;
 }
 
 .sample-hero-copy {
@@ -68,7 +68,7 @@
     }
 
     .sample-hero {
-        padding: 48px 0 24px;
+        padding: 48px 0 36px;
     }
 
     .sample-actions {
